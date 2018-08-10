@@ -20,21 +20,21 @@ Page {
         var http = new XMLHttpRequest();
         var data = "?" +
         "format=json&" +
-        "key="+token+"&";
-
-        http.open("GET", "https://podupti.me/api.php?&key=4r45tg" + data, true);
+        "key="+token;
+		console.log("https://podupti.me/api.php" + data)
+        http.open("GET", "https://podupti.me/api.php" + data, true);
         http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
         http.onreadystatechange = function() {
             if (http.readyState === XMLHttpRequest.DONE) {
-                var response = JSON.parse(http.responseText)
-                instanceList.writeInList ( response.pod )
+                var response = JSON.parse(http.responseText);
+                instanceList.writeInList ( response.pods )
             }
         }
         http.send();
     }
 
 
-    function search () 
+    function search ()  {
 		getSample();
 		//do the filtering
     }
@@ -59,6 +59,7 @@ Page {
             },
             Action {
                 iconName: "search"
+				enabled:false
                 onTriggered: {
                     if ( customInstanceInput.displayText == "" ) {
                         customInstanceInput.focus = true
@@ -79,7 +80,7 @@ Page {
 
 
     TextField {
-		enable:false
+		enabled:false
         id: customInstanceInput
         anchors.top: header.bottom
         anchors.horizontalCenter: parent.horizontalCenter

@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the udiaspora.darkeye package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-10 21:47+0000\n"
+"POT-Creation-Date: 2018-08-10 22:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,15 +33,15 @@ msgstr ""
 msgid "Loading "
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:46
+#: ../qml/pages/InstancePicker.qml:47
 msgid "Choose a Disapora instance"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:54
+#: ../qml/pages/InstancePicker.qml:55
 msgid "Info"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:88
+#: ../qml/pages/InstancePicker.qml:89
 msgid "Search or enter a custom address"
 msgstr ""
 

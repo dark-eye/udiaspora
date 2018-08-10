@@ -1,4 +1,13 @@
 {
-    "policy_groups": [],
+    "policy_groups": [
+		"networking",
+        "audio",
+        "video",
+        "content_exchange",
+        "content_exchange_source",
+        "camera",
+        "microphone",
+        "webview"
+    ],
     "policy_version": 1.3
 }

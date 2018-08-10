@@ -1,3 +1,6 @@
 # uDiaspora
 
-A simple diaspora webapp based on UMustodon app
+A simple diaspora webapp based on UMustodon app (https://github.com/ChristianPauly/uMastodon)
+
+## Development
+
