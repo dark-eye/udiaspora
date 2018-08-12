@@ -66,9 +66,6 @@ file(GLOB_RECURSE PROJECT_SRC_FILES
     RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
     qml/*.qml
     qml/*.js
-    qml/pages/*.qml
-    qml/pages/*.js
-    qml/components/*.qml
     *.json
     *.json.in
     *.apparmor

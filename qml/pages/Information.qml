@@ -34,10 +34,10 @@ Page {
           anchors.horizontalCenter: parent.horizontalCenter
           height: Math.min(parent.width/2, parent.height/2)
           width:height
-          source:"udiaspora"
+          source:"../../assets/logo.svg"
           layer.enabled: true
           layer.effect: UbuntuShapeOverlay {
-              relativeRadius: 0.75
+//               relativeRadius: 0.75
            }
         }
         Label {

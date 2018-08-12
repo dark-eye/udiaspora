@@ -27,7 +27,7 @@ Page {
         visible: false
         onLoadProgressChanged: {
             progressBar.value = loadProgress
-            if ( loadProgress === 100 ) visible = true
+            visible = ( loadProgress === 100 );
         }
         anchors.fill: parent
         url: settings.instance.indexOf("http") != -1 ? settings.instance : "https://" + settings.instance
@@ -76,11 +76,11 @@ Page {
     Rectangle {
         anchors.fill: parent
         visible: !webView.visible
-        color: "#191b22"
+        color: theme.palette.normal.background
 
         Label {
             id: progressLabel
-            color: "white"
+            color: theme.palette.normal.backgroundText
             text: i18n.tr('Loading ') + settings.instance
             anchors.centerIn: parent
             textSize: Label.XLarge
