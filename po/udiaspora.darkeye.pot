@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-10 22:32+0000\n"
+"POT-Creation-Date: 2018-08-12 12:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,18 +33,38 @@ msgstr ""
 msgid "Loading "
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:47
+#: ../qml/pages/InstancePicker.qml:45
 msgid "Choose a Disapora instance"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:55
+#: ../qml/pages/InstancePicker.qml:53
 msgid "Info"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:89
+#: ../qml/pages/InstancePicker.qml:88
 msgid "Search or enter a custom address"
 msgstr ""
 
-#: udiaspora.desktop.in.h:1
+#: ../qml/pages/Information.qml:8
+msgid "About"
+msgstr ""
+
+#: ../qml/pages/Information.qml:17
+msgid "Get the source"
+msgstr ""
+
+#: ../qml/pages/Information.qml:18
+msgid "Report issues"
+msgstr ""
+
+#: ../qml/pages/Information.qml:19
+msgid "Contributors"
+msgstr ""
+
+#: ../qml/pages/Information.qml:20
+msgid "Donate"
+msgstr ""
+
+#: ../qml/pages/Information.qml:49 udiaspora.desktop.in.h:1
 msgid "uDiaspora"
 msgstr ""

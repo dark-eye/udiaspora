@@ -21,7 +21,6 @@ Page {
         var data = "?" +
         "format=json&" +
         "key="+token;
-		console.log("https://podupti.me/api.php" + data)
         http.open("GET", "https://podupti.me/api.php" + data, true);
         http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
         http.onreadystatechange = function() {
@@ -54,7 +53,7 @@ Page {
                 text: i18n.tr("Info")
                 iconName: "info"
                 onTriggered: {
-                    mainStack.push(Qt.resolvedUrl("./Info.qml"))
+                    mainStack.push(Qt.resolvedUrl("./Information.qml"))
                 }
             },
             Action {
