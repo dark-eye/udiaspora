@@ -8,7 +8,7 @@ import "pages"
 MainView {
     id: root
     objectName: 'mainView'
-    applicationName: 'udiaspora.darkeye'
+    applicationName: 'udiaspora-webapp.darkeye'
     automaticOrientation: true
 
     width: units.gu(45)
@@ -28,6 +28,7 @@ MainView {
     Settings {
         id: settings
         property var instance
+        property bool openLinksExternally: false
     }
 
     Component.onCompleted: {

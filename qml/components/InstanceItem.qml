@@ -10,9 +10,9 @@ ListItem {
     property var text: ""
     property var country : ""
     property var uptime: ""
-    property var iconSource: "../../assets/enter.svg"
+    property var iconSource: "../../assets/logo.svg"
 
-    //height: layout.height
+    height: layout.height
 
     onClicked: {
         settings.instance = text
@@ -22,8 +22,8 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: text
-        subtitle.text: country
-        summary.text: uptime
+        subtitle.text: i18n.tr("Location: %1").arg(country)
+        summary.text: i18n.tr("Uptime: %1%").arg(uptime)
         Image {
             id: icon
             source: iconSource

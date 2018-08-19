@@ -11,8 +11,9 @@ Page {
 
     header: Rectangle {
         color: UbuntuColors.orange
-        width: parent.width
-        height: units.gu(0)
+        width: parent.width * webView.loadProgress / 100
+        height: units.gu(0.1)
+		visible: webView.visible && webView.loading
     }
 
     Component {
@@ -27,7 +28,7 @@ Page {
         visible: false
         onLoadProgressChanged: {
             progressBar.value = loadProgress
-            visible = ( loadProgress === 100 );
+            visible = ( visible || loadProgress === 100 );
         }
         anchors.fill: parent
         url: settings.instance.indexOf("http") != -1 ? settings.instance : "https://" + settings.instance
@@ -64,7 +65,7 @@ Page {
         // Open external URL's in the browser and not in the app
         onNavigationRequested: {
             console.log ( request.url, ("" + request.url).indexOf ( settings.instance ) !== -1 )
-            if ( ("" + request.url).indexOf ( settings.instance ) !== -1 ) {
+            if ( ("" + request.url).indexOf ( settings.instance ) !== -1 || !settings.openLinksExternally ) {
                 request.action = 0
             } else {
                 request.action = 1
@@ -111,5 +112,40 @@ Page {
     }
 
 
+	  BottomEdge {
+        id: instancBottomEdge
+        visible: webView.visible
+        height:units.gu(37)
+        hint.text: i18n.tr("Controls");
+        hint.iconName: "go-up"
+        hint.visible:visible
+		
+        preloadContent: true
+		regions: [
+			BottomEdgeRegion {
+				contentComponent: Component {
+					BottomEdgeControls {
+						opacity:instancBottomEdge.dragProgress > 0.33 ? 0 : 1;
+						Behavior on opacity {UbuntuNumberAnimation {duration:UbuntuAnimation.SlowDuration}}
+						anchors.fill:instancBottomEdge
+					}
+					
+				}
+				from:0
+				to:  0.33
+			},
+			BottomEdgeRegion {
+				contentComponent: Component { 
+					AddPost {
+						opacity:instancBottomEdge.dragProgress < 0.33 ? 0 : 1;
+						Behavior on opacity {UbuntuNumberAnimation {duration:UbuntuAnimation.SlowDuration}}
+						anchors.fill:instancBottomEdge
+					}
+				}
+				from:  0.32
+				to: 1
+			}
+		]
+    }
 
 }

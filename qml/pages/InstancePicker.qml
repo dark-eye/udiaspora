@@ -15,7 +15,7 @@ Page {
     *      topic, languages[], other_languages_accepted, federates_with,
     *      prhobited_content[], categories[]}, thumbnail, active_users }
     */
-    function getSample () {
+    function getSample (filterFunction) {
 
         var http = new XMLHttpRequest();
         var data = "?" +
@@ -26,16 +26,35 @@ Page {
         http.onreadystatechange = function() {
             if (http.readyState === XMLHttpRequest.DONE) {
                 var response = JSON.parse(http.responseText);
-                instanceList.writeInList ( response.pods )
+				var pods = (filterFunction) ? filterFunction(response.pods) : response.pods;
+                instanceList.writeInList ( pods )
             }
         }
+        loading.running = true;
         http.send();
     }
 
 
     function search ()  {
-		getSample();
-		//do the filtering
+		var searchTerm = customInstanceInput.displayText;
+		//If  the  search starts with http(s) then go to the url 
+		if(searchTerm.indexOf("http") == 0 ) {
+			settings.instance = text
+			mainStack.push (Qt.resolvedUrl("../pages/DiasporaWebview.qml"))
+			return
+		}
+		
+		// filter the  pod list results
+		function filter(list) {
+			var retList = [];
+			for(var i in list) {
+				if(list[i].domain && list[i].domain.match(new RegExp(searchTerm))) {
+					retList.push(list[i]);
+				}
+			}
+			return retList;
+		}
+		getSample(filter);
     }
 
 
@@ -58,7 +77,7 @@ Page {
             },
             Action {
                 iconName: "search"
-				enabled:false
+// 				enabled:false
                 onTriggered: {
                     if ( customInstanceInput.displayText == "" ) {
                         customInstanceInput.focus = true
@@ -79,7 +98,7 @@ Page {
 
 
     TextField {
-		enabled:false
+// 		enabled:false
         id: customInstanceInput
         anchors.top: header.bottom
         anchors.horizontalCenter: parent.horizontalCenter
@@ -103,12 +122,13 @@ Page {
             function writeInList ( list ) {
                 instanceList.children = ""
                 loading.visible = false
+                list.sort(function(a,b) {!a.uptimelast7 ? -1 : (!b.uptimelast7 ? 1 : parseFloat(a.uptimelast7) - parseFloat(b.uptimelast7));});
                 for ( var i = 0; i < list.length; i++ ) {
                     var item = Qt.createComponent("../components/InstanceItem.qml")
                     item.createObject(this, {
                         "text": list[i].domain,
-                        "description": list[i].country != null ? list[i].country : "",
-                        "long_description": list[i].uptimelast7 != null ? list[i].uptimelast7 : "",
+                        "country": list[i].country != null ? list[i].country : "",
+                        "uptime": list[i].uptimelast7 != null ? list[i].uptimelast7 : "",
                         "iconSource":  list[i].thumbnail != null ? list[i].thumbnail : "../../assets/logo.svg"
                     })
                 }

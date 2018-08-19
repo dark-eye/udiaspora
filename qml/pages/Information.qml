@@ -16,6 +16,7 @@ Page {
     Component.onCompleted: {
         infoModel.append({ name: i18n.tr("Get the source"), url: "https://github.com/dark-eye/udiaspora" ,icon:"text-css-symbolic"})
         infoModel.append({ name: i18n.tr("Report issues"), url: "https://github.com/dark-eye/udiaspora/issues",icon:"dialog-warning-symbolic" })
+		infoModel.append({ name: i18n.tr("GNU General Public License v3.0"), url: "https://github.com/dark-eye/udiaspora/blob/master/LICENSE",icon:"note" })
         infoModel.append({ name: i18n.tr("Contributors"), url: "https://github.com/dark-eye/udiaspora/graphs/contributors" ,icon:"contact-group"})
 		infoModel.append({ name: i18n.tr("Donate"), url: "https://liberapay.com/darkeye/", icon:"like" })
     }
