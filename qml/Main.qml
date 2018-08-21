@@ -29,7 +29,16 @@ MainView {
         id: settings
         property var instance
         property bool openLinksExternally: false
+        property bool incognitoMode: false
     }
+    
+    QtObject {
+		id:helperFunctions
+		
+		function getInstanceURL() {
+			return settings.instance.indexOf("http") != -1 ? settings.instance : "https://" + settings.instance
+		}
+	}
 
     Component.onCompleted: {
         if ( settings.instance ) {

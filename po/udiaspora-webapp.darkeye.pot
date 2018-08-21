@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-19 21:34+0000\n"
+"POT-Creation-Date: 2018-08-21 09:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,24 +17,24 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/pages/DiasporaWebview.qml:45
+#: ../qml/pages/DiasporaWebview.qml:48
 msgid "Copy Link"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:52
+#: ../qml/pages/DiasporaWebview.qml:55
 msgid "Copy Image"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:58
+#: ../qml/pages/DiasporaWebview.qml:61
 msgid "Open in browser"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:85
+#: ../qml/pages/DiasporaWebview.qml:92
 msgid "Loading "
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:119
-msgid "Controls"
+#: ../qml/pages/DiasporaWebview.qml:126 ../qml/components/AddPost.qml:32
+msgid "Add Post"
 msgstr ""
 
 #: ../qml/pages/InstancePicker.qml:64
@@ -70,23 +70,15 @@ msgid "Contributors"
 msgstr ""
 
 #: ../qml/pages/Information.qml:21
+msgid "Based on uMastonauts webapp"
+msgstr ""
+
+#: ../qml/pages/Information.qml:22
 msgid "Donate"
 msgstr ""
 
-#: ../qml/pages/Information.qml:50 udiaspora.desktop.in.h:1
+#: ../qml/pages/Information.qml:51 udiaspora.desktop.in.h:1
 msgid "uDiaspora"
-msgstr ""
-
-#: ../qml/components/BottomEdgeControls.qml:38
-msgid "Go Back"
-msgstr ""
-
-#: ../qml/components/BottomEdgeControls.qml:49
-msgid "Links in external browser"
-msgstr ""
-
-#: ../qml/components/BottomEdgeControls.qml:58
-msgid "Change Pod"
 msgstr ""
 
 #: ../qml/components/InstanceItem.qml:25
@@ -98,6 +90,30 @@ msgstr ""
 msgid "Uptime: %1%"
 msgstr ""
 
-#: ../qml/components/AddPost.qml:29
-msgid "Add Post"
+#: ../qml/components/AddPost.qml:48
+msgid "Go home"
+msgstr ""
+
+#: ../qml/components/AddPost.qml:53
+msgid "Go Back"
+msgstr ""
+
+#: ../qml/components/AddPost.qml:59
+msgid "Links open externally"
+msgstr ""
+
+#: ../qml/components/AddPost.qml:59
+msgid "Links open internally"
+msgstr ""
+
+#: ../qml/components/AddPost.qml:68
+msgid "Incongnito"
+msgstr ""
+
+#: ../qml/components/AddPost.qml:68
+msgid "None Incongito"
+msgstr ""
+
+#: ../qml/components/AddPost.qml:77
+msgid "Change Pod"
 msgstr ""
