@@ -61,7 +61,7 @@ WebView {
 
 		Action {
 			text: i18n.tr("Open in browser")
-			enabled: webview.contextualData.href.toString()
+			enabled: webView.contextualData.href.toString()
 			onTriggered: linkAction.enabled ? Qt.openUrlExternally( webView.contextualData.href ) : Qt.openUrlExternally( webView.contextualData.img ) 
 		}
 	}

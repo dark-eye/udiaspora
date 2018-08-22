@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-22 14:07+0000\n"
+"POT-Creation-Date: 2018-08-22 16:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,19 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/pages/DiasporaWebview.qml:92
+#: ../qml/pages/DiasporaWebview.qml:94
 msgid "Loading "
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:126 ../qml/components/AddPost.qml:31
+#: ../qml/pages/DiasporaWebview.qml:128 ../qml/components/AddPost.qml:31
 msgid "Add Post"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:135
+#: ../qml/pages/DiasporaWebview.qml:138
 msgid "Controls"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:139
+#: ../qml/pages/DiasporaWebview.qml:142
 msgid "Collapse"
 msgstr ""
 
@@ -90,11 +90,11 @@ msgstr ""
 msgid "Open in browser"
 msgstr ""
 
-#: ../qml/components/InstanceItem.qml:25
+#: ../qml/components/InstanceItem.qml:27
 msgid "Location: %1"
 msgstr ""
 
-#: ../qml/components/InstanceItem.qml:26
+#: ../qml/components/InstanceItem.qml:28
 #, javascript-format
 msgid "Uptime: %1%"
 msgstr ""

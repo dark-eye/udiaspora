@@ -29,17 +29,17 @@ Page {
 	
 	header:BottomEdgeControlsHeader {
 		title: i18n.tr("Add Post")
-		z:1
+		z:10
 	}
 	
 	
 	Loader {
 		id:addPostWebViewLoader
 		anchors.fill:parent
-		z: settings.incognitoMode ? 0 : 1
+		z: settings.incognitoMode ? 2 : 1
 		sourceComponent:addPostComponent
 		onZChanged: {
-			addPostWebViewLoader.sourceComponent=undefined;
+			addPostWebViewLoader.sourceComponent= undefined;
 			addPostWebViewLoader.sourceComponent = addPostComponent;
 		}
 	}
@@ -71,10 +71,20 @@ Page {
 		}
 	}
 	
+	
+	
 	Rectangle {
 		anchors.fill:parent
-		z:-1
+		z:0
 		color: theme.palette.normal.background
+		
+		ActivityIndicator {
+			id: addPostLoadingIndicator
+			width: units.gu(4)
+			anchors.centerIn:parent
+			running: addPostWebViewLoader.status != Loader.Ready || addPostWebViewLoader.item.loading
+			visible: running
+		}
 	}
 	
 	function resetURL() {

@@ -39,8 +39,8 @@ Page {
 		var searchTerm = customInstanceInput.displayText;
 		//If  the  search starts with http(s) then go to the url 
 		if(searchTerm.indexOf("http") == 0 ) {
-			settings.instance = text
-			mainStack.push (Qt.resolvedUrl("../pages/DiasporaWebview.qml"))
+			settings.instance = searchTerm
+			mainStack.push (Qt.resolvedUrl("./DiasporaWebview.qml"))
 			return
 		}
 		
@@ -129,7 +129,9 @@ Page {
                         "text": list[i].domain,
                         "country": list[i].country != null ? list[i].country : "",
                         "uptime": list[i].uptimelast7 != null ? list[i].uptimelast7 : "",
-                        "iconSource":  list[i].thumbnail != null ? list[i].thumbnail : "../../assets/logo.svg"
+                        "iconSource":  list[i].thumbnail != null ? list[i].thumbnail : "../../assets/logo.svg",
+						"status":  list[i].status != null ? list[i].status : 0,
+						"rating":  list[i].score != null ? list[i].score : 0
                     })
                 }
             }

@@ -12,10 +12,11 @@ Page {
 	height: parent.height
 
 	header: Rectangle {
-		color: UbuntuColors.orange
+		color: theme.pallete.highlighted.selected
 		width: parent.width * webView.loadProgress / 100
 		height: units.gu(0.1)
 		visible: webView.visible && webView.loading
+		z:2
 	}
 
 	Component {
@@ -75,9 +76,10 @@ Page {
 		source:webViewIncogito
 		fast:true
 		horizontalOffset: 0
-        verticalOffset: -1
+        verticalOffset: -2
         spread:0.6
         visible:settings.incognitoMode
+        z:2
 	}
 
 
@@ -126,6 +128,7 @@ Page {
 		hint.text: i18n.tr("Add Post");
 		hint.iconName: "go-up"
 		hint.visible:visible
+		hint.swipeArea.grabGesture: false
 		preloadContent: true
 		regions: [
 			BottomEdgeRegion {
