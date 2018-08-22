@@ -24,82 +24,51 @@ import Ubuntu.Components 1.3
 import Ubuntu.Web 0.2
 
 Page {
-	
+	id:_addPostPage
 	property var filePickerComponent: null 
 	
-	header: PageHeader {
+	header:BottomEdgeControlsHeader {
+		title: i18n.tr("Add Post")
 		z:1
-		title:i18n.tr("Add Post")
-		StyleHints {
-			backgroundColor:theme.palette.normal.background
-		}
-		
-		MouseArea {
-			anchors.fill:parent
-			z:-1
-		}
-		
-
-		trailingActionBar {
-			numberOfSlots: 4
-			
-			actions:[
-				Action {
-					text:i18n.tr("Go home")
-					iconName:"home"
-					onTriggered:webView.goHome();
-				},
-				Action {
-					text:i18n.tr("Go Back")
-					iconName:"back"
-					enabled:webView.canGoBack
-					onTriggered:webView.goBack()
-				},
-				Action {
-					text: checked ? i18n.tr("Links open externally") : i18n.tr("Links open internally")
-					iconName:checked ? "external-link" : "stock_link"
-					checkable:true
-					checked: settings.openLinksExternally
-					onToggled:{
-						settings.openLinksExternally = checked;
-					}
-				},
-				Action {
-					text: checked ? i18n.tr("Incongnito") : i18n.tr("None Incongito")
-					iconName:checked ? "private-browsing" : "private-browsing-exit"
-					checkable:true
-					checked: settings.incognitoMode
-					onToggled:{
-						settings.incognitoMode = checked;
-					}
-				},
-				Action {
-					text:i18n.tr("Change Pod")
-					iconName:"swap"
-					onTriggered: {
-						settings.instance = undefined
-						mainStack.clear ()
-						mainStack.push (Qt.resolvedUrl("../pages/InstancePicker.qml"))
-					}				}
-			]
+	}
+	
+	
+	Loader {
+		id:addPostWebViewLoader
+		anchors.fill:parent
+		z: settings.incognitoMode ? 0 : 1
+		sourceComponent:addPostComponent
+		onZChanged: {
+			addPostWebViewLoader.sourceComponent=undefined;
+			addPostWebViewLoader.sourceComponent = addPostComponent;
 		}
 	}
-
-	WebView {
-		id: addPostWebView
-		anchors.fill:parent
-		visible:true
-		preferences.localStorageEnabled: true
-		preferences.appCacheEnabled: true
-		preferences.javascriptCanAccessClipboard: true
-        preferences.allowFileAccessFromFileUrls: true
-        preferences.allowUniversalAccessFromFileUrls: true
-
-        incognito:settings.incognitoMode
-		
-		url: helperFunctions.getInstanceURL() + "/status_messages/new"
-		
-		filePicker: pickerComponent
+	
+	Component {
+		id:addPostComponent
+		WebView {
+			id: addPostWebView
+			anchors.fill:parent
+			visible:true
+			
+			incognito: settings.incognitoMode
+			context: settings.incognitoMode ? incognitoWebContext : appWebContext
+			
+			preferences.localStorageEnabled: true
+			preferences.appCacheEnabled: true
+			preferences.javascriptCanAccessClipboard: true
+			preferences.allowFileAccessFromFileUrls: true
+			preferences.allowUniversalAccessFromFileUrls: true
+			
+			url: helperFunctions.getInstanceURL() + "/status_messages/new"
+			
+			filePicker: pickerComponent
+			
+			onLoadingStateChanged: if(!addPostWebView.loading) {
+				_addPostPage.resetURL();	
+			}
+			
+		}
 	}
 	
 	Rectangle {
@@ -110,8 +79,8 @@ Page {
 	
 	function resetURL() {
 		var newPostURL =  helperFunctions.getInstanceURL() + "/status_messages/new";
-		if(addPostWebView.url != newPostURL) {
-			addPostWebView.url = newPostURL;
+		if(addPostWebViewLoader.item.url != newPostURL) {
+			addPostWebViewLoader.item.url = newPostURL;
 		}
 	}
 

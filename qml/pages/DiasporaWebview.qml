@@ -1,6 +1,8 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
+import Ubuntu.Components.Popups 1.3
+import QtGraphicalEffects 1.0
 import Ubuntu.Web 0.2
 import "../components"
 
@@ -20,66 +22,64 @@ Page {
 		id: pickerComponent
 		PickerDialog {}
 	}
-
-	WebView {
-		id: webView
-		width: parent.width
-		height: parent.height
-		visible: false
-		onLoadProgressChanged: {
-			progressBar.value = loadProgress
-			visible = ( visible || loadProgress === 100 );
-		}
-		anchors.fill: parent
-		url: helperFunctions.getInstanceURL()
-		preferences.localStorageEnabled: true
-		preferences.allowFileAccessFromFileUrls: true
-		preferences.allowUniversalAccessFromFileUrls: true
-		preferences.appCacheEnabled: true
-		preferences.javascriptCanAccessClipboard: true
-		preferences.allowUniversalAccessFromFileUrls: true
-		
-		incognito:settings.incognitoMode
-		filePicker: pickerComponent
-
-		contextualActions: ActionList {
-			Action {
-				id: linkAction
-				text: i18n.tr("Copy Link")
-				enabled: webView.contextualData.href.toString()
-				onTriggered: Clipboard.push([webView.contextualData.href])
+	
+	Component {
+	id: confirmDialogComponent
+		Dialog {
+			id: dialog
+			title: ""
+			text:model.message
+			
+			Button {
+				text: "Accept"
+				onClicked: {
+					model.accept();
+					PopupUtils.close(dialog);
+				}
 			}
-
-			Action {
-				id: imageAction
-				text: i18n.tr("Copy Image")
-				enabled: webView.contextualData.img.toString()
-				onTriggered: Clipboard.push([webView.contextualData.img])
+			Button {
+				text: "Reject"
+				onClicked: {
+					model.reject();
+					PopupUtils.close(dialog);
+				}
 			}
-
-			Action {
-				text: i18n.tr("Open in browser")
-				enabled: webview.contextualData.href.toString()
-				onTriggered: linkAction.enabled ? Qt.openUrlExternally( webView.contextualData.href ) : Qt.openUrlExternally( webView.contextualData.img ) 
-			}
-		}
-
-
-		// Open external URL's in the browser and not in the app
-		onNavigationRequested: {
-			console.log ( request.url, ("" + request.url).indexOf ( settings.instance ) !== -1 )
-			if ( ("" + request.url).indexOf ( settings.instance ) !== -1 || !settings.openLinksExternally ) {
-				request.action = 0
-			} else {
-				request.action = 1
-				Qt.openUrlExternally( request.url )
-			}
-		}
-
-		function goHome() {
-			webView.url = helperFunctions.getInstanceURL();
 		}
 	}
+
+	MainWebView {
+		id:webView
+		url: helperFunctions.getInstanceURL()
+		context:appWebContext
+		incognito:false
+		filePicker: pickerComponent
+// 		confirmDialog: confirmDialogComponent
+		z: settings.incognitoMode ? -1 : 1
+	}
+	MainWebView {
+		id:webViewIncogito
+		url: helperFunctions.getInstanceURL()
+		context:incognitoWebContext
+		incognito:true
+		filePicker: pickerComponent
+// 		confirmDialog: confirmDialogComponent
+		z: settings.incognitoMode ? 1 : -1
+	}
+	
+
+	InnerShadow {
+		color: UbuntuColors.purple
+		radius: 15
+		samples: 5
+		anchors.fill:webViewIncogito
+		source:webViewIncogito
+		fast:true
+		horizontalOffset: 0
+        verticalOffset: -1
+        spread:0.6
+        visible:settings.incognitoMode
+	}
+
 
 	Rectangle {
 		anchors.fill: parent
@@ -127,17 +127,44 @@ Page {
 		hint.iconName: "go-up"
 		hint.visible:visible
 		preloadContent: true
-
-		contentComponent: Component { 
-			AddPost {
-				Behavior on opacity {UbuntuNumberAnimation {duration:UbuntuAnimation.SlowDuration}}
-				anchors.fill:instancBottomEdge
-				filePickerComponent:pickerComponent
+		regions: [
+			BottomEdgeRegion {
+				contentComponent: Component { 
+					BottomEdgeControlsHeader {
+						anchors.fill:instancBottomEdge
+						title:i18n.tr("Controls")
+						leadingActionBar {
+							actions:[
+								Action {
+									text:i18n.tr("Collapse")
+									iconName: "go-down"
+									onTriggered: instancBottomEdge.collapse()
+								}
+							]
+						}
+					}
+				}
+				from:0
+				to:0.16
+			},
+			BottomEdgeRegion {
+				contentComponent: Component { 
+					AddPost {
+						anchors.fill:instancBottomEdge
+						filePickerComponent:pickerComponent
+					}
+				}
+				from:0.16
+				to:1
 			}
-		}
+		]
 		
-		onCommitCompleted: contentItem.resetURL();
-		onCollapseCompleted: contentItem.resetURL();
+		onCommitStarted: contentItem.resetURL();
+	}
+	
+	//========================== Functions =======================
+	function currentView() {
+		return  settings.incognitoMode ? webViewIncogito : webView;
 	}
 
 }

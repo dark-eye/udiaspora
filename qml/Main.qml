@@ -2,6 +2,8 @@ import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Qt.labs.settings 1.0
+import Ubuntu.Web 0.2
+
 import "components"
 import "pages"
 
@@ -31,6 +33,14 @@ MainView {
         property bool openLinksExternally: false
         property bool incognitoMode: false
     }
+    
+    WebContext {
+		id:appWebContext
+	}
+	
+	WebContext {
+		id:incognitoWebContext
+	}
     
     QtObject {
 		id:helperFunctions
