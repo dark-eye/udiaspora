@@ -1,3 +1,5 @@
+
+import QtQml 2.2
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
@@ -5,6 +7,7 @@ import Ubuntu.Components.Popups 1.3
 import QtGraphicalEffects 1.0
 import Ubuntu.Web 0.2
 import "../components"
+import "../components/dialogs"
 
 Page {
 	id: webviewPage
@@ -13,9 +16,9 @@ Page {
 
 	header: Rectangle {
 		color: theme.pallete.highlighted.selected
-		width: parent.width * webView.loadProgress / 100
+		width: parent.width * webviewPage.currentView().loadProgress / 100
 		height: units.gu(0.1)
-		visible: webView.visible && webView.loading
+		visible: webviewPage.currentView().visible && webviewPage.currentView().loading
 		z:2
 	}
 
@@ -24,29 +27,6 @@ Page {
 		PickerDialog {}
 	}
 	
-	Component {
-	id: confirmDialogComponent
-		Dialog {
-			id: dialog
-			title: ""
-			text:model.message
-			
-			Button {
-				text: "Accept"
-				onClicked: {
-					model.accept();
-					PopupUtils.close(dialog);
-				}
-			}
-			Button {
-				text: "Reject"
-				onClicked: {
-					model.reject();
-					PopupUtils.close(dialog);
-				}
-			}
-		}
-	}
 
 	MainWebView {
 		id:webView
@@ -54,8 +34,11 @@ Page {
 		context:appWebContext
 		incognito:false
 		filePicker: pickerComponent
-// 		confirmDialog: confirmDialogComponent
+ 		confirmDialog: ConfirmDialog {}
 		z: settings.incognitoMode ? -1 : 1
+		onLoadProgressChanged: {
+			progressBar.value = loadProgress
+		}
 	}
 	MainWebView {
 		id:webViewIncogito
@@ -63,8 +46,12 @@ Page {
 		context:incognitoWebContext
 		incognito:true
 		filePicker: pickerComponent
-// 		confirmDialog: confirmDialogComponent
+		confirmDialog: ConfirmDialog {}
 		z: settings.incognitoMode ? 1 : -1
+		onLoadProgressChanged: {
+			progressBar.value = loadProgress
+		}
+		
 	}
 	
 
@@ -85,9 +72,22 @@ Page {
 
 	Rectangle {
 		anchors.fill: parent
-		visible: !webView.visible
+		visible: !webviewPage.currentView().visible
 		color: theme.palette.normal.background
 
+		onVisibleChanged: if(visible) {
+			reloadButton.visible = false;
+		}
+		
+		Timer {
+			interval: 5000
+			running: visible
+			onTriggered: {
+				reloadButton.visible = true;
+			}
+		}
+		
+		
 		Label {
 			id: progressLabel
 			color: theme.palette.normal.backgroundText
@@ -104,6 +104,20 @@ Page {
 			anchors.top: progressLabel.bottom
 			anchors.horizontalCenter: parent.horizontalCenter
 			anchors.topMargin: 10
+		}
+		
+		Button {
+			id:reloadButton
+			visible:false
+			anchors.top: progressBar.bottom
+			anchors.topMargin: units.gu(2)
+			anchors.horizontalCenter: parent.horizontalCenter
+			color: UbuntuColors.blue
+			width:height + units.gu(1)
+			iconName:"reload"
+			onClicked: {
+				webviewPage.currentView().reload()
+			}
 		}
 
 		Button {
@@ -128,7 +142,7 @@ Page {
 		hint.text: i18n.tr("Add Post");
 		hint.iconName: "go-up"
 		hint.visible:visible
-		hint.swipeArea.grabGesture: false
+		hint.flickable: webviewPage.currentView()
 		preloadContent: true
 		regions: [
 			BottomEdgeRegion {

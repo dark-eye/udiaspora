@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-22 16:46+0000\n"
+"POT-Creation-Date: 2018-08-23 12:30+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,15 +21,15 @@ msgstr ""
 msgid "Loading "
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:128 ../qml/components/AddPost.qml:31
+#: ../qml/pages/DiasporaWebview.qml:142 ../qml/components/AddPost.qml:31
 msgid "Add Post"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:138
+#: ../qml/pages/DiasporaWebview.qml:152
 msgid "Controls"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:142
+#: ../qml/pages/DiasporaWebview.qml:156
 msgid "Collapse"
 msgstr ""
 
@@ -78,15 +78,15 @@ msgstr ""
 msgid "uDiaspora"
 msgstr ""
 
-#: ../qml/components/MainWebView.qml:50
+#: ../qml/components/MainWebView.qml:55
 msgid "Copy Link"
 msgstr ""
 
-#: ../qml/components/MainWebView.qml:57
+#: ../qml/components/MainWebView.qml:62
 msgid "Copy Image"
 msgstr ""
 
-#: ../qml/components/MainWebView.qml:63
+#: ../qml/components/MainWebView.qml:68
 msgid "Open in browser"
 msgstr ""
 
@@ -125,4 +125,8 @@ msgstr ""
 
 #: ../qml/components/BottomEdgeControlsHeader.qml:81
 msgid "Change Pod"
+msgstr ""
+
+#: ../qml/components/dialogs/ConfirmDialog.qml:25
+msgid "Confirm Action"
 msgstr ""

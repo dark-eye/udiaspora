@@ -31,10 +31,15 @@ WebView {
 	width: parent.width
 	height: parent.height
 	visible: false
+	property bool lastError:false
+	
 	onLoadProgressChanged: {
-		progressBar.value = loadProgress
-		visible = ( visible || loadProgress === 100 );
+		visible = !lastError && ( visible || loadProgress === 100 )
 	}
+	onLoadEvent:{
+		lastError = event.isError
+	}
+	
 	anchors.fill: parent
 	
 	preferences.localStorageEnabled: true
