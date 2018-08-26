@@ -36,7 +36,7 @@ PageHeader {
 		
 
 		trailingActionBar {
-			numberOfSlots: 4
+			numberOfSlots: 5
 			
 			actions:[
 				Action {
@@ -53,6 +53,11 @@ PageHeader {
 					text:i18n.tr("Go home")
 					iconName:"home"
 					onTriggered:webviewPage.currentView().goHome();
+				},
+				Action {
+					text:i18n.tr("Reload")
+					iconName:"reload"
+					onTriggered:webviewPage.currentView().reload();
 				},
 				Action {
 					text:i18n.tr("Go Back")

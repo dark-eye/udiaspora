@@ -35,6 +35,7 @@ Page {
 		incognito:false
 		filePicker: pickerComponent
  		confirmDialog: ConfirmDialog {}
+ 		alertDialog: AlertDialog {}
 		z: settings.incognitoMode ? -1 : 1
 		onLoadProgressChanged: {
 			progressBar.value = loadProgress
@@ -47,6 +48,7 @@ Page {
 		incognito:true
 		filePicker: pickerComponent
 		confirmDialog: ConfirmDialog {}
+		alertDialog: AlertDialog {}
 		z: settings.incognitoMode ? 1 : -1
 		onLoadProgressChanged: {
 			progressBar.value = loadProgress
@@ -139,7 +141,6 @@ Page {
 		id: instancBottomEdge
 		visible: webView.visible
 		height:units.gu(37)
-		hint.text: i18n.tr("Add Post");
 		hint.iconName: "go-up"
 		hint.visible:visible
 		hint.flickable: webviewPage.currentView()
@@ -162,7 +163,7 @@ Page {
 					}
 				}
 				from:0
-				to:0.16
+				to:0.18
 			},
 			BottomEdgeRegion {
 				contentComponent: Component { 
