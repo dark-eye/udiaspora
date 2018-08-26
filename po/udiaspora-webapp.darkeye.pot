@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-23 12:30+0000\n"
+"POT-Creation-Date: 2018-08-26 12:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,15 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/pages/DiasporaWebview.qml:94
+#: ../qml/pages/DiasporaWebview.qml:96
 msgid "Loading "
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:142 ../qml/components/AddPost.qml:31
-msgid "Add Post"
-msgstr ""
-
-#: ../qml/pages/DiasporaWebview.qml:152
+#: ../qml/pages/DiasporaWebview.qml:153
 msgid "Controls"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:156
+#: ../qml/pages/DiasporaWebview.qml:157
 msgid "Collapse"
 msgstr ""
 
@@ -38,7 +34,7 @@ msgid "Choose a Disapora instance"
 msgstr ""
 
 #: ../qml/pages/InstancePicker.qml:72
-#: ../qml/components/BottomEdgeControlsHeader.qml:65
+#: ../qml/components/BottomEdgeControlsHeader.qml:70
 msgid "Info"
 msgstr ""
 
@@ -99,6 +95,10 @@ msgstr ""
 msgid "Uptime: %1%"
 msgstr ""
 
+#: ../qml/components/AddPost.qml:31
+msgid "Add Post"
+msgstr ""
+
 #: ../qml/components/BottomEdgeControlsHeader.qml:43
 msgid "Incongnito Mpde"
 msgstr ""
@@ -112,18 +112,22 @@ msgid "Go home"
 msgstr ""
 
 #: ../qml/components/BottomEdgeControlsHeader.qml:58
+msgid "Reload"
+msgstr ""
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:63
 msgid "Go Back"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:72
+#: ../qml/components/BottomEdgeControlsHeader.qml:77
 msgid "Links open externally"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:72
+#: ../qml/components/BottomEdgeControlsHeader.qml:77
 msgid "Links open internally"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:81
+#: ../qml/components/BottomEdgeControlsHeader.qml:86
 msgid "Change Pod"
 msgstr ""
 

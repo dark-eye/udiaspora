@@ -6,6 +6,7 @@
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
@@ -28,17 +29,29 @@
      inkscape:window-height="1015"
      id="namedview180"
      showgrid="false"
-     inkscape:zoom="0.61871884"
-     inkscape:cx="372.29808"
-     inkscape:cy="296.37763"
+     inkscape:zoom="2.4748754"
+     inkscape:cx="456.09374"
+     inkscape:cy="152.8749"
      inkscape:window-x="1920"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer4" />
+     inkscape:current-layer="layer2" />
   <svg:title
      id="title5724">Diaspora* Official Promo Artwork Toolkit</svg:title>
   <svg:defs
      id="defs4">
+    <svg:linearGradient
+       inkscape:collect="always"
+       id="linearGradient4712">
+      <svg:stop
+         style="stop-color:#fdffff;stop-opacity:1;"
+         offset="0"
+         id="stop4708" />
+      <svg:stop
+         style="stop-color:#000000;stop-opacity:1"
+         offset="1"
+         id="stop4710" />
+    </svg:linearGradient>
     <inkscape:path-effect
        effect="spiro"
        id="path-effect6401"
@@ -682,6 +695,15 @@
        effect="spiro"
        id="path-effect5500-0-19"
        is_visible="true" />
+    <svg:linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4712"
+       id="linearGradient4716"
+       gradientUnits="userSpaceOnUse"
+       x1="545.9068"
+       y1="552.27637"
+       x2="599.98645"
+       y2="614.00684" />
   </svg:defs>
   <svg:metadata
      id="metadata7">
@@ -833,5 +855,61 @@
         </svg:g>
       </svg:g>
     </svg:g>
+  </svg:g>
+  <svg:g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Icon">
+    <svg:image
+       y="568.55194"
+       x="555.65137"
+       id="image4701"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAAChVBMVEUAAAAAAACAgICqqqqAgICZ
+mZmAgICSkpKAgICOjo6AgICLi4uAgICJiYmAgICIiIiAgICHh4eAgICGhoaAgICGhoaAgICAgICF
+hYWAgICAgICEhISAgICEhISAgICDg4OAgICDg4OAgICDg4OAgICDg4OAgICDg4OAgICCgoKAgICC
+goKAgICCgoKAgICCgoKAgICAgICCgoKAgICCgoKAgICCgoKAgICCgoKAgICAgICBgYGAgICBgYGA
+gICBgYGAgICBgYGAgICBgYGAgICBgYGAgICBgYGBgYGAgICBgYGAgICBgYGAgICBgYGAgICBgYGA
+gICBgYGAgICBgYGAgICBgYGAgICAgICBgYGAgICBgYGAgICBgYGBgYGAgICBgYGAgICBgYGAgICB
+gYGBgYGAgICBgYGAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA
+gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA
+gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA
+gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA
+gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA
+gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBgYF/f3+A
+gIDJ91EeAAAA1XRSTlMAAQIDBAUGBwgJCgsMDQ4PEBESExQVFhgZGhwdHh8gISIjJCUmJygpKiss
+LS4vMDEyNDU2OTo7PD9AQkNERUZHSElKTU5PUFFTVFVWWVpbXl9gYWJjZGVmaGtub3Bxc3R1dnd4
+eX1+f4CBgoOEhYiJiouMjo+QkZKTlJWXmJmcnZ6goaKjpaanqKmqq6ytrq+xsrO0tba3uLm6u7y9
+vr/AwcPFxsrLzM3P0NLT1NfY2drb3N3e3+Dh4uPk5ebn6Orr7O3u7/Dx8vP09fb3+Pn6+/z9/v5e
+mgboAAAEc0lEQVR4AbXY+V9VZQLH8e9FBi4zLOiMjjMOMi4iLqMwqVmEormkllSaWGalaFmapiVp
+ZWWaGWga5hKWu0aKKaS4RGIuskAC99Tn7+ncS8gFLnIeX+e8/4Hzw3m9Ps/zfeSt1IXyUnJB3WB5
+p9eiG6yTdyaWQlWCvJJajO05eSRhdQO2E1HyhC/3J4Ks8fLEuBO02iYv/HOLRau6f8t9/hV1tHlV
+7ptdzj0X4+S2Ud8QZo5c1ndTM2EOy13RdhfCtYyRq3LO0tEHctN/i+nkVl+5J7HgLp29KNdE5VXR
+xZlouWXCSSJ4TC75T6FFBMWudaGeSH4dJFfkXiayt/QgokbM23jw6k3b1YMbnk2PGv0tET3gOfn/
+d6vpoPE3ujNPpqJmHMe50l4ylHkCExNlJnZ9gJCa4sWThyZLycMmLy6upTufysywUoICO6b5FcY/
+fWeASBpSZGT8DYK2p6mL4YVE8LqMTKrHVp6liLIr6OyCXyYyarF9FK9uJGymk1lmpakCrJd0H0ss
+wh31yYD/DGAt0H0tsGjXPEImVjv6afm0+1AmMpuBrT71ZAttfukjA75S4EK8epRQju134AWZmA60
+jJMDEyxCzsXIxGFgqxwpJCRLJjKBQLocSbew7ZaRdcAuOfQlEEiTkfPANDk0E7gjI8OBujg5FHsb
+GCITecBOOVYMzJeJ9UC+HHsZeE8mSoApciwH+FomLgCpcmwIUC4T1UCSHEsErsvEbSBajvWyoFEm
+GqHF5+UHbgK95VgSUC0Tp4E0L3/yXmCSHJsKHJCJ94Hlciwf2CgTc4F9cuwA8IxMpAB34uRQXC0w
+WEYqgafk0BPAJRkZUA8cMYnpGhnZRtAoOTLCAkbLQNtFYY8cKQIOyUTUKVpNkgNZ2KbKxHwgcB64
+mOjw4nXMJwOJ14DNo5qAT9SjrUBLhkysBWr6axW2perBMmzvyMTQu0C+5D8NWHm6r4UW8H2sTOwB
+KmLbBgivqXu+N7HdTJOJHGwzwibU9mR1I+lzbPXjZeIvZ4EStcquxVaZrYimXMFWmy0jiztMoYwq
+gnanq4uxRQRVZchI31vABt2TUkaQVTIzRmHiZ+21CCpLkZlNnaeQf1UTIdd3LctKS5Kvd8q05V81
+EtK0yi8zY1qA59XByAq6cXSkDPmOAyejFC69hIiswrEyNqfLFPrrGw0ENVykg7I1GTIXVwl8oXa+
+J68QUjRQ/5rz9q5T1+wntcv71z6dqgeyEqgfoHse/o6QY5lyRWpjh2mfUkzIpdk+uaMIqIxTq7gV
+9QQ1rvibXPII7TcJX+4VQgoHyS3RZcARn4L+d4iQ04/KPQuBwFjZ+m0JEFSdFy33/P3Gn+8xMUtv
+EdRc0FtuWg/c7idN/YGQfWly1chm4BUNLyHkx8flsoPAuX8UNBFUsyhGLsvB9tklQnYMlNtiK7AZ
+dMHUEtr8nOuT+/rXgEEXzH1Mq8LB8sRDAfMuGJ+TXDfogqG5oS70kVfir8L+NHlnpVEXzKVWG3XB
+3OxUeeoP2A+DvI97O/YAAAAASUVORK5CYII=
+"
+       preserveAspectRatio="none"
+       height="96"
+       width="96" />
+    <svg:path
+       style="fill:url(#linearGradient4716);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;paint-order:stroke fill markers"
+       d="m 699.05277,496.26057 c 0,0 -97.66689,77.42911 -153.14596,56.01581 11.50513,60.1971 -73.71034,150.0296 -73.71034,150.0296 0,0 2.99935,10.27688 119.8917,-98.48666 116.78287,-108.66168 106.9646,-107.55875 106.9646,-107.55875 z"
+       id="path4706"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccsc" />
   </svg:g>
 </svg:svg>
