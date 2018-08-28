@@ -30,7 +30,7 @@ msgid "Collapse"
 msgstr "Nach unten"
 
 #: ../qml/pages/InstancePicker.qml:64
-msgid "Choose a Disapora instance"
+msgid "Choose a Diaspora instance"
 msgstr "Wähle eine Diaspora Instanz"
 
 #: ../qml/pages/InstancePicker.qml:72
@@ -100,11 +100,11 @@ msgid "Add Post"
 msgstr "Posten"
 
 #: ../qml/components/BottomEdgeControlsHeader.qml:43
-msgid "Incongnito Mpde"
+msgid "Incognito Mode"
 msgstr "Privater Modus"
 
 #: ../qml/components/BottomEdgeControlsHeader.qml:43
-msgid "None Incongito"
+msgid "None Incognito"
 msgstr "Kein privater Modus"
 
 #: ../qml/components/BottomEdgeControlsHeader.qml:53
