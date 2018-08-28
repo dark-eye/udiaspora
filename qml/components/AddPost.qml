@@ -74,8 +74,11 @@ Page {
 	
 	
 	Rectangle {
-		anchors.fill:parent
+		anchors.fill:_addPostPage
+		height:_addPostPage.height
+		width:_addPostPage.width
 		z:0
+		
 		color: theme.palette.normal.background
 		
 		ActivityIndicator {

@@ -5,6 +5,9 @@ import Ubuntu.Components 1.3
 Page {
     id: instancePickerPage
     anchors.fill: parent
+    
+    property bool searchRunning:false
+    
     Component.onCompleted: getSample ()
 
     /* Load list of Mastodon Instances from https://instances.social
@@ -16,7 +19,8 @@ Page {
     *      prhobited_content[], categories[]}, thumbnail, active_users }
     */
     function getSample (filterFunction) {
-
+		if(searchRunning) { return; }
+		searchRunning = true;
         var http = new XMLHttpRequest();
         var data = "?" +
         "format=json&" +
@@ -24,10 +28,11 @@ Page {
         http.open("GET", "https://podupti.me/api.php" + data, true);
         http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
         http.onreadystatechange = function() {
+			searchRunning = false;
             if (http.readyState === XMLHttpRequest.DONE) {
                 var response = JSON.parse(http.responseText);
 				var pods = (filterFunction) ? filterFunction(response.pods) : response.pods;
-                instanceList.writeInList ( pods )
+				instanceList.writeInList ( pods );
             }
         }
         loading.running = true;
@@ -36,6 +41,7 @@ Page {
 
 
     function search ()  {
+
 		var searchTerm = customInstanceInput.displayText;
 		//If  the  search starts with http(s) then go to the url 
 		if(searchTerm.indexOf("http") == 0 ) {
@@ -54,6 +60,9 @@ Page {
 			}
 			return retList;
 		}
+		
+		loading.visible = true
+		instanceList.children = ""
 		getSample(filter);
     }
 
@@ -61,7 +70,7 @@ Page {
 
     header: PageHeader {
         id: header
-        title: i18n.tr('Choose a Disapora instance')
+        title: i18n.tr('Choose a Diaspora instance')
         StyleHints {
             foregroundColor: theme.palette.normal.backgroundText
             backgroundColor: theme.palette.normal.background
@@ -98,16 +107,16 @@ Page {
 
 
     TextField {
-// 		enabled:false
         id: customInstanceInput
         anchors.top: header.bottom
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.topMargin: height
         width: parent.width - height
         placeholderText: i18n.tr("Search or enter a custom address")
+		onDisplayTextChanged: if(displayText.length > 3) {search();}
         Keys.onReturnPressed: search ()
     }
-
+    
     ScrollView {
         id: scrollView
         width: parent.width
@@ -118,11 +127,12 @@ Page {
             id: instanceList
             width: root.width
 
+
             // Write a list of instances to the ListView
             function writeInList ( list ) {
                 instanceList.children = ""
                 loading.visible = false
-                list.sort(function(a,b) {!a.uptimelast7 ? -1 : (!b.uptimelast7 ? 1 : parseFloat(a.uptimelast7) - parseFloat(b.uptimelast7));});
+                list.sort(function(a,b) {return !a.uptimelast7 ? (!b.uptimelast7 ? 0 : 1) : (!b.uptimelast7 ? -1 : parseFloat(b.uptimelast7) - parseFloat(a.uptimelast7));});
                 for ( var i = 0; i < list.length; i++ ) {
                     var item = Qt.createComponent("../components/InstanceItem.qml")
                     item.createObject(this, {
@@ -137,5 +147,12 @@ Page {
             }
         }
     }
+    
+    Label {
+		id:noResultsLabel
+		visible: !instanceList.children.length && !loading.visible
+		anchors.centerIn: scrollView;
+		text:customInstanceInput.length ? i18n.tr("No pods fund for search : %1").arg(customInstanceInput.displayText) :  i18n.tr("No pods returned from server");
+	}
 
 }
