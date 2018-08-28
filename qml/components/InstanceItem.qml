@@ -2,7 +2,6 @@ import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import QtQuick.LocalStorage 2.0
-import com.canonical.Oxide 1.19 as Oxide
 
 ListItem {
     id: task

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-26 12:46+0000\n"
+"POT-Creation-Date: 2018-08-28 12:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,29 +17,29 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/pages/DiasporaWebview.qml:96
+#: ../qml/pages/DiasporaWebview.qml:107
 msgid "Loading "
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:153
-msgid "Controls"
+#: ../qml/pages/InstancePicker.qml:73
+msgid "Choose a Diaspora instance"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:157
-msgid "Collapse"
-msgstr ""
-
-#: ../qml/pages/InstancePicker.qml:64
-msgid "Choose a Disapora instance"
-msgstr ""
-
-#: ../qml/pages/InstancePicker.qml:72
-#: ../qml/components/BottomEdgeControlsHeader.qml:70
+#: ../qml/pages/InstancePicker.qml:81
+#: ../qml/components/BottomEdgeControlsHeader.qml:62
 msgid "Info"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:107
+#: ../qml/pages/InstancePicker.qml:115
 msgid "Search or enter a custom address"
+msgstr ""
+
+#: ../qml/pages/InstancePicker.qml:155
+msgid "No pods fund for search : %1"
+msgstr ""
+
+#: ../qml/pages/InstancePicker.qml:155
+msgid "No pods returned from server"
 msgstr ""
 
 #: ../qml/pages/Information.qml:8
@@ -70,8 +70,8 @@ msgstr ""
 msgid "Donate"
 msgstr ""
 
-#: ../qml/pages/Information.qml:51 udiaspora.desktop.in.h:1
-msgid "uDiaspora"
+#: ../qml/pages/Information.qml:51
+msgid "uDiaspora WebApp"
 msgstr ""
 
 #: ../qml/components/MainWebView.qml:55
@@ -86,11 +86,11 @@ msgstr ""
 msgid "Open in browser"
 msgstr ""
 
-#: ../qml/components/InstanceItem.qml:27
+#: ../qml/components/InstanceItem.qml:26
 msgid "Location: %1"
 msgstr ""
 
-#: ../qml/components/InstanceItem.qml:28
+#: ../qml/components/InstanceItem.qml:27
 #, javascript-format
 msgid "Uptime: %1%"
 msgstr ""
@@ -99,38 +99,42 @@ msgstr ""
 msgid "Add Post"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:43
-msgid "Incongnito Mpde"
-msgstr ""
-
-#: ../qml/components/BottomEdgeControlsHeader.qml:43
-msgid "None Incongito"
-msgstr ""
-
-#: ../qml/components/BottomEdgeControlsHeader.qml:53
+#: ../qml/components/BottomEdgeControlsHeader.qml:45
 msgid "Go home"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:58
+#: ../qml/components/BottomEdgeControlsHeader.qml:50
 msgid "Reload"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:63
+#: ../qml/components/BottomEdgeControlsHeader.qml:55
 msgid "Go Back"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:77
+#: ../qml/components/BottomEdgeControlsHeader.qml:69
 msgid "Links open externally"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:77
+#: ../qml/components/BottomEdgeControlsHeader.qml:69
 msgid "Links open internally"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:86
+#: ../qml/components/BottomEdgeControlsHeader.qml:78
+msgid "Incognito Mode"
+msgstr ""
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:78
+msgid "None Incognito"
+msgstr ""
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:88
 msgid "Change Pod"
 msgstr ""
 
 #: ../qml/components/dialogs/ConfirmDialog.qml:25
 msgid "Confirm Action"
+msgstr ""
+
+#: udiaspora.desktop.in.h:1
+msgid "uDiaspora"
 msgstr ""

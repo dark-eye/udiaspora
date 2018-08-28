@@ -20,6 +20,10 @@ Page {
 		height: units.gu(0.1)
 		visible: webviewPage.currentView().visible && webviewPage.currentView().loading
 		z:2
+		layer.enabled: true
+		layer.effect:DropShadow {
+			 radius: 5
+		}
 	}
 
 	Component {
@@ -27,52 +31,59 @@ Page {
 		PickerDialog {}
 	}
 	
-
-	MainWebView {
-		id:webView
-		url: helperFunctions.getInstanceURL()
-		context:appWebContext
-		incognito:false
-		filePicker: pickerComponent
- 		confirmDialog: ConfirmDialog {}
- 		alertDialog: AlertDialog {}
-		z: settings.incognitoMode ? -1 : 1
-		onLoadProgressChanged: {
-			progressBar.value = loadProgress
+	Item {
+		id:webContainer
+		anchors {
+			top:parent.top
+			left:parent.left
+			right:parent.right
+			bottom:bottomControls.top
 		}
-	}
-	MainWebView {
-		id:webViewIncogito
-		url: helperFunctions.getInstanceURL()
-		context:incognitoWebContext
-		incognito:true
-		filePicker: pickerComponent
-		confirmDialog: ConfirmDialog {}
-		alertDialog: AlertDialog {}
-		z: settings.incognitoMode ? 1 : -1
-		onLoadProgressChanged: {
-			progressBar.value = loadProgress
+		MainWebView {
+			id:webView
+			url: helperFunctions.getInstanceURL()
+			context:appWebContext
+			incognito:false
+			filePicker: pickerComponent
+			confirmDialog: ConfirmDialog {}
+			alertDialog: AlertDialog {}
+			z: settings.incognitoMode ? -1 : 1
+			onLoadProgressChanged: {
+				progressBar.value = loadProgress
+			}
 		}
-		
-	}
-	
-
-	InnerShadow {
-		color: UbuntuColors.purple
-		radius: 15
-		samples: 5
-		anchors.fill:webViewIncogito
-		source:webViewIncogito
-		fast:true
-		horizontalOffset: 0
-        verticalOffset: -2
-        spread:0.6
-        visible:settings.incognitoMode
-        z:2
+		MainWebView {
+			id:webViewIncogito
+			url: helperFunctions.getInstanceURL()
+			context:incognitoWebContext
+			incognito:true
+			filePicker: pickerComponent
+			confirmDialog: ConfirmDialog {}
+			alertDialog: AlertDialog {}
+			z: settings.incognitoMode ? 1 : -1
+			onLoadProgressChanged: {
+				progressBar.value = loadProgress
+			}
+			
+		}
+		InnerShadow {
+			color: UbuntuColors.purple
+			radius: 15
+			samples: 5
+			anchors.fill:webViewIncogito
+			source:webViewIncogito
+			fast:true
+			horizontalOffset: 0
+			verticalOffset: -2
+			spread:0.6
+			visible:settings.incognitoMode
+			z:2
+		}
 	}
 
 
 	Rectangle {
+		id:loadingPage
 		anchors.fill: parent
 		visible: !webviewPage.currentView().visible
 		color: theme.palette.normal.background
@@ -136,53 +147,38 @@ Page {
 		}
 	}
 
+	BottomEdgeControlsHeader {
+		id:bottomControls
+		z:2
+		anchors.bottom: parent.bottom
+		visible: webviewPage.currentView().visible;
+	}
 
 	BottomEdge {
 		id: instancBottomEdge
-		visible: webView.visible
+		visible: webviewPage.currentView().visible  && webviewPage.isOnDiaspora()
 		height:units.gu(37)
 		hint.iconName: "go-up"
 		hint.visible:visible
 		hint.flickable: webviewPage.currentView()
 		preloadContent: true
-		regions: [
-			BottomEdgeRegion {
-				contentComponent: Component { 
-					BottomEdgeControlsHeader {
-						anchors.fill:instancBottomEdge
-						title:i18n.tr("Controls")
-						leadingActionBar {
-							actions:[
-								Action {
-									text:i18n.tr("Collapse")
-									iconName: "go-down"
-									onTriggered: instancBottomEdge.collapse()
-								}
-							]
-						}
-					}
-				}
-				from:0
-				to:0.18
-			},
-			BottomEdgeRegion {
-				contentComponent: Component { 
-					AddPost {
-						anchors.fill:instancBottomEdge
-						filePickerComponent:pickerComponent
-					}
-				}
-				from:0.16
-				to:1
+		contentComponent: Component { 
+			AddPost {
+				anchors.fill:instancBottomEdge
+				filePickerComponent:pickerComponent
 			}
-		]
-		
+		}
+
 		onCommitStarted: contentItem.resetURL();
 	}
 	
 	//========================== Functions =======================
 	function currentView() {
 		return  settings.incognitoMode ? webViewIncogito : webView;
+	}
+	
+	function  isOnDiaspora() {
+		return (webView.url.toString().indexOf(settings.instance) !== -1)
 	}
 
 }

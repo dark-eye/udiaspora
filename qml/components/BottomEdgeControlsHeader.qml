@@ -24,6 +24,8 @@ import Ubuntu.Components 1.3
 
 PageHeader {
 		id:_headersControls
+		
+		property var trailingSlots: 4
 
 		StyleHints {
 			backgroundColor: settings.incognitoMode ? UbuntuColors.purple : theme.palette.normal.background
@@ -36,19 +38,9 @@ PageHeader {
 		
 
 		trailingActionBar {
-			numberOfSlots: 5
+			numberOfSlots: trailingSlots
 			
 			actions:[
-				Action {
-					text: checked ? i18n.tr("Incongnito Mpde") : i18n.tr("None Incongito")
-					iconName:checked ? "private-browsing" : "private-browsing-exit"
-					checkable:true
-					checked: settings.incognitoMode
-					onToggled:{
-						settings.incognitoMode = checked;
-						webviewPage.currentView().reload();
-					}
-				},
 				Action {
 					text:i18n.tr("Go home")
 					iconName:"home"
@@ -70,8 +62,8 @@ PageHeader {
 					text: i18n.tr("Info")
 					iconName: "info"
 					onTriggered: {
-                    mainStack.push(Qt.resolvedUrl("../pages/Information.qml"))
-                }
+						mainStack.push(Qt.resolvedUrl("../pages/Information.qml"))
+					}
 				},
 				Action {
 					text: checked ? i18n.tr("Links open externally") : i18n.tr("Links open internally")
@@ -80,6 +72,16 @@ PageHeader {
 					checked: settings.openLinksExternally
 					onToggled:{
 						settings.openLinksExternally = checked;
+					}
+				},
+				Action {
+					text: checked ? i18n.tr("Incognito Mode") : i18n.tr("None Incognito")
+					iconName:checked ? "private-browsing" : "private-browsing-exit"
+					checkable:true
+					checked: settings.incognitoMode
+					onToggled:{
+						settings.incognitoMode = checked;
+						webviewPage.currentView().reload();
 					}
 				},
 				Action {
