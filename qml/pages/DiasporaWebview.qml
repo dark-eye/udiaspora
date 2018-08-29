@@ -142,7 +142,7 @@ Page {
 	
 	Rectangle {
 		color: theme.pallete.highlighted.selected
-		anchors.bottom:bottomControls.top
+		anchors.bottom:instancBottomEdge.status == BottomEdge.Hidden ? bottomControls.top : instancBottomEdge.top
 		width: parent.width * webviewPage.currentView().loadProgress / 100
 		height: units.gu(0.1)
 		visible: webviewPage.currentView().visible && webviewPage.currentView().loading
@@ -150,6 +150,7 @@ Page {
 		layer.enabled: true
 		layer.effect:DropShadow {
 			 radius: 5
+			 color:theme.palette.highlighted.selectedText
 		}
 	}
 
