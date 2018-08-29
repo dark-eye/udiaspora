@@ -14,18 +14,11 @@ Page {
 	width: parent.width
 	height: parent.height
 
-	header: Rectangle {
-		color: theme.pallete.highlighted.selected
-		width: parent.width * webviewPage.currentView().loadProgress / 100
-		height: units.gu(0.1)
-		visible: webviewPage.currentView().visible && webviewPage.currentView().loading
-		z:2
-		layer.enabled: true
-		layer.effect:DropShadow {
-			 radius: 5
-		}
+	header:Item {
+		height: 0
+		visible: false
 	}
-
+	
 	Component {
 		id: pickerComponent
 		PickerDialog {}
@@ -144,6 +137,19 @@ Page {
 				mainStack.clear ()
 				mainStack.push (Qt.resolvedUrl("./InstancePicker.qml"))
 			}
+		}
+	}
+	
+	Rectangle {
+		color: theme.pallete.highlighted.selected
+		anchors.bottom:bottomControls.top
+		width: parent.width * webviewPage.currentView().loadProgress / 100
+		height: units.gu(0.1)
+		visible: webviewPage.currentView().visible && webviewPage.currentView().loading
+		z:2
+		layer.enabled: true
+		layer.effect:DropShadow {
+			 radius: 5
 		}
 	}
 
