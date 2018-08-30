@@ -37,10 +37,13 @@ Page {
 		id:addPostWebViewLoader
 		anchors.fill:parent
 		z: settings.incognitoMode ? 2 : 1
-		sourceComponent:addPostComponent
+		active:webviewPage.isLoggedin()
+		sourceComponent: active ? addPostComponent : undefined;
 		onZChanged: {
 			addPostWebViewLoader.sourceComponent= undefined;
-			addPostWebViewLoader.sourceComponent = addPostComponent;
+			if(active) {
+				addPostWebViewLoader.sourceComponent = addPostComponent;
+			}
 		}
 	}
 	
@@ -52,7 +55,7 @@ Page {
 			visible:true
 			
 			incognito: settings.incognitoMode
-			context: settings.incognitoMode ? incognitoWebContext : appWebContext
+// 			context: settings.incognitoMode ? incognitoWebContext : appWebContext
 			
 			preferences.localStorageEnabled: true
 			preferences.appCacheEnabled: true
@@ -74,18 +77,21 @@ Page {
 	
 	
 	Rectangle {
-		anchors.fill:_addPostPage
-		height:_addPostPage.height
-		width:_addPostPage.width
+		anchors.fill:parent
 		z:0
 		
 		color: theme.palette.normal.background
-		
+		Label {
+			anchors.centerIn:parent
+			text:i18n.tr("Please log in")
+			visible: !webviewPage.isLoggedin();
+			
+		}
 		ActivityIndicator {
 			id: addPostLoadingIndicator
 			width: units.gu(4)
 			anchors.centerIn:parent
-			running: addPostWebViewLoader.status != Loader.Ready || addPostWebViewLoader.item.loading
+			running: webviewPage.isLoggedin() && ( addPostWebViewLoader.status != Loader.Ready || addPostWebViewLoader.item.loading)
 			visible: running
 		}
 	}

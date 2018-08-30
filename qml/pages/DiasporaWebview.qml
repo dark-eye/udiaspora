@@ -142,7 +142,7 @@ Page {
 	
 	Rectangle {
 		color: theme.pallete.highlighted.selected
-		anchors.bottom:instancBottomEdge.status == BottomEdge.Hidden ? bottomControls.top : instancBottomEdge.top
+		anchors.bottom:instancBottomEdge.status !== BottomEdge.Committed ? bottomControls.top : instancBottomEdge.top
 		width: parent.width * webviewPage.currentView().loadProgress / 100
 		height: units.gu(0.1)
 		visible: webviewPage.currentView().visible && webviewPage.currentView().loading
@@ -167,11 +167,12 @@ Page {
 		height:units.gu(37)
 		hint.iconName: "go-up"
 		hint.visible:visible
-		hint.flickable: webviewPage.currentView()
-		preloadContent: true
+		preloadContent: false
 		contentComponent: Component { 
 			AddPost {
 				anchors.fill:instancBottomEdge
+				height:instancBottomEdge.height
+				width:instancBottomEdge.width
 				filePickerComponent:pickerComponent
 			}
 		}
@@ -185,7 +186,12 @@ Page {
 	}
 	
 	function  isOnDiaspora() {
-		return (webView.url.toString().indexOf(settings.instance) !== -1)
+		return (currentView().url.toString().indexOf(settings.instance) !== -1)
+	}
+	
+	function isLoggedin() {
+		var loginPage = helperFunctions.getInstanceURL() + "/users/sign_in"
+		return currentView().url != loginPage;
 	}
 
 }
