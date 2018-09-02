@@ -7,8 +7,16 @@ Page {
     anchors.fill: parent
     
     property bool searchRunning:false
-    
+    property var lastList: []
+    property var updateTime: null
+
     Component.onCompleted: getSample ()
+	
+	WorkerScript {
+		id:asyncProcess
+		source:'../components/jslibs/FilterPods.js'
+		onMessage:instanceList.writeInList (  messageObject.reply );
+	}
 
     /* Load list of Mastodon Instances from https://instances.social
     * The Response is in format:
@@ -18,7 +26,7 @@ Page {
     *      topic, languages[], other_languages_accepted, federates_with,
     *      prhobited_content[], categories[]}, thumbnail, active_users }
     */
-    function getSample (filterFunction) {
+    function getSample () {
 		if(searchRunning) { return; }
 		searchRunning = true;
         var http = new XMLHttpRequest();
@@ -31,8 +39,10 @@ Page {
 			searchRunning = false;
             if (http.readyState === XMLHttpRequest.DONE) {
                 var response = JSON.parse(http.responseText);
-				var pods = (filterFunction) ? filterFunction(response.pods) : response.pods;
-				instanceList.writeInList ( pods );
+				var pods = response.pods;
+				lastList = pods;
+				updateTime = Date.now();
+				asyncProcess.sendMessage( {searchTerm : customInstanceInput.displayText , inData : pods });
             }
         }
         loading.running = true;
@@ -49,21 +59,14 @@ Page {
 			mainStack.push (Qt.resolvedUrl("./DiasporaWebview.qml"))
 			return
 		}
-		
-		// filter the  pod list results
-		function filter(list) {
-			var retList = [];
-			for(var i in list) {
-				if(list[i].domain && list[i].domain.match(new RegExp(searchTerm))) {
-					retList.push(list[i]);
-				}
-			}
-			return retList;
+	
+		if(updateTime < Date.now()-60000) {
+			loading.visible = true
+			instanceList.children = ""
+			getSample();
+		} else {
+			asyncProcess.sendMessage( {searchTerm : searchTerm , inData : lastList });
 		}
-		
-		loading.visible = true
-		instanceList.children = ""
-		getSample(filter);
     }
 
 
@@ -86,12 +89,10 @@ Page {
             },
             Action {
                 iconName: "search"
-// 				enabled:false
                 onTriggered: {
                     if ( customInstanceInput.displayText == "" ) {
                         customInstanceInput.focus = true
-                    }
-                    else search ()
+                    } else search ()
                 }
             }
             ]
@@ -113,7 +114,7 @@ Page {
         anchors.topMargin: height
         width: parent.width - height
         placeholderText: i18n.tr("Search or enter a custom address")
-		onDisplayTextChanged: if(displayText.length > 3) {search();}
+		onDisplayTextChanged: if(displayText.length > 2) {search();}
         Keys.onReturnPressed: search ()
     }
     
