@@ -29,10 +29,10 @@
      inkscape:window-height="1015"
      id="namedview180"
      showgrid="false"
-     inkscape:zoom="0.87500059"
-     inkscape:cx="398.58574"
-     inkscape:cy="361.23041"
-     inkscape:window-x="1920"
+     inkscape:zoom="0.4375003"
+     inkscape:cx="532.06765"
+     inkscape:cy="-338.70927"
+     inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer2" />
@@ -40,6 +40,30 @@
      id="title5724">Diaspora* Official Promo Artwork Toolkit</svg:title>
   <svg:defs
      id="defs4">
+    <svg:linearGradient
+       inkscape:collect="always"
+       id="linearGradient1032">
+      <svg:stop
+         style="stop-color:#000000;stop-opacity:0.6761905"
+         offset="0"
+         id="stop1028" />
+      <svg:stop
+         style="stop-color:#ffffff;stop-opacity:0"
+         offset="1"
+         id="stop1030" />
+    </svg:linearGradient>
+    <svg:linearGradient
+       id="linearGradient1018"
+       inkscape:collect="always">
+      <svg:stop
+         id="stop1014"
+         offset="0"
+         style="stop-color:#000000;stop-opacity:0.6761905" />
+      <svg:stop
+         id="stop1016"
+         offset="1"
+         style="stop-color:#ffffff;stop-opacity:0" />
+    </svg:linearGradient>
     <svg:linearGradient
        inkscape:collect="always"
        id="linearGradient4712">
@@ -704,6 +728,28 @@
        y1="552.27637"
        x2="599.98645"
        y2="614.00684" />
+    <svg:radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1032"
+       id="radialGradient1012"
+       cx="577.59766"
+       cy="602.11475"
+       fx="577.59766"
+       fy="602.11475"
+       r="58.968513"
+       gradientTransform="matrix(0.44389414,0.55601092,-1.3320796,1.252025,1129.4166,-475.18086)"
+       gradientUnits="userSpaceOnUse" />
+    <svg:radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1018"
+       id="radialGradient1026"
+       cx="577.81866"
+       cy="602.1095"
+       fx="577.8186"
+       fy="602.10944"
+       r="58.968513"
+       gradientTransform="matrix(0.44389435,0.55601107,-1.4286636,1.1405812,1187.4655,-408.19588)"
+       gradientUnits="userSpaceOnUse" />
   </svg:defs>
   <svg:metadata
      id="metadata7">
@@ -866,6 +912,17 @@
        preserveAspectRatio="none"
        height="96"
        width="96" />
+    <svg:path
+       style="opacity:1;fill:url(#radialGradient1026);fill-opacity:1;fill-rule:nonzero;stroke:url(#radialGradient1012);stroke-width:1.46807051;stroke-linecap:round;stroke-opacity:1;paint-order:stroke fill markers"
+       id="path996"
+       sodipodi:type="arc"
+       sodipodi:cx="590.03003"
+       sodipodi:cy="604.40381"
+       sodipodi:rx="130.30956"
+       sodipodi:ry="130.27731"
+       sodipodi:start="5.4971591"
+       sodipodi:end="2.4451816"
+       d="m 682.11491,512.226 a 130.30956,130.27731 0 0 1 32.74452,129.56109 130.30956,130.27731 0 0 1 -98.5982,90.22723 130.30956,130.27731 0 0 1 -126.19809,-44.04171 l 99.96689,-83.5688 z" />
     <svg:path
        id="path4706"
        style="fill:url(#linearGradient4716);fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;paint-order:stroke fill markers"
