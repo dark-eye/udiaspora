@@ -19,7 +19,7 @@ Page {
 		infoModel.append({ name: i18n.tr("GNU General Public License v3.0"), url: "https://github.com/dark-eye/udiaspora/blob/master/LICENSE",icon:"note" })
 		infoModel.append({ name: i18n.tr("Contributors"), url: "https://github.com/dark-eye/udiaspora/graphs/contributors" ,icon:"contact-group"})
 		infoModel.append({ name: i18n.tr("Based on uMastonauts webapp"), url: "https://github.com/ChristianPauly/uMastodon" ,icon:"info"})
-		infoModel.append({ name: i18n.tr("Donate"), url: "https://liberapay.com/darkeye/", icon:"like" })
+		infoModel.append({ name: i18n.tr("Donate"), url: "https://www.patreon.com/darkeyeos", icon:"like" })
 		infoModel.append({ name: i18n.tr("Telegram"), url: "https://t.me/uDiaspora", icon:"send" })
 	}
 
@@ -34,14 +34,14 @@ Page {
 		}
 
 		Image {
-		anchors.horizontalCenter: parent.horizontalCenter
-		height: Math.min(parent.width/2, parent.height/2)
-		width:height
-		source:"../../assets/logo.svg"
-		layer.enabled: true
-		layer.effect: UbuntuShapeOverlay {
-//               relativeRadius: 0.75
-		}
+			anchors.horizontalCenter: parent.horizontalCenter
+			height: Math.min(parent.width/2, parent.height/2)
+			width:height
+			source:"../../assets/logo.svg"
+			layer.enabled: true
+			layer.effect: UbuntuShapeOverlay {
+				relativeRadius: 0.5
+			}
 		}
 		Label {
 			width: parent.width

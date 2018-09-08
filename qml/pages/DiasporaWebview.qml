@@ -80,6 +80,8 @@ Page {
 		anchors.fill: parent
 		visible: !webviewPage.currentView().visible
 		color: theme.palette.normal.background
+		
+		property bool hasLoadError: ( progressBar.value == 100 && webviewPage.currentView().lastError )
 
 		onVisibleChanged: if(visible) {
 			reloadButton.visible = false;
@@ -110,15 +112,20 @@ Page {
 			anchors.top: progressLabel.bottom
 			anchors.horizontalCenter: parent.horizontalCenter
 			anchors.topMargin: 10
+			StyleHints {
+				foregroundColor: loadingPage.hasLoadError ? 
+									theme.palette.normal.negative :
+									theme.palette.normal.progress
+			}
 		}
 		
 		Button {
 			id:reloadButton
-			visible:false
+			visible: loadingPage.hasLoadError
 			anchors.top: progressBar.bottom
 			anchors.topMargin: units.gu(2)
 			anchors.horizontalCenter: parent.horizontalCenter
-			color: UbuntuColors.blue
+			color: loadingPage.hasLoadError ? theme.palette.normal.negative : UbuntuColors.blue
 			width:height + units.gu(1)
 			iconName:"reload"
 			onClicked: {
@@ -158,7 +165,38 @@ Page {
 		id:bottomControls
 		z:2
 		anchors.bottom: parent.bottom
-		visible: webviewPage.currentView().visible;
+		visible: webviewPage.currentView().visible && !settings.hideBottomControls;
+		trailingSlots: !webviewPage.isOnDiaspora() ? 4 : 3
+		
+		leadingActionBar {
+			numberOfSlots:6
+			visible:webviewPage.isOnDiaspora()
+			actions: [
+				Action {
+					text:i18n.tr("Add Post")
+					iconName:"edit"
+					onTriggered:instancBottomEdge.commit();
+				},			
+				Action {
+					text:i18n.tr("Messages")
+					iconName:"messages"
+					onTriggered:webviewPage.currentView().url = helperFunctions.getInstanceURL() +"/conversations";
+				},			
+				Action {
+					text:i18n.tr("Notifications")
+					iconName:"notification"
+					onTriggered:webviewPage.currentView().url = helperFunctions.getInstanceURL() +"/notifications";
+				},
+				Action {
+					enabled:false
+				},
+				Action {
+					text:i18n.tr("Stream")
+					iconSource:"../../assets/diaspora-asterisk.png"
+					onTriggered:webviewPage.currentView().goHome();
+				}
+			]
+		}
 	}
 
 	BottomEdge {

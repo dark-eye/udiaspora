@@ -25,7 +25,7 @@ import Ubuntu.Components 1.3
 PageHeader {
 		id:_headersControls
 		
-		property var trailingSlots: 4
+		property var trailingSlots: !webviewPage.isOnDiaspora() ? 4 : 3
 
 		StyleHints {
 			backgroundColor: settings.incognitoMode ? UbuntuColors.purple : theme.palette.normal.background
@@ -45,6 +45,7 @@ PageHeader {
 					text:i18n.tr("Go home")
 					iconName:"home"
 					onTriggered:webviewPage.currentView().goHome();
+					visible:!webviewPage.isOnDiaspora()
 				},
 				Action {
 					text:i18n.tr("Reload")
@@ -82,6 +83,15 @@ PageHeader {
 					onToggled:{
 						settings.incognitoMode = checked;
 						webviewPage.currentView().reload();
+					}
+				},
+				Action {
+					text: checked ? i18n.tr("Show Bottom Controls") : i18n.tr("Hide Bottom Controls")
+					iconName:checked ? "select" : "select-undefined"
+					checkable:true
+					checked: settings.hideBottomControls
+					onToggled:{
+						settings.hideBottomControls = checked;
 					}
 				},
 				Action {

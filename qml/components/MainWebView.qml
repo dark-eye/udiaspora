@@ -34,7 +34,7 @@ WebView {
 	property bool lastError:false
 	
 	onLoadProgressChanged: {
-		visible = !lastError && ( visible || loadProgress === 100 )
+		visible = !(lastError && loadProgress == 100) && ( visible || loadProgress == 100 )
 	}
 	onLoadEvent:{
 		lastError = event.isError
@@ -48,7 +48,8 @@ WebView {
 	preferences.appCacheEnabled: true
 	preferences.javascriptCanAccessClipboard: true
 	preferences.shrinksStandaloneImagesToFit: true
-
+	fullscreen:true
+	
 	contextualActions: ActionList {
 		Action {
 			id: linkAction

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-29 09:55+0000\n"
+"POT-Creation-Date: 2018-09-08 20:43+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,28 +17,44 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/pages/DiasporaWebview.qml:100
+#: ../qml/pages/DiasporaWebview.qml:102
 msgid "Loading "
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:73
+#: ../qml/pages/DiasporaWebview.qml:176 ../qml/components/AddPost.qml:31
+msgid "Add Post"
+msgstr ""
+
+#: ../qml/pages/DiasporaWebview.qml:181
+msgid "Messages"
+msgstr ""
+
+#: ../qml/pages/DiasporaWebview.qml:186
+msgid "Notifications"
+msgstr ""
+
+#: ../qml/pages/DiasporaWebview.qml:194
+msgid "Stream"
+msgstr ""
+
+#: ../qml/pages/InstancePicker.qml:76
 msgid "Choose a Diaspora instance"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:81
-#: ../qml/components/BottomEdgeControlsHeader.qml:62
+#: ../qml/pages/InstancePicker.qml:84
+#: ../qml/components/BottomEdgeControlsHeader.qml:63
 msgid "Info"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:115
+#: ../qml/pages/InstancePicker.qml:116
 msgid "Search or enter a custom address"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:155
+#: ../qml/pages/InstancePicker.qml:156
 msgid "No pods fund for search : %1"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:155
+#: ../qml/pages/InstancePicker.qml:156
 msgid "No pods returned from server"
 msgstr ""
 
@@ -70,19 +86,23 @@ msgstr ""
 msgid "Donate"
 msgstr ""
 
-#: ../qml/pages/Information.qml:51
+#: ../qml/pages/Information.qml:23
+msgid "Telegram"
+msgstr ""
+
+#: ../qml/pages/Information.qml:52
 msgid "uDiaspora WebApp"
 msgstr ""
 
-#: ../qml/components/MainWebView.qml:55
+#: ../qml/components/MainWebView.qml:56
 msgid "Copy Link"
 msgstr ""
 
-#: ../qml/components/MainWebView.qml:62
+#: ../qml/components/MainWebView.qml:63
 msgid "Copy Image"
 msgstr ""
 
-#: ../qml/components/MainWebView.qml:68
+#: ../qml/components/MainWebView.qml:69
 msgid "Open in browser"
 msgstr ""
 
@@ -95,39 +115,47 @@ msgstr ""
 msgid "Uptime: %1%"
 msgstr ""
 
-#: ../qml/components/AddPost.qml:31
-msgid "Add Post"
+#: ../qml/components/AddPost.qml:86
+msgid "Please log in"
 msgstr ""
 
 #: ../qml/components/BottomEdgeControlsHeader.qml:45
 msgid "Go home"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:50
+#: ../qml/components/BottomEdgeControlsHeader.qml:51
 msgid "Reload"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:55
+#: ../qml/components/BottomEdgeControlsHeader.qml:56
 msgid "Go Back"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:69
+#: ../qml/components/BottomEdgeControlsHeader.qml:70
 msgid "Links open externally"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:69
+#: ../qml/components/BottomEdgeControlsHeader.qml:70
 msgid "Links open internally"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:78
+#: ../qml/components/BottomEdgeControlsHeader.qml:79
 msgid "Incognito Mode"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:78
+#: ../qml/components/BottomEdgeControlsHeader.qml:79
 msgid "None Incognito"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:88
+#: ../qml/components/BottomEdgeControlsHeader.qml:89
+msgid "Show Bottom Controls"
+msgstr ""
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:89
+msgid "Hide Bottom Controls"
+msgstr ""
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:98
 msgid "Change Pod"
 msgstr ""
 

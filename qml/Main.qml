@@ -32,6 +32,7 @@ MainView {
         property var instance
         property bool openLinksExternally: false
         property bool incognitoMode: false
+        property bool hideBottomControls: false
     }
     
     WebContext {
