@@ -165,7 +165,8 @@ Page {
 		id:bottomControls
 		z:2
 		anchors.bottom: parent.bottom
-		visible: webviewPage.currentView().visible && !settings.hideBottomControls;
+		anchors.bottomMargin : visible ? 0 : -height
+		visible: webviewPage.currentView().visible && ( !settings.hideBottomControls || !webviewPage.isOnDiaspora() );
 		trailingSlots: !webviewPage.isOnDiaspora() ? 4 : 3
 		
 		leadingActionBar {
