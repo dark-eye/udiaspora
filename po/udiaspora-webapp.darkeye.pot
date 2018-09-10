@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-08 20:43+0000\n"
+"POT-Creation-Date: 2018-09-10 18:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,19 +21,19 @@ msgstr ""
 msgid "Loading "
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:176 ../qml/components/AddPost.qml:31
+#: ../qml/pages/DiasporaWebview.qml:177 ../qml/components/AddPost.qml:31
 msgid "Add Post"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:181
+#: ../qml/pages/DiasporaWebview.qml:182
 msgid "Messages"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:186
+#: ../qml/pages/DiasporaWebview.qml:187
 msgid "Notifications"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:194
+#: ../qml/pages/DiasporaWebview.qml:195
 msgid "Stream"
 msgstr ""
 
