@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-10 18:08+0000\n"
+"POT-Creation-Date: 2018-09-13 14:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "Loading "
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:177 ../qml/components/AddPost.qml:31
+#: ../qml/pages/DiasporaWebview.qml:177 ../qml/components/AddPost.qml:32
 msgid "Add Post"
 msgstr ""
 
@@ -90,7 +90,7 @@ msgstr ""
 msgid "Telegram"
 msgstr ""
 
-#: ../qml/pages/Information.qml:52
+#: ../qml/pages/Information.qml:53
 msgid "uDiaspora WebApp"
 msgstr ""
 
@@ -115,7 +115,7 @@ msgstr ""
 msgid "Uptime: %1%"
 msgstr ""
 
-#: ../qml/components/AddPost.qml:86
+#: ../qml/components/AddPost.qml:89
 msgid "Please log in"
 msgstr ""
 
@@ -157,6 +157,10 @@ msgstr ""
 
 #: ../qml/components/BottomEdgeControlsHeader.qml:98
 msgid "Change Pod"
+msgstr ""
+
+#: ../qml/components/dialogs/PromptDialog.qml:25
+msgid "Prompt Action"
 msgstr ""
 
 #: ../qml/components/dialogs/ConfirmDialog.qml:25

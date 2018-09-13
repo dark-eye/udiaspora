@@ -22,6 +22,7 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.3
 import Ubuntu.Web 0.2
+import "dialogs"
 
 Page {
 	id:_addPostPage
@@ -56,7 +57,7 @@ Page {
 			
 			incognito: settings.incognitoMode
 // 			context: settings.incognitoMode ? incognitoWebContext : appWebContext
-			
+
 			preferences.localStorageEnabled: true
 			preferences.appCacheEnabled: true
 			preferences.javascriptCanAccessClipboard: true
@@ -66,7 +67,9 @@ Page {
 			url: helperFunctions.getInstanceURL() + "/status_messages/new"
 			
 			filePicker: pickerComponent
-			
+			confirmDialog: ConfirmDialog {}
+			alertDialog: AlertDialog {}
+			promptDialog:PromptDialog {}
 			onLoadingStateChanged: if(!addPostWebView.loading) {
 				_addPostPage.resetURL();	
 			}
