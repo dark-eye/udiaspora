@@ -40,6 +40,7 @@ Page {
 			filePicker: pickerComponent
 			confirmDialog: ConfirmDialog {}
 			alertDialog: AlertDialog {}
+			promptDialog:PromptDialog {}
 			z: settings.incognitoMode ? -1 : 1
 			onLoadProgressChanged: {
 				progressBar.value = loadProgress
@@ -53,6 +54,7 @@ Page {
 			filePicker: pickerComponent
 			confirmDialog: ConfirmDialog {}
 			alertDialog: AlertDialog {}
+			promptDialog:PromptDialog {}
 			z: settings.incognitoMode ? 1 : -1
 			onLoadProgressChanged: {
 				progressBar.value = loadProgress

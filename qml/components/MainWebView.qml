@@ -34,7 +34,7 @@ WebView {
 	property bool lastError:false
 	
 	onLoadProgressChanged: {
-		visible = !(lastError && loadProgress == 100) && ( visible || loadProgress == 100 )
+		visible = !(lastError && loadProgress == 100) && ( visible || loadProgress > 95 )
 	}
 	onLoadEvent:{
 		lastError = event.isError
