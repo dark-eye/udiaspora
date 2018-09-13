@@ -42,6 +42,7 @@ Page {
 			layer.effect: UbuntuShapeOverlay {
 				relativeRadius: 0.5
 			}
+			layer.sourceRect : Qt.rect(2,2,width-4,height-4)
 		}
 		Label {
 			width: parent.width
