@@ -9,7 +9,7 @@ ListItem {
     property var text: ""
     property var country : ""
     property var uptime: ""
-    property var iconSource: "../../assets/logo.svg"
+    property var iconSource: "../../assets/diaspora-asterisk.png"
 	property var status: 0
 	property var rating: 0
 

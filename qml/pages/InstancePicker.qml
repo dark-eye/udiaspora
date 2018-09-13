@@ -140,7 +140,7 @@ Page {
                         "text": list[i].domain,
                         "country": list[i].country != null ? list[i].country : "",
                         "uptime": list[i].uptimelast7 != null ? list[i].uptimelast7 : "",
-                        "iconSource":  list[i].thumbnail != null ? list[i].thumbnail : "../../assets/logo.svg",
+                        "iconSource":  list[i].thumbnail != null ? list[i].thumbnail : "../../assets/diaspora-asterisk.png",
 						"status":  list[i].status != null ? list[i].status : 0,
 						"rating":  list[i].score != null ? list[i].score : 0
                     })
