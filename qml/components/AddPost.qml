@@ -53,8 +53,10 @@ Page {
 		WebView {
 			id: addPostWebView
 			anchors.fill:parent
-			visible:true
-			
+			visible:false
+			onLoadProgressChanged: {
+				visible = ( visible || loadProgress == 100 )
+			}
 			incognito: settings.incognitoMode
 // 			context: settings.incognitoMode ? incognitoWebContext : appWebContext
 
