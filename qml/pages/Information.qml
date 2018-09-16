@@ -2,7 +2,7 @@ import QtQuick 2.0
 import Ubuntu.Components 1.3
 
 Page {
-
+	id:_infoPage
 	header: PageHeader {
 		id:infoHeader
 		title: i18n.tr("About")
@@ -19,23 +19,23 @@ Page {
 		infoModel.append({ name: i18n.tr("GNU General Public License v3.0"), url: "https://github.com/dark-eye/udiaspora/blob/master/LICENSE",icon:"note" })
 		infoModel.append({ name: i18n.tr("Contributors"), url: "https://github.com/dark-eye/udiaspora/graphs/contributors" ,icon:"contact-group"})
 		infoModel.append({ name: i18n.tr("Based on uMastonauts webapp"), url: "https://github.com/ChristianPauly/uMastodon" ,icon:"info"})
-		infoModel.append({ name: i18n.tr("Donate"), url: "https://www.patreon.com/darkeyeos", icon:"like" })
+		infoModel.append({ name: i18n.tr("Donate"), url: "https://liberapay.com/darkeye/", icon:"like" })
 		infoModel.append({ name: i18n.tr("Telegram"), url: "https://t.me/uDiaspora", icon:"send" })
 	}
 
 	Column {
 		id: aboutCloumn
-		spacing:units.dp(2)
-		width:parent.width
-
-		Label { //An hack to add margin to the column top
-			width:parent.width
-			height:infoHeader.height *2
+		spacing:units.dp(1)
+		anchors {
+			top:infoHeader.bottom
+			topMargin:units.gu(1)
 		}
+		width:parent.width
+		
 
 		Image {
 			anchors.horizontalCenter: parent.horizontalCenter
-			height: Math.min(parent.width/2, parent.height/2)
+			height: Math.min(_infoPage.width/3, _infoPage.height/3)
 			width:height
 			source:"../../assets/logo.svg"
 			layer.enabled: true
@@ -46,7 +46,7 @@ Page {
 		}
 		Label {
 			width: parent.width
-			font.pixelSize: units.gu(5)
+			font.pixelSize: units.gu(3)
 			font.bold: true
 			color: theme.palette.normal.backgroundText
 			horizontalAlignment: Text.AlignHCenter
@@ -55,7 +55,7 @@ Page {
 
 	}
 
-	UbuntuListView {
+	ListView {
 		anchors {
 			top: aboutCloumn.bottom
 			bottom: parent.bottom
@@ -65,7 +65,8 @@ Page {
 		}
 
 		currentIndex: -1
-		interactive: false
+		interactive: true
+		 flickableDirection: Flickable.VerticalFlick
 
 		model :infoModel
 		delegate: ListItem {
