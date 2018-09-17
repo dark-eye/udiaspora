@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-13 14:19+0000\n"
+"POT-Creation-Date: 2018-09-16 11:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,23 +17,23 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/pages/DiasporaWebview.qml:102
+#: ../qml/pages/DiasporaWebview.qml:104
 msgid "Loading "
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:177 ../qml/components/AddPost.qml:32
+#: ../qml/pages/DiasporaWebview.qml:179 ../qml/components/AddPost.qml:32
 msgid "Add Post"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:182
+#: ../qml/pages/DiasporaWebview.qml:184
 msgid "Messages"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:187
+#: ../qml/pages/DiasporaWebview.qml:189
 msgid "Notifications"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:195
+#: ../qml/pages/DiasporaWebview.qml:197
 msgid "Stream"
 msgstr ""
 
@@ -115,7 +115,7 @@ msgstr ""
 msgid "Uptime: %1%"
 msgstr ""
 
-#: ../qml/components/AddPost.qml:89
+#: ../qml/components/AddPost.qml:91
 msgid "Please log in"
 msgstr ""
 
