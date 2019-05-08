@@ -25,7 +25,7 @@ Name=Install On Device
 Type=Native Application
 
 [Launch][Launch Configuration 0][Data]
-Arguments=--arch armhf clean build build-click install launch
+Arguments=--arch armhf
 Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x00)
 Dependency Action=Nothing
 EnvironmentGroup=
@@ -38,3 +38,6 @@ isExecutable=true
 
 [Project]
 VersionControlSupport=kdevgit
+
+[SourceFileTemplates]
+LastUsedTemplate=/home/eran/.local/share/kdevfiletemplates/template_descriptions/157516-qml_item.desktop
