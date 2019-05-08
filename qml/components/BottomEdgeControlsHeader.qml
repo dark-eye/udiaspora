@@ -75,7 +75,7 @@ PageHeader {
 						settings.openLinksExternally = checked;
 					}
 				},
-				Action {
+				/*Action {
 					text: checked ? i18n.tr("Incognito Mode") : i18n.tr("None Incognito")
 					iconName:checked ? "private-browsing" : "private-browsing-exit"
 					checkable:true
@@ -84,7 +84,7 @@ PageHeader {
 						settings.incognitoMode = checked;
 						webviewPage.currentView().reload();
 					}
-				},
+				},*/
 				Action {
 					text: checked ? i18n.tr("Show Bottom Controls") : i18n.tr("Hide Bottom Controls")
 					iconName:checked ? "select" : "select-undefined"

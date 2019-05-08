@@ -21,13 +21,15 @@
 
 import QtQuick 2.4
 import Ubuntu.Components 1.3
-import Ubuntu.Web 0.2
+import QtWebEngine 1.7
 import "dialogs"
 
 Page {
 	id:_addPostPage
 	property var filePickerComponent: null 
 	
+	anchors.fill:parent
+
 	header:BottomEdgeControlsHeader {
 		title: i18n.tr("Add Post")
 		z:10
@@ -37,45 +39,42 @@ Page {
 	Loader {
 		id:addPostWebViewLoader
 		anchors.fill:parent
-		z: settings.incognitoMode ? 2 : 1
 		active:webviewPage.isLoggedin()
 		sourceComponent: active ? addPostComponent : undefined;
-		onZChanged: {
-			addPostWebViewLoader.sourceComponent= undefined;
-			if(active) {
-				addPostWebViewLoader.sourceComponent = addPostComponent;
-			}
-		}
+// 		onZChanged: {
+// 			addPostWebViewLoader.sourceComponent= undefined;
+// 			if(active) {
+// 				addPostWebViewLoader.sourceComponent = addPostComponent;
+// 			}
+// 		}
 	}
 	
 	Component {
 		id:addPostComponent
-		WebView {
+		MainWebView {
 			id: addPostWebView
 			anchors.fill:parent
 			visible:false
 			onLoadProgressChanged: {
 				visible = ( visible || loadProgress == 100 )
 			}
-			incognito: settings.incognitoMode
-// 			context: settings.incognitoMode ? incognitoWebContext : appWebContext
 
-			preferences.localStorageEnabled: true
-			preferences.appCacheEnabled: true
-			preferences.javascriptCanAccessClipboard: true
-			preferences.allowFileAccessFromFileUrls: true
-			preferences.allowUniversalAccessFromFileUrls: true
-			
+// 			preferences.localStorageEnabled: true
+// 			preferences.appCacheEnabled: true
+// 			preferences.javascriptCanAccessClipboard: true
+// 			preferences.allowFileAccessFromFileUrls: true
+// 			preferences.allowUniversalAccessFromFileUrls: true
+
 			url: helperFunctions.getInstanceURL() + "/status_messages/new"
-			
+//
 			filePicker: pickerComponent
 			confirmDialog: ConfirmDialog {}
 			alertDialog: AlertDialog {}
 			promptDialog:PromptDialog {}
-			onLoadingStateChanged: if(!addPostWebView.loading) {
-				_addPostPage.resetURL();	
+			onLoadingChanged: if(!addPostWebView.loading) {
+				_addPostPage.resetURL();
 			}
-			
+
 		}
 	}
 	
@@ -83,20 +82,21 @@ Page {
 	
 	Rectangle {
 		anchors.fill:parent
-		z:0
-		
+		z: -1
+
 		color: theme.palette.normal.background
 		Label {
+			id:notLoggedInLbl
 			anchors.centerIn:parent
-			text:i18n.tr("Please log in")
-			visible: !webviewPage.isLoggedin();
-			
+			text: !webviewPage.isLoggedin() ? i18n.tr("Please log in") : i18n.tr('In incognito mode')
+			visible: !webviewPage.isLoggedin() || settings.incognitoMode;
+
 		}
 		ActivityIndicator {
 			id: addPostLoadingIndicator
 			width: units.gu(4)
 			anchors.centerIn:parent
-			running: webviewPage.isLoggedin() && ( addPostWebViewLoader.status != Loader.Ready || addPostWebViewLoader.item.loading)
+			running: webviewPage.isLoggedin() && (addPostWebViewLoader.item.loading)
 			visible: running
 		}
 	}

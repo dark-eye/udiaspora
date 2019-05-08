@@ -24,33 +24,49 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import QtGraphicalEffects 1.0
-import Ubuntu.Web 0.2
+import QtWebEngine 1.7
 
-WebView {
+WebEngineView {
 	id: webView
 	width: parent.width
 	height: parent.height
 	visible: false
-	property bool lastError:false
-	
+	property var lastStatus:WebEngineView.LoadFailedStatus
+	property var  preferences : {}
+	property bool fullscren: isFullScreen
+
+	zoomFactor:2.5
+
+	profile:  mainWebProfile
+
 	onLoadProgressChanged: {
-		visible = !(lastError && loadProgress == 100) && ( visible || loadProgress > 95 )
+		visible = /*(lastStatus == WebEngineLoadRequest.LoadSucceededStatus && loadProgress == 100) && */( visible || !loading )
 	}
-	onLoadEvent:{
-		lastError = event.isError
+
+	onLoadingChanged:{
+		lastStatus = loadRequest.status
 	}
-	
 	anchors.fill: parent
-	
-	preferences.localStorageEnabled: true
-	preferences.allowFileAccessFromFileUrls: true
-	preferences.allowUniversalAccessFromFileUrls: true
-	preferences.appCacheEnabled: true
-	preferences.javascriptCanAccessClipboard: true
-	preferences.shrinksStandaloneImagesToFit: true
-	fullscreen:true
-	
-	contextualActions: ActionList {
+
+	property var oldPropToNewMapping : {
+		"preferences" : {
+			"localStorageEnabled" : ["settings","localStorageEnabled"],
+			"allowFileAccessFromFileUrls" : ["settings","localContentCanAccessFileUrls"],
+			"allowUniversalAccessFromFileUrls" : ["settings","localContentCanAccessRemoteUrls"],
+			"appCacheEnabled" :false,
+			"javascriptCanAccessClipboard" : ["settings","javascriptCanAccessClipboard"],
+			"shrinksStandaloneImagesToFit" : false
+		}
+	}
+	onPreferencesChanged : {
+		for(var key in preferences ) {
+			if( propToSettMapping['preferences'][key] ) {
+				settings[propToSettMapping[key]] = preferences[key];
+			}
+		}
+	}
+
+	property var  contextualActions: ActionList {
 		Action {
 			id: linkAction
 			text: i18n.tr("Copy Link")
@@ -68,8 +84,37 @@ WebView {
 		Action {
 			text: i18n.tr("Open in browser")
 			enabled: webView.contextualData.href.toString()
-			onTriggered: linkAction.enabled ? Qt.openUrlExternally( webView.contextualData.href ) : Qt.openUrlExternally( webView.contextualData.img ) 
+			onTriggered: linkAction.enabled ? Qt.openUrlExternally( webView.contextualData.href ) : Qt.openUrlExternally( webView.contextualData.img )
 		}
+	}
+
+	property var filePicker: null
+	property var confirmDialog: null
+	property var alertDialog: null
+	property var promptDialog: null
+
+	onJavaScriptDialogRequested: {
+// 		switch(request.type)
+// 			case Qt.JavaScriptDialogRequest.DialogTypeAlert
+	}
+
+	onFileDialogRequested : if(filePicker) {
+			filePicker.show();
+	}
+
+	onContextualActionsChanged: {
+
+	}
+
+	onQuotaRequested:{
+		if(request.requestedSize < 2^24) {
+			request.accept();
+		} else  {
+			request.reject();
+		}
+
+		return request.requestedSize < 2^24;
+
 	}
 
 	// Open external URL's in the browser and not in the app

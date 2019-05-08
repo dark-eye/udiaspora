@@ -5,7 +5,8 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
 import QtGraphicalEffects 1.0
-import Ubuntu.Web 0.2
+import QtWebEngine 1.7
+
 import "../components"
 import "../components/dialogs"
 
@@ -35,45 +36,27 @@ Page {
 		MainWebView {
 			id:webView
 			url: helperFunctions.getInstanceURL()
-			context:appWebContext
-			incognito:false
 			filePicker: pickerComponent
 			confirmDialog: ConfirmDialog {}
 			alertDialog: AlertDialog {}
 			promptDialog:PromptDialog {}
-			z: settings.incognitoMode ? -1 : 1
 			onLoadProgressChanged: {
 				progressBar.value = loadProgress
 			}
 		}
-		MainWebView {
-			id:webViewIncogito
-			url: helperFunctions.getInstanceURL()
-			context:incognitoWebContext
-			incognito:true
-			filePicker: pickerComponent
-			confirmDialog: ConfirmDialog {}
-			alertDialog: AlertDialog {}
-			promptDialog:PromptDialog {}
-			z: settings.incognitoMode ? 1 : -1
-			onLoadProgressChanged: {
-				progressBar.value = loadProgress
-			}
-			
-		}
-		InnerShadow {
-			color: UbuntuColors.purple
-			radius: 15
-			samples: 5
-			anchors.fill:webViewIncogito
-			source:webViewIncogito
-			fast:true
-			horizontalOffset: 0
-			verticalOffset: -2
-			spread:0.6
-			visible:settings.incognitoMode
-			z:2
-		}
+// 		InnerShadow {
+// 			color: UbuntuColors.purple
+// 			radius: 15
+// 			samples: 5
+// 			anchors.fill:webViewIncogito
+// 			source:webViewIncogito
+// 			fast:true
+// 			horizontalOffset: 0
+// 			verticalOffset: -2
+// 			spread:0.6
+// 			visible:settings.incognitoMode
+// 			z:2
+// 		}
 	}
 
 
@@ -83,7 +66,8 @@ Page {
 		visible: !webviewPage.currentView().visible
 		color: theme.palette.normal.background
 		
-		property bool hasLoadError: ( progressBar.value == 100 && webviewPage.currentView().lastError )
+
+		property bool hasLoadError: ( progressBar.value == 100 && webviewPage.currentView().lastStatus == WebEngineLoadRequest.LoadFailedStatus )
 
 		onVisibleChanged: if(visible) {
 			reloadButton.visible = false;
@@ -150,8 +134,9 @@ Page {
 	}
 	
 	Rectangle {
-		color: theme.pallete.highlighted.selected
+		color: theme.pallete.highlighted.selectedText
 		anchors.bottom:instancBottomEdge.status !== BottomEdge.Committed ? bottomControls.top : instancBottomEdge.top
+		anchors.bottomMargin: 1
 		width: parent.width * webviewPage.currentView().loadProgress / 100
 		height: units.gu(0.1)
 		visible: webviewPage.currentView().visible && webviewPage.currentView().loading
@@ -159,7 +144,7 @@ Page {
 		layer.enabled: true
 		layer.effect:DropShadow {
 			 radius: 5
-			 color:theme.palette.highlighted.selectedText
+			 color:theme.palette.highlighted.selected
 		}
 	}
 

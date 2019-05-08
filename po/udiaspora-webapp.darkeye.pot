@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-16 11:28+0000\n"
+"POT-Creation-Date: 2019-05-08 08:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,23 +17,23 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/pages/DiasporaWebview.qml:104
+#: ../qml/pages/DiasporaWebview.qml:88
 msgid "Loading "
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:179 ../qml/components/AddPost.qml:32
+#: ../qml/pages/DiasporaWebview.qml:164 ../qml/components/AddPost.qml:34
 msgid "Add Post"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:184
+#: ../qml/pages/DiasporaWebview.qml:169
 msgid "Messages"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:189
+#: ../qml/pages/DiasporaWebview.qml:174
 msgid "Notifications"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:197
+#: ../qml/pages/DiasporaWebview.qml:182
 msgid "Stream"
 msgstr ""
 
@@ -94,15 +94,15 @@ msgstr ""
 msgid "uDiaspora WebApp"
 msgstr ""
 
-#: ../qml/components/MainWebView.qml:56
+#: ../qml/components/MainWebView.qml:72
 msgid "Copy Link"
 msgstr ""
 
-#: ../qml/components/MainWebView.qml:63
+#: ../qml/components/MainWebView.qml:79
 msgid "Copy Image"
 msgstr ""
 
-#: ../qml/components/MainWebView.qml:69
+#: ../qml/components/MainWebView.qml:85
 msgid "Open in browser"
 msgstr ""
 
@@ -117,6 +117,10 @@ msgstr ""
 
 #: ../qml/components/AddPost.qml:91
 msgid "Please log in"
+msgstr ""
+
+#: ../qml/components/AddPost.qml:91
+msgid "In incognito mode"
 msgstr ""
 
 #: ../qml/components/BottomEdgeControlsHeader.qml:45
@@ -137,14 +141,6 @@ msgstr ""
 
 #: ../qml/components/BottomEdgeControlsHeader.qml:70
 msgid "Links open internally"
-msgstr ""
-
-#: ../qml/components/BottomEdgeControlsHeader.qml:79
-msgid "Incognito Mode"
-msgstr ""
-
-#: ../qml/components/BottomEdgeControlsHeader.qml:79
-msgid "None Incognito"
 msgstr ""
 
 #: ../qml/components/BottomEdgeControlsHeader.qml:89

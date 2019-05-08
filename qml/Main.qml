@@ -2,7 +2,7 @@ import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Qt.labs.settings 1.0
-import Ubuntu.Web 0.2
+import QtWebEngine 1.7
 
 import "components"
 import "pages"
@@ -27,6 +27,12 @@ MainView {
         id: mainStack
     }
 
+    property var mainWebProfile: WebEngineProfile {
+		persistentCookiesPolicy: WebEngineProfile.ForcePersistentCookies
+		storageName:"udiaspora"
+        httpUserAgent: "Mozilla/5.0 (Ubports; CPU Ubuntu 16.04  like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Chrome/54.1"
+    }
+
     Settings {
         id: settings
         property var instance
@@ -34,15 +40,7 @@ MainView {
         property bool incognitoMode: false
         property bool hideBottomControls: false
     }
-    
-    WebContext {
-		id:appWebContext
-	}
-	
-	WebContext {
-		id:incognitoWebContext
-	}
-    
+
     QtObject {
 		id:helperFunctions
 		
@@ -53,7 +51,7 @@ MainView {
 
     Component.onCompleted: {
         if ( settings.instance ) {
-            mainStack.push(Qt.resolvedUrl("./pages/DiasporaWebview.qml"))
+           mainStack.push(Qt.resolvedUrl("./pages/DiasporaWebview.qml"))
         }
         else {
             mainStack.push(Qt.resolvedUrl("./pages/InstancePicker.qml"))
