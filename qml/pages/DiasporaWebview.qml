@@ -25,6 +25,8 @@ Page {
 		PickerDialog {}
 	}
 	
+
+
 	Item {
 		id:webContainer
 		anchors {
@@ -44,19 +46,19 @@ Page {
 				progressBar.value = loadProgress
 			}
 		}
-// 		InnerShadow {
-// 			color: UbuntuColors.purple
-// 			radius: 15
-// 			samples: 5
-// 			anchors.fill:webViewIncogito
-// 			source:webViewIncogito
-// 			fast:true
-// 			horizontalOffset: 0
-// 			verticalOffset: -2
-// 			spread:0.6
-// 			visible:settings.incognitoMode
-// 			z:2
-// 		}
+		InnerShadow {
+			color: theme.palette.normal.progress
+			radius: 10
+			samples: 30
+			anchors.fill:webView
+			source:webView
+			fast:true
+			horizontalOffset: 0
+			verticalOffset: -2
+			spread:0.5
+			visible:webView.loading
+			z:2
+		}
 	}
 
 
@@ -140,11 +142,16 @@ Page {
 		width: parent.width * webviewPage.currentView().loadProgress / 100
 		height: units.gu(0.1)
 		visible: webviewPage.currentView().visible && webviewPage.currentView().loading
-		z:2
+		z:3
 		layer.enabled: true
 		layer.effect:DropShadow {
-			 radius: 5
-			 color:theme.palette.highlighted.selected
+		radius: 10
+		samples: 30
+		fast:true
+		horizontalOffset: 0
+		verticalOffset: -2
+		spread:0.5
+			 color:theme.palette.highlighted.progress
 		}
 	}
 
@@ -190,7 +197,7 @@ Page {
 	BottomEdge {
 		id: instancBottomEdge
 		visible: webviewPage.currentView().visible  && webviewPage.isOnDiaspora()
-		height:units.gu(37)
+		height:units.gu(42)
 		hint.iconName: "go-up"
 		hint.visible:visible
 		preloadContent: false

@@ -43,7 +43,7 @@ MainView {
 
     QtObject {
 		id:helperFunctions
-		
+
 		function getInstanceURL() {
 			return settings.instance.indexOf("http") != -1 ? settings.instance : "https://" + settings.instance
 		}

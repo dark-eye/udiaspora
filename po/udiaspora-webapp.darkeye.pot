@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-08 08:12+0000\n"
+"POT-Creation-Date: 2019-06-25 13:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,23 +17,23 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/pages/DiasporaWebview.qml:88
+#: ../qml/pages/DiasporaWebview.qml:90
 msgid "Loading "
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:164 ../qml/components/AddPost.qml:34
+#: ../qml/pages/DiasporaWebview.qml:171 ../qml/components/AddPost.qml:34
 msgid "Add Post"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:169
+#: ../qml/pages/DiasporaWebview.qml:176
 msgid "Messages"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:174
+#: ../qml/pages/DiasporaWebview.qml:181
 msgid "Notifications"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:182
+#: ../qml/pages/DiasporaWebview.qml:189
 msgid "Stream"
 msgstr ""
 
@@ -94,15 +94,15 @@ msgstr ""
 msgid "uDiaspora WebApp"
 msgstr ""
 
-#: ../qml/components/MainWebView.qml:72
+#: ../qml/components/MainWebView.qml:73
 msgid "Copy Link"
 msgstr ""
 
-#: ../qml/components/MainWebView.qml:79
+#: ../qml/components/MainWebView.qml:80
 msgid "Copy Image"
 msgstr ""
 
-#: ../qml/components/MainWebView.qml:85
+#: ../qml/components/MainWebView.qml:86
 msgid "Open in browser"
 msgstr ""
 

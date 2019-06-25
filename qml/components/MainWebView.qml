@@ -40,11 +40,12 @@ WebEngineView {
 	profile:  mainWebProfile
 
 	onLoadProgressChanged: {
-		visible = /*(lastStatus == WebEngineLoadRequest.LoadSucceededStatus && loadProgress == 100) && */( visible || !loading )
+		visible |= !loading
 	}
 
 	onLoadingChanged:{
 		lastStatus = loadRequest.status
+		visible |= (lastStatus == WebEngineLoadRequest.LoadSucceededStatus && loadProgress == 100) && (  !loading )
 	}
 	anchors.fill: parent
 
@@ -88,22 +89,46 @@ WebEngineView {
 		}
 	}
 
+	property var contextualMenu: ActionSelectionPopover {
+
+	}
+
+	Component.onCompleted: {
+		contextualMenu.actions = contextualActions;
+	}
+
 	property var filePicker: null
 	property var confirmDialog: null
 	property var alertDialog: null
 	property var promptDialog: null
 
 	onJavaScriptDialogRequested: {
-// 		switch(request.type)
-// 			case Qt.JavaScriptDialogRequest.DialogTypeAlert
+//  		switch(request.type)
+//  			case Qt.JavaScriptDialogRequest.DialogTypeAlert
+// 				request.accept = true;
 	}
 
 	onFileDialogRequested : if(filePicker) {
-			filePicker.show();
+			request.accepted = true;
+			var fakeModel = {
+					allowMultipleFiles: request.mode == FileDialogRequest.FileModeOpenMultiple,
+					reject: function() {
+						request.dialogReject();
+					},
+					accept: function(files) {
+							request.dialogAccept(files);
+					}
+			};
+			var  pickerInstance = filePicker.createObject(webView,{model:fakeModel});
+	}
+
+	onContextMenuRequested: {
+		request.accepted = true;
+		contextualMenu.show();
 	}
 
 	onContextualActionsChanged: {
-
+		contextualMenu.actions = contextualActions;
 	}
 
 	onQuotaRequested:{

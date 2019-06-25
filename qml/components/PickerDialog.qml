@@ -7,6 +7,7 @@ PopupBase {
     id: picker
 
     property var activeTransfer
+    property var model: null;
 
     Rectangle {
         anchors.fill: parent
@@ -33,8 +34,8 @@ PopupBase {
             }
 
             onCancelPressed: {
-                model.reject()
-                webview.reload()
+                model.reject();
+				hide();
             }
         }
     }
@@ -48,12 +49,13 @@ PopupBase {
                 for(var i in picker.activeTransfer.items) {
                     selectedItems.push(String(picker.activeTransfer.items[i].url).replace("file://", ""))
                 }
-                model.accept(selectedItems)
+                model.accept(selectedItems);
+				hide();
             }
         }
     }
 
     Component.onCompleted: {
-        show()
+        show();
     }
 }
