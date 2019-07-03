@@ -45,20 +45,21 @@ Page {
 			onLoadProgressChanged: {
 				progressBar.value = loadProgress
 			}
+			settings.showScrollBars:false
 		}
-		InnerShadow {
-			color: theme.palette.normal.progress
-			radius: 10
-			samples: 30
-			anchors.fill:webView
-			source:webView
-			fast:true
-			horizontalOffset: 0
-			verticalOffset: -2
-			spread:0.5
-			visible:webView.loading
-			z:2
-		}
+// 		InnerShadow {
+// 			color: theme.palette.normal.progress
+// 			radius: 10
+// 			samples: 30
+// 			anchors.fill:webView
+// 			source:webView
+// 			fast:true
+// 			horizontalOffset: 0
+// 			verticalOffset: -2
+// 			spread:0.5
+// 			visible:webView.loading
+// 			z:2
+// 		}
 	}
 
 
@@ -197,7 +198,7 @@ Page {
 	BottomEdge {
 		id: instancBottomEdge
 		visible: webviewPage.currentView().visible  && webviewPage.isOnDiaspora()
-		height:units.gu(42)
+		height:units.gu(45)
 		hint.iconName: "go-up"
 		hint.visible:visible
 		preloadContent: false
