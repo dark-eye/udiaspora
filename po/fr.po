@@ -1,0 +1,167 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the udiaspora-webapp.darkeye package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: udiaspora-webapp.darkeye\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-03 06:47+0000\n"
+"PO-Revision-Date: 2019-07-21 12:04+0000\n"
+"Last-Translator: Anne017 <anneonyme017@openmailbox.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../qml/pages/DiasporaWebview.qml:91
+msgid "Loading "
+msgstr "Chargement "
+
+#: ../qml/pages/DiasporaWebview.qml:172 ../qml/components/AddPost.qml:34
+msgid "Add Post"
+msgstr "Ajouter un message"
+
+#: ../qml/pages/DiasporaWebview.qml:177
+msgid "Messages"
+msgstr "Messages"
+
+#: ../qml/pages/DiasporaWebview.qml:182
+msgid "Notifications"
+msgstr "Notifications"
+
+#: ../qml/pages/DiasporaWebview.qml:190
+msgid "Stream"
+msgstr "Flux"
+
+#: ../qml/pages/InstancePicker.qml:76
+msgid "Choose a Diaspora instance"
+msgstr "Choisissez un instance de Diaspora"
+
+#: ../qml/pages/InstancePicker.qml:84
+#: ../qml/components/BottomEdgeControlsHeader.qml:63
+msgid "Info"
+msgstr "Informations"
+
+#: ../qml/pages/InstancePicker.qml:116
+msgid "Search or enter a custom address"
+msgstr "Cherchez une adresse ou saisissez-en une personnalisée"
+
+#: ../qml/pages/InstancePicker.qml:156
+msgid "No pods fund for search : %1"
+msgstr "Aucun pod trouvé pour la recherche : %1"
+
+#: ../qml/pages/InstancePicker.qml:156
+msgid "No pods returned from server"
+msgstr "Aucun pod renvoyé du serveur"
+
+#: ../qml/pages/Information.qml:8
+msgid "About"
+msgstr "À propos"
+
+#: ../qml/pages/Information.qml:17
+msgid "Get the source"
+msgstr "Obtenir le code source"
+
+#: ../qml/pages/Information.qml:18
+msgid "Report issues"
+msgstr "Signaler un problème"
+
+#: ../qml/pages/Information.qml:19
+msgid "GNU General Public License v3.0"
+msgstr "Licence Publique Générale GNU v3.0"
+
+#: ../qml/pages/Information.qml:20
+msgid "Contributors"
+msgstr "Contributeurs/trices"
+
+#: ../qml/pages/Information.qml:21
+msgid "Based on uMastonauts webapp"
+msgstr "Basée sur l'application Web uMastonauts"
+
+#: ../qml/pages/Information.qml:22
+msgid "Donate"
+msgstr "Faire un don"
+
+#: ../qml/pages/Information.qml:23
+msgid "Telegram"
+msgstr "Telegram"
+
+#: ../qml/pages/Information.qml:53
+msgid "uDiaspora WebApp"
+msgstr "Application Web uMastonauts"
+
+#: ../qml/components/MainWebView.qml:73
+msgid "Copy Link"
+msgstr "Copier le lien"
+
+#: ../qml/components/MainWebView.qml:80
+msgid "Copy Image"
+msgstr "Copier l'image"
+
+#: ../qml/components/MainWebView.qml:86
+msgid "Open in browser"
+msgstr "Ouvrir dans le navigateur"
+
+#: ../qml/components/InstanceItem.qml:26
+msgid "Location: %1"
+msgstr "Emplacement : %1"
+
+#: ../qml/components/InstanceItem.qml:27
+#, javascript-format
+msgid "Uptime: %1%"
+msgstr "Disponibilité : %1%"
+
+#: ../qml/components/AddPost.qml:91
+msgid "Please log in"
+msgstr "Veuillez vous identifier"
+
+#: ../qml/components/AddPost.qml:91
+msgid "In incognito mode"
+msgstr "En mode incognito"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:45
+msgid "Go home"
+msgstr "Revenir à l'accueil"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:51
+msgid "Reload"
+msgstr "Actualiser"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:56
+msgid "Go Back"
+msgstr "Revenir"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:70
+msgid "Links open externally"
+msgstr "Liens ouverts en externe"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:70
+msgid "Links open internally"
+msgstr "Liens ouverts en interne"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:89
+msgid "Show Bottom Controls"
+msgstr "Afficher les contrôles en bas de l'écran"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:89
+msgid "Hide Bottom Controls"
+msgstr "Masquer les contrôles en bas de l'écran"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:98
+msgid "Change Pod"
+msgstr "Changer de pod"
+
+#: ../qml/components/dialogs/PromptDialog.qml:25
+msgid "Prompt Action"
+msgstr "Action rapide"
+
+#: ../qml/components/dialogs/ConfirmDialog.qml:25
+msgid "Confirm Action"
+msgstr "Confirmer l'action"
+
+#: udiaspora.desktop.in.h:1
+msgid "uDiaspora"
+msgstr "uDiaspora"
