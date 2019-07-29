@@ -2,6 +2,8 @@ import QtQuick 2.4
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 
+import "../components"
+
 Page {
     id: instancePickerPage
     anchors.fill: parent
@@ -18,35 +20,38 @@ Page {
 		onMessage:instanceList.writeInList (  messageObject.reply );
 	}
 
-    /* Load list of Mastodon Instances from https://instances.social
-    * The Response is in format:
-    * { id, name, added_at, updated_at, checked_at, uptime, up, dead, version,
-    * ipv6, https_score, https_rank, obs_score, obs_rank, users, statuses,
-    * connections, open_registrations, info { short_description, full_description,
-    *      topic, languages[], other_languages_accepted, federates_with,
-    *      prhobited_content[], categories[]}, thumbnail, active_users }
-    */
-    function getSample () {
-		if(searchRunning) { return; }
-		searchRunning = true;
-        var http = new XMLHttpRequest();
-        var data = "?" +
-        "format=json&" +
-        "key="+token;
-        http.open("GET", "https://podupti.me/api.php" + data, true);
-        http.setRequestHeader('Content-type', 'application/json; charset=utf-8')
-        http.onreadystatechange = function() {
+   CachedHttpRequest {
+		id:cachedRequest
+
+		url:"https://podupti.me/api.php"
+		getData: {
+			"format" : "json",
+			"key" : token,
+		}
+
+		onResponseDataUpdated : {
 			searchRunning = false;
-            if (http.readyState === XMLHttpRequest.DONE) {
-                var response = JSON.parse(http.responseText);
 				var pods = response.pods;
 				lastList = pods;
 				updateTime = Date.now();
 				asyncProcess.sendMessage( {searchTerm : customInstanceInput.displayText , inData : pods });
-            }
-        }
-        loading.running = true;
-        http.send();
+		}
+
+		onRequestError: {
+			console.log(errorResults)
+			instancePickerPage.errorOnRequest();
+		}
+
+		onRequestStarted: {
+			loading.running = true;
+			loadingError.visible = false;
+		}
+	}
+
+    function getSample () {
+		if(searchRunning) { return; }
+		searchRunning = true;
+       cachedRequest.send("getlist");
     }
 
 
@@ -55,7 +60,7 @@ Page {
 		var searchTerm = customInstanceInput.displayText;
 		//If  the  search starts with http(s) then go to the url 
 		if(searchTerm.indexOf("http") == 0 ) {
-			settings.instance = searchTerm
+			appSettings.instance = searchTerm
 			mainStack.push (Qt.resolvedUrl("./DiasporaWebview.qml"))
 			return
 		}

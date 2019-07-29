@@ -89,7 +89,7 @@ Page {
 			id:notLoggedInLbl
 			anchors.centerIn:parent
 			text: !webviewPage.isLoggedin() ? i18n.tr("Please log in") : i18n.tr('In incognito mode')
-			visible: !webviewPage.isLoggedin() || settings.incognitoMode;
+			visible: !webviewPage.isLoggedin() || appSettings.incognitoMode;
 
 		}
 		ActivityIndicator {

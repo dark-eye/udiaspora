@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-03 06:47+0000\n"
+"POT-Creation-Date: 2019-07-25 14:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,44 +17,40 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../qml/pages/DiasporaWebview.qml:91
-msgid "Loading "
-msgstr ""
-
-#: ../qml/pages/DiasporaWebview.qml:172 ../qml/components/AddPost.qml:34
+#: ../qml/pages/DiasporaWebview.qml:128 ../qml/components/AddPost.qml:34
 msgid "Add Post"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:177
+#: ../qml/pages/DiasporaWebview.qml:133
 msgid "Messages"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:182
+#: ../qml/pages/DiasporaWebview.qml:138
 msgid "Notifications"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:190
+#: ../qml/pages/DiasporaWebview.qml:146
 msgid "Stream"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:76
+#: ../qml/pages/InstancePicker.qml:81
 msgid "Choose a Diaspora instance"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:84
+#: ../qml/pages/InstancePicker.qml:89
 #: ../qml/components/BottomEdgeControlsHeader.qml:63
 msgid "Info"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:116
+#: ../qml/pages/InstancePicker.qml:121
 msgid "Search or enter a custom address"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:156
+#: ../qml/pages/InstancePicker.qml:161
 msgid "No pods fund for search : %1"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:156
+#: ../qml/pages/InstancePicker.qml:161
 msgid "No pods returned from server"
 msgstr ""
 
@@ -94,15 +90,19 @@ msgstr ""
 msgid "uDiaspora WebApp"
 msgstr ""
 
-#: ../qml/components/MainWebView.qml:73
+#: ../qml/pages/LoadingPage.qml:53
+msgid "Loading "
+msgstr ""
+
+#: ../qml/components/MainWebView.qml:75
 msgid "Copy Link"
 msgstr ""
 
-#: ../qml/components/MainWebView.qml:80
+#: ../qml/components/MainWebView.qml:82
 msgid "Copy Image"
 msgstr ""
 
-#: ../qml/components/MainWebView.qml:86
+#: ../qml/components/MainWebView.qml:88
 msgid "Open in browser"
 msgstr ""
 

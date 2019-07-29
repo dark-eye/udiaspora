@@ -16,7 +16,7 @@ ListItem {
     height: layout.height
 
     onClicked: {
-        settings.instance = text
+        appSettings.instance = text
         mainStack.push (Qt.resolvedUrl("../pages/DiasporaWebview.qml"))
     }
 

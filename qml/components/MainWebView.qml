@@ -31,21 +31,23 @@ WebEngineView {
 	width: parent.width
 	height: parent.height
 	visible: false
-	property var lastStatus:WebEngineView.LoadFailedStatus
+	property var lastStatus:WebEngineView.LoadSucceededStatus
+	property var isLoaded: false
 	property var  preferences : {}
 	property bool fullscren: isFullScreen
 
-	zoomFactor:2.5
+	zoomFactor: units.gu(1) / 8
 
 	profile:  mainWebProfile
 
 	onLoadProgressChanged: {
-		visible |= !loading
+		//visible |= !loading
 	}
 
 	onLoadingChanged:{
 		lastStatus = loadRequest.status
 		visible |= (lastStatus == WebEngineLoadRequest.LoadSucceededStatus && loadProgress == 100) && (  !loading )
+		isLoaded |= !loading
 	}
 	anchors.fill: parent
 
@@ -142,16 +144,6 @@ WebEngineView {
 
 	}
 
-	// Open external URL's in the browser and not in the app
-	onNavigationRequested: {
-		console.log ( request.url, ("" + request.url).indexOf ( settings.instance ) !== -1 )
-		if ( ("" + request.url).indexOf ( settings.instance ) !== -1 || !settings.openLinksExternally ) {
-			request.action = 0
-		} else {
-			request.action = 1
-			Qt.openUrlExternally( request.url )
-		}
-	}
 
 	function goHome() {
 		webView.url = helperFunctions.getInstanceURL();
