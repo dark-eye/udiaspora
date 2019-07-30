@@ -3,7 +3,7 @@ WorkerScript.onMessage =  function(message) {
 	var list = message.inData;
 	var retList = [];
 	for(var i in list) {
-		if(message.searchTerm == "" || list[i].domain && list[i].domain.match(new RegExp(message.searchTerm))) {
+		if(message.searchTerm == "" || list[i].domain && list[i].domain.match(new RegExp(message.searchTerm,'i'))) {
 			retList.push(list[i]);
 		}
 	}
