@@ -47,6 +47,10 @@ Page {
 			}
 			settings.showScrollBars:false
 
+			onLoadingChanged: if(!loading && webviewPage.isOnMainSite()) {
+				zoomFactor = units.gu(1) / 8
+			}
+
 			// Open external URL's in the browser and not in the app
 			onNavigationRequested: {
 // 				for(var i in request) {
