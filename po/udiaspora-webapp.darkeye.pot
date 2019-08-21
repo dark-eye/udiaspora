@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-14 07:03+0000\n"
+"POT-Creation-Date: 2019-08-21 12:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,15 +42,19 @@ msgstr ""
 msgid "Info"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:121
+#: ../qml/pages/InstancePicker.qml:119
+msgid "Error loading instances nodes"
+msgstr ""
+
+#: ../qml/pages/InstancePicker.qml:130
 msgid "Search or enter a custom address"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:161
+#: ../qml/pages/InstancePicker.qml:175
 msgid "No pods fund for search : %1"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:161
+#: ../qml/pages/InstancePicker.qml:175
 msgid "No pods returned from server"
 msgstr ""
 

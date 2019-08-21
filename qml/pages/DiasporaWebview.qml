@@ -47,7 +47,7 @@ Page {
 			}
 			settings.showScrollBars:false
 
-			onLoadingChanged: if(!loading && webviewPage.isOnMainSite()) {
+			onLoadingChanged: if(!loading && webviewPage.isOnDiaspora()) {
 				zoomFactor = units.gu(1) / 8
 			}
 

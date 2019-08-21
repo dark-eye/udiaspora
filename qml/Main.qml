@@ -45,7 +45,7 @@ MainView {
 		id:helperFunctions
 
 		function getInstanceURL() {
-			return appSettings.instance.indexOf("http") != -1 ? appSettings.instance : "https://" + appSettings.instance
+			return appSettings.instance ? (appSettings.instance.indexOf("http") != -1 ? appSettings.instance : "https://" + appSettings.instance) : "";
 		}
 	}
 
