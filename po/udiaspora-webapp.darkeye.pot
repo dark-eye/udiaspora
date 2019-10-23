@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-21 12:04+0000\n"
+"POT-Creation-Date: 2019-10-22 13:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,28 +33,28 @@ msgstr ""
 msgid "Stream"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:81
+#: ../qml/pages/InstancePicker.qml:82 ../qml/pages/ProfilePicker.qml:18
 msgid "Choose a Diaspora instance"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:89
+#: ../qml/pages/InstancePicker.qml:90
 #: ../qml/components/BottomEdgeControlsHeader.qml:63
 msgid "Info"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:119
+#: ../qml/pages/InstancePicker.qml:120
 msgid "Error loading instances nodes"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:130
+#: ../qml/pages/InstancePicker.qml:131
 msgid "Search or enter a custom address"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:175
+#: ../qml/pages/InstancePicker.qml:184
 msgid "No pods fund for search : %1"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:175
+#: ../qml/pages/InstancePicker.qml:184
 msgid "No pods returned from server"
 msgstr ""
 
@@ -94,6 +94,18 @@ msgstr ""
 msgid "uDiaspora WebApp"
 msgstr ""
 
+#: ../qml/pages/ProfilePicker.qml:45
+msgid "Enter a new for the new profile"
+msgstr ""
+
+#: ../qml/pages/ProfilePicker.qml:76
+msgid "Delete"
+msgstr ""
+
+#: ../qml/pages/ProfilePicker.qml:98
+msgid "No profile set yet"
+msgstr ""
+
 #: ../qml/pages/LoadingPage.qml:53
 msgid "Loading "
 msgstr ""
@@ -110,13 +122,8 @@ msgstr ""
 msgid "Open in browser"
 msgstr ""
 
-#: ../qml/components/InstanceItem.qml:26
+#: ../qml/components/InstanceItem.qml:22
 msgid "Location: %1"
-msgstr ""
-
-#: ../qml/components/InstanceItem.qml:27
-#, javascript-format
-msgid "Uptime: %1%"
 msgstr ""
 
 #: ../qml/components/AddPost.qml:91
@@ -147,16 +154,20 @@ msgstr ""
 msgid "Links open internally"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:89
+#: ../qml/components/BottomEdgeControlsHeader.qml:92
 msgid "Show Bottom Controls"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:89
+#: ../qml/components/BottomEdgeControlsHeader.qml:92
 msgid "Hide Bottom Controls"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:98
+#: ../qml/components/BottomEdgeControlsHeader.qml:101
 msgid "Change Pod"
+msgstr ""
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:110
+msgid "Change Profile"
 msgstr ""
 
 #: ../qml/components/dialogs/PromptDialog.qml:25

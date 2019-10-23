@@ -7,6 +7,7 @@ ListItem {
     id: task
 
     property var text: ""
+	property var host : ""
     property var country : ""
     property var uptime: ""
     property var iconSource: "../../assets/diaspora-asterisk.png"
@@ -15,16 +16,11 @@ ListItem {
 
     height: layout.height
 
-    onClicked: {
-        appSettings.instance = text
-        mainStack.push (Qt.resolvedUrl("../pages/DiasporaWebview.qml"))
-    }
-
     ListItemLayout {
         id: layout
         title.text: text
-        subtitle.text: i18n.tr("Location: %1").arg(country)
-        summary.text: i18n.tr("Uptime: %1%").arg(uptime)
+        subtitle.text: country ? i18n.tr("Location: %1").arg(country) : ""
+        summary.text: host ? host : ""
         Image {
             id: icon
             source: iconSource

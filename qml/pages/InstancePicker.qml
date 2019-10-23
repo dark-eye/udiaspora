@@ -23,15 +23,16 @@ Page {
 	CachedHttpRequest {
 		id:cachedRequest
 
-		url:"https://podupti.me/api.php"
+		url:"https://the-federation.info/graphql"
 		getData: {
-			"format" : "json",
-			"key" : token,
+			"operationName" : "Platform",
+			"variables" : '{"name":"diaspora"}',
+			"query" : "query Platform($name: String!) {  platforms(name: $name) {    name    code    displayName    description    tagline    website    icon    __typename  }  nodes(platform: $name) {    id    name    version    openSignups    host    platform {      name      icon      __typename    }    countryCode    countryFlag    countryName    services {      name      __typename    }    __typename  }  statsGlobalToday(platform: $name) {    usersTotal    usersHalfYear    usersMonthly    localPosts    localComments    __typename  }  statsNodes(platform: $name) {    node {      id      __typename    }    usersTotal    usersHalfYear    usersMonthly    localPosts    localComments    __typename  }}"
 		}
 
 		onResponseDataUpdated : {
 			searchRunning = false;
-			var pods = response.pods;
+			var pods = response.data.nodes;
 			lastList = pods;
 			updateTime = Date.now();
 			asyncProcess.sendMessage( {searchTerm : customInstanceInput.displayText , inData : pods });
@@ -135,17 +136,24 @@ Page {
 	ListView {
 		id: instanceList
 		width: parent.width
-		height: parent.height - header.height - 3*customInstanceInput.height
+		anchors.bottom:parent.bottom
 		anchors.top: customInstanceInput.bottom
 		anchors.topMargin: customInstanceInput.height
+		clip:true
 		model: []
 		delegate: InstanceItem {
 			text:modelData.text
+			host:modelData.host
 			country:modelData.country
 			uptime: modelData.uptime
 			iconSource: modelData.iconSource
 			status: modelData.status
 			rating: modelData.rating
+
+			onClicked: {
+				appSettings.instance = host
+				mainStack.push (Qt.resolvedUrl("../pages/DiasporaWebview.qml"))
+			}
 		}
 		// Write a list of instances to the ListView
 		function writeInList ( list ) {
@@ -155,8 +163,9 @@ Page {
 			for ( var i = 0; i < list.length; i++ ) {
 				newModel.push(
 				 {
-					"text": list[i].domain,
-					"country": list[i].country != null ? list[i].country : "",
+					"text": list[i].name,
+					"host" :list[i].host,
+					"country": list[i].countryName != null ? list[i].countryName : "",
 					"uptime": list[i].uptimelast7 != null ? list[i].uptimelast7 : "",
 					"iconSource":  list[i].thumbnail != null ? list[i].thumbnail : "../../assets/diaspora-asterisk.png",
 					"status":  list[i].status != null ? list[i].status : 0,
@@ -170,7 +179,7 @@ Page {
 
 	Label {
 		id:noResultsLabel
-		visible: !instanceList.children.length && !loading.visible
+		visible: !instanceList.model.length && !loading.visible
 		anchors.centerIn: instanceList;
 		text:customInstanceInput.length ? i18n.tr("No pods fund for search : %1").arg(customInstanceInput.displayText) :  i18n.tr("No pods returned from server");
 	}

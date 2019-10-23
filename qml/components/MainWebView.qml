@@ -38,7 +38,7 @@ WebEngineView {
 
 	zoomFactor: units.gu(1) / 8
 
-	profile:  mainWebProfile
+	profile:  currentWebProfile
 
 	onLoadProgressChanged: {
 		//visible |= !loading
@@ -144,6 +144,9 @@ WebEngineView {
 
 	}
 
+	onFullScreenRequested: function(request) {
+		request.accept()
+	}
 
 	function goHome() {
 		webView.url = helperFunctions.getInstanceURL();
