@@ -79,12 +79,9 @@ MainView {
 		}
 
 		function removeWebProfile(name) {
-				delete(root.proflieInstances[name]);
-				console.log("deleted : "+ name);
-				console.log(root.proflieInstances[name]);
-				appSettings.profiles =  Object.getOwnPropertyNames(root.proflieInstances);
-				console.log(appSettings.profiles);
-				console.log(appSettings.profiles.indexOf(name));
+			delete(root.proflieInstances[name]);
+			appSettings.profiles =  Object.getOwnPropertyNames(root.proflieInstances);
+			console.log("Profile deleted : "+ name);
 		}
 
 		function changeWebProfile(name) {
