@@ -42,7 +42,7 @@ Page {
 		anchors.horizontalCenter: parent.horizontalCenter
 		anchors.topMargin: height
 		width: parent.width - height
-		placeholderText: i18n.tr("Enter a new for the new profile")
+		placeholderText: i18n.tr("Enter a name for the new profile")
 		Keys.onReturnPressed:  setProfile(newInstanceInput.displayText)
 	}
 
@@ -97,6 +97,14 @@ Page {
 		anchors.centerIn: profileList;
 		text:i18n.tr("No profile set yet");
 		z:1
+	}
+
+	Label {
+		anchors.bottom: parent.bottom
+		anchors.horizontalCenter: parent.horizontalCenter
+		text: i18n.tr("For now deleting a profile won't delete it`s disk data.")
+		color:theme.palette.normal.negative
+		font.pixelSize:units.gu(1.5)
 	}
 
 	//============================================ Functions ====================================

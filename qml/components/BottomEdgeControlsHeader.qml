@@ -75,19 +75,6 @@ PageHeader {
 						appSettings.openLinksExternally = checked;
 					}
 				},
-// 				Action {
-// 					text:  checked ? i18n.tr("Incognito Mode") : i18n.tr("Not Incognito")
-// 					iconName: checked ? "private-browsing" : "private-browsing-exit"
-// 					checkable:true
-// 					checked: root.currentWebProfile.isOffTheRecord();
-// 					onToggled:{
-// 						if(!root.currentWebProfile.isOffTheRecord()) {
-// 							helperFunctions.changeWebProfile('');
-// 						} else {
-// 							helperFunctions.changeWebProfile(appSettings.profileName);
-// 						}
-// 					}
-// 				},
 				Action {
 					text: checked ? i18n.tr("Show Bottom Controls") : i18n.tr("Hide Bottom Controls")
 					iconName:checked ? "select" : "select-undefined"
@@ -107,12 +94,22 @@ PageHeader {
 					}	
 				},
 				Action {
+					text:  checked ? i18n.tr("Off the Record") : i18n.tr("On the record")
+					iconName: checked ? "private-browsing" : "private-browsing-exit"
+					checkable:true
+					checked: root.currentWebProfile.offTheRecord;
+					onToggled:{
+						root.currentWebProfile.offTheRecord = !root.currentWebProfile.offTheRecord;
+					}
+				},
+				Action {
 					text:i18n.tr("Change Profile")
 					iconName:"stock_contact"
 					onTriggered: {
 						mainStack.push (Qt.resolvedUrl("../pages/ProfilePicker.qml"),{model :appSettings.profiles})
 					}
 				}
+
 			]
 		}
 	}

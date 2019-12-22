@@ -89,6 +89,16 @@ Page {
 		onReloadButtonPressed: webviewPage.currentView().reload();
 	}
 
+	 InnerShadow {
+		id:offTheRecordHint
+		visible:root.currentWebProfile.offTheRecord
+        anchors.fill: webContainer
+        radius: 16
+        samples: 8
+        verticalOffset: -3
+        color: "purple"
+        source: webContainer
+    }
 
 	ProgressBar {
 			id: _bottomProgressBar
@@ -142,6 +152,12 @@ Page {
 					text:i18n.tr("Notifications")
 					iconName:"notification"
 					onTriggered:webviewPage.currentView().url = helperFunctions.getInstanceURL() +"/notifications";
+				},
+				Action {
+					text:i18n.tr("Search")
+					iconName:"search"
+					onTriggered:webviewPage.currentView().url = helperFunctions.getInstanceURL() +"/people";
+
 				},
 				Action {
 					enabled:false
