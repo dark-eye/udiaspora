@@ -39,7 +39,7 @@ MainView {
 			 "udiaspora"
 		]
         property bool openLinksExternally: false
-        property bool incognitoMode: false
+        property bool incognitoMode: root.currentWebProfile.offTheRecord
         property bool hideBottomControls: false
     }
 

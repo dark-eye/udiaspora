@@ -96,7 +96,7 @@ Page {
         radius: 16
         samples: 8
         verticalOffset: -3
-        color: "purple"
+        color: UbuntuColors.purple
         source: webContainer
     }
 
@@ -192,7 +192,7 @@ Page {
 	
 	//========================== Functions =======================
 	function currentView() {
-		return  appSettings.incognitoMode ? webViewIncogito : webView;
+		return  webView;
 	}
 	
 	function  isOnDiaspora() {

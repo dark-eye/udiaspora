@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-22 12:47+0000\n"
+"POT-Creation-Date: 2019-12-25 08:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -136,10 +136,6 @@ msgstr ""
 
 #: ../qml/components/AddPost.qml:91
 msgid "Please log in"
-msgstr ""
-
-#: ../qml/components/AddPost.qml:91
-msgid "In incognito mode"
 msgstr ""
 
 #: ../qml/components/BottomEdgeControlsHeader.qml:45
