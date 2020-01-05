@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-12-25 08:50+0000\n"
+"POT-Creation-Date: 2020-01-05 10:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -171,11 +171,11 @@ msgid "Change Pod"
 msgstr ""
 
 #: ../qml/components/BottomEdgeControlsHeader.qml:97
-msgid "Off the Record"
+msgid "Go on Record"
 msgstr ""
 
 #: ../qml/components/BottomEdgeControlsHeader.qml:97
-msgid "On the record"
+msgid "Go off record"
 msgstr ""
 
 #: ../qml/components/BottomEdgeControlsHeader.qml:106

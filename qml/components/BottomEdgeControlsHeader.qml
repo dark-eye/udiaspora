@@ -94,12 +94,12 @@ PageHeader {
 					}	
 				},
 				Action {
-					text:  checked ? i18n.tr("Off the Record") : i18n.tr("On the record")
-					iconName: checked ? "private-browsing" : "private-browsing-exit"
+					text:  checked ? i18n.tr("Go on Record") : i18n.tr("Go off record")
+					iconName: checked ? "private-browsing-exit" : "private-browsing"
 					checkable:true
 					checked: root.currentWebProfile.offTheRecord;
 					onToggled:{
-						root.currentWebProfile.offTheRecord = !root.currentWebProfile.offTheRecord;
+						root.currentWebProfile.offTheRecord = checked;
 					}
 				},
 				Action {
