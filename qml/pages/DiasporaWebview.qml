@@ -93,9 +93,9 @@ Page {
 		id:offTheRecordHint
 		visible:root.currentWebProfile.offTheRecord
         anchors.fill: webContainer
-        radius: 16
-        samples: 8
-        verticalOffset: -3
+        radius: units.gu(1)
+		samples:12
+        verticalOffset: -units.gu(0.5)
         color: UbuntuColors.purple
         source: webContainer
     }
@@ -120,7 +120,7 @@ Page {
 			}
 			layer.enabled: true
 			layer.effect:DropShadow {
-				radius: 7
+				radius: units.gu(0.5)
 				transparentBorder:true
 				color:theme.palette.highlighted.selected
 			}
