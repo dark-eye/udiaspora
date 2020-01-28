@@ -100,6 +100,7 @@ PageHeader {
 					checked: root.currentWebProfile.offTheRecord;
 					onToggled:{
 						root.currentWebProfile.offTheRecord = checked;
+						webviewPage.currentView().reload()
 					}
 				},
 				Action {
