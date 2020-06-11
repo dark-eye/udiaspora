@@ -54,7 +54,7 @@ Page {
 		anchors.topMargin: units.gu(2)
 		anchors.bottom:parent.bottom
 		clip:true
-		delegate: InstanceItem {
+		delegate: ProfileItem {
 			id:profileItem
 			text:modelData
 			status: root.currentWebProfile && root.currentWebProfile.storageName == modelData
