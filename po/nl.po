@@ -1,0 +1,173 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the udiaspora-webapp.darkeye package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: udiaspora-webapp.darkeye\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-08-21 12:04+0000\n"
+"PO-Revision-Date: 2020-07-17 18:21+0200\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.3.1\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: nl\n"
+
+#: ../qml/pages/DiasporaWebview.qml:132 ../qml/components/AddPost.qml:34
+msgid "Add Post"
+msgstr "Bericht opstellen"
+
+#: ../qml/pages/DiasporaWebview.qml:137
+msgid "Messages"
+msgstr "Berichten"
+
+#: ../qml/pages/DiasporaWebview.qml:142
+msgid "Notifications"
+msgstr "Meldingen"
+
+#: ../qml/pages/DiasporaWebview.qml:150
+msgid "Stream"
+msgstr "Stream"
+
+#: ../qml/pages/InstancePicker.qml:81
+msgid "Choose a Diaspora instance"
+msgstr "Kies een Diaspora-instantie"
+
+#: ../qml/pages/InstancePicker.qml:89
+#: ../qml/components/BottomEdgeControlsHeader.qml:63
+msgid "Info"
+msgstr "Informatie"
+
+#: ../qml/pages/InstancePicker.qml:119
+msgid "Error loading instances nodes"
+msgstr "Fout tijdens laden van instantienodes"
+
+#: ../qml/pages/InstancePicker.qml:130
+msgid "Search or enter a custom address"
+msgstr "Zoek of voer een adres in"
+
+#: ../qml/pages/InstancePicker.qml:175
+msgid "No pods fund for search : %1"
+msgstr "Geen pods gevonden met zoekopdracht \"%1\""
+
+#: ../qml/pages/InstancePicker.qml:175
+msgid "No pods returned from server"
+msgstr "Geen pods gevonden op server"
+
+#: ../qml/pages/Information.qml:8
+msgid "About"
+msgstr "Over"
+
+#: ../qml/pages/Information.qml:17
+msgid "Get the source"
+msgstr "Broncode bekijken"
+
+#: ../qml/pages/Information.qml:18
+msgid "Report issues"
+msgstr "Problemen melden"
+
+#: ../qml/pages/Information.qml:19
+msgid "GNU General Public License v3.0"
+msgstr "GNU General Public License v3"
+
+#: ../qml/pages/Information.qml:20
+msgid "Contributors"
+msgstr "Bijdragers"
+
+#: ../qml/pages/Information.qml:21
+msgid "Based on uMastonauts webapp"
+msgstr "Gebaseerd op uMastonauts webapp"
+
+#: ../qml/pages/Information.qml:22
+msgid "Donate"
+msgstr "Doneren"
+
+#: ../qml/pages/Information.qml:23
+msgid "Telegram"
+msgstr "Telegram"
+
+#: ../qml/pages/Information.qml:53
+msgid "uDiaspora WebApp"
+msgstr "uDiaspora-webapp"
+
+#: ../qml/pages/LoadingPage.qml:53
+msgid "Loading "
+msgstr "Bezig met laden "
+
+#: ../qml/components/MainWebView.qml:75
+msgid "Copy Link"
+msgstr "Link kopiëren"
+
+#: ../qml/components/MainWebView.qml:82
+msgid "Copy Image"
+msgstr "Afbeelding kopiëren"
+
+#: ../qml/components/MainWebView.qml:88
+msgid "Open in browser"
+msgstr "Openen in webbrowser"
+
+#: ../qml/components/InstanceItem.qml:26
+msgid "Location: %1"
+msgstr "Locatie: %1"
+
+#: ../qml/components/InstanceItem.qml:27
+#, javascript-format
+msgid "Uptime: %1%"
+msgstr "Uptime: %1%"
+
+#: ../qml/components/AddPost.qml:91
+msgid "Please log in"
+msgstr "Log in"
+
+#: ../qml/components/AddPost.qml:91
+msgid "In incognito mode"
+msgstr "In incognitomodus"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:45
+msgid "Go home"
+msgstr "Startpagina"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:51
+msgid "Reload"
+msgstr "Herladen"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:56
+msgid "Go Back"
+msgstr "Ga terug"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:70
+msgid "Links open externally"
+msgstr "Links extern openen"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:70
+msgid "Links open internally"
+msgstr "Links intern openen"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:89
+msgid "Show Bottom Controls"
+msgstr "Werkbalk tonen"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:89
+msgid "Hide Bottom Controls"
+msgstr "Werkbalk verbergen"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:98
+msgid "Change Pod"
+msgstr "Andere pod kiezen"
+
+#: ../qml/components/dialogs/PromptDialog.qml:25
+msgid "Prompt Action"
+msgstr "Kies een actie"
+
+#: ../qml/components/dialogs/ConfirmDialog.qml:25
+msgid "Confirm Action"
+msgstr "Actie bevestigen"
+
+#: udiaspora.desktop.in.h:1
+msgid "uDiaspora"
+msgstr "uDiaspora"
