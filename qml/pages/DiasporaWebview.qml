@@ -15,6 +15,12 @@ Page {
 	width: parent.width
 	height: parent.height
 
+	property bool mobileView:true
+
+	onMobileViewChanged : {
+		webView
+	}
+
 	header:Item {
 		height: 0
 		visible: false
@@ -25,6 +31,13 @@ Page {
 		PickerDialog {}
 	}
 	
+	states:[
+		State {
+			name:"changeToDesktopView"
+			when: webviewPage.width > units.gu(75)
+			on
+	}
+	]
 
 
 	Item {
@@ -82,7 +95,7 @@ Page {
 
 		hasLoadError:  ( typeof(webviewPage.currentView()) !== 'undefined' && !webviewPage.currentView().loading && webviewPage.currentView().lastStatus == WebEngineView.LoadFailedStatus )
 
-		visible: opacity != 0
+		visible: opacity > 0
 		opacity: !webviewPage.currentView().isLoaded ? 1 : 0
 		Behavior on opacity { NumberAnimation { duration:UbuntuAnimation.BriskDuration} }
 

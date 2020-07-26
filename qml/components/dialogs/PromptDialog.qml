@@ -23,12 +23,14 @@ import Ubuntu.Components.Popups 1.3 as Popups
 Popups.Dialog {
 	id: _dialog
 	title: i18n.tr("Prompt Action")
-	text:model.message
+	property var model: null;
+
+	text:model ? model.message :"";
 	
 	TextField {
 		id: input
 		objectName: "inputTextField"
-		text: model.defaultValue
+		text: model ? model.defaultValue : "";
 		onAccepted: model.accept(input.text)
 	}
 	
@@ -48,6 +50,7 @@ Popups.Dialog {
 	Component.onCompleted: show()
 	
 	Binding {
+		when: model
 		target: model
 		property: "currentValue"
 		value: input.text

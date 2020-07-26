@@ -22,7 +22,10 @@ import Ubuntu.Components.Popups 1.3 as Popups
 
 Popups.Dialog {
 	id: _dialog
-	text:model.message
+
+	property var model: null;
+
+	text:model ? model.message : "";
 	
 	Button {
 		text: "Ok"

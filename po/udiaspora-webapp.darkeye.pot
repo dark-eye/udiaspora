@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-28 09:37+0000\n"
+"POT-Creation-Date: 2020-07-26 14:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -106,16 +106,22 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: ../qml/pages/ProfilePicker.qml:98
+#: ../qml/pages/ProfilePicker.qml:99
 msgid "No profile set yet"
 msgstr ""
 
-#: ../qml/pages/ProfilePicker.qml:105
-msgid "For now deleting a profile won't delete it`s disk data."
+#: ../qml/pages/ProfilePicker.qml:106
+msgid ""
+"For now deleting a profile won't delete it`s disk data. You can use 'Off The "
+"Record' To prevent saving data to the disk."
 msgstr ""
 
 #: ../qml/pages/LoadingPage.qml:53
 msgid "Loading "
+msgstr ""
+
+#: ../qml/components/ProfileItem.qml:18 ../qml/components/InstanceItem.qml:22
+msgid "Location: %1"
 msgstr ""
 
 #: ../qml/components/MainWebView.qml:75
@@ -128,10 +134,6 @@ msgstr ""
 
 #: ../qml/components/MainWebView.qml:88
 msgid "Open in browser"
-msgstr ""
-
-#: ../qml/components/InstanceItem.qml:22
-msgid "Location: %1"
 msgstr ""
 
 #: ../qml/components/AddPost.qml:91
@@ -186,7 +188,7 @@ msgstr ""
 msgid "Prompt Action"
 msgstr ""
 
-#: ../qml/components/dialogs/ConfirmDialog.qml:25
+#: ../qml/components/dialogs/ConfirmDialog.qml:28
 msgid "Confirm Action"
 msgstr ""
 

@@ -46,7 +46,7 @@ WebEngineView {
 
 	onLoadingChanged:{
 		lastStatus = loadRequest.status
-		visible |= (lastStatus == WebEngineLoadRequest.LoadSucceededStatus && loadProgress == 100) && (  !loading )
+		visible |= (lastStatus == WebEngineLoadRequest.LoadSucceededStatus && loadProgress > 99) && (  !loading )
 		isLoaded |= !loading
 	}
 	anchors.fill: parent

@@ -22,8 +22,11 @@ import Ubuntu.Components.Popups 1.3 as Popups
 
 Popups.Dialog {
 	id: _dialog
+
+	property var model: null;
+
 	title: i18n.tr("Confirm Action")
-	text:model.message
+	text:model ? model.message : "";
 	
 	Button {
 		text: "Accept"

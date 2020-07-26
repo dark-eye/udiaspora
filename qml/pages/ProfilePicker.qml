@@ -79,6 +79,7 @@ Page {
 							var profileToDelete = helperFunctions.getWebProfile(profileItem.text);
 							profileToDelete.clearHttpCache();
 							profileToDelete.clearAllVisitedLinks();
+							profileToDelete.httpCacheMaximumSize=1;
 						} catch (e) {
 							console.log("Faild when deleting profile: "+ e);
 						}
@@ -102,7 +103,7 @@ Page {
 	Label {
 		anchors.bottom: parent.bottom
 		anchors.horizontalCenter: parent.horizontalCenter
-		text: i18n.tr("For now deleting a profile won't delete it`s disk data.")
+		text: i18n.tr("For now deleting a profile won't delete it`s disk data. You can use 'Off The Record' To prevent saving data to the disk.")
 		color:theme.palette.normal.negative
 		font.pixelSize:units.gu(1.5)
 	}
