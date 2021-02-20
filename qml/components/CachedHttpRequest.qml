@@ -115,7 +115,7 @@ Item {
 		// check if we allread have a response to a give request/query in the cache and send an update if we have it.
 	   function retriveFromCache(requestURL, id) {
 			//check DB if theres a cache response for the requested URL
-		   console.log(requestURL)
+		   //console.log(requestURL)
 			getPreviousResponses.query = [ requestURL ]
 			console.log(getPreviousResponses.results.length)
 			if(getPreviousResponses.results.length) {

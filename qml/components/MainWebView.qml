@@ -40,13 +40,13 @@ WebEngineView {
 
 	profile:  mainWebProfile
 
-	onLoadProgressChanged: {
-		//visible |= !loading
-	}
+// 	onLoadProgressChanged: {
+// 		isLoaded = !loading
+// 	}
 
 	onLoadingChanged:{
 		lastStatus = loadRequest.status
-		visible |= (lastStatus == WebEngineLoadRequest.LoadSucceededStatus && loadProgress == 100) && (  !loading )
+		visible |= (lastStatus == WebEngineLoadRequest.LoadSucceededStatus && loadProgress == 100) && ( !loading )
 		isLoaded |= !loading
 	}
 	anchors.fill: parent
