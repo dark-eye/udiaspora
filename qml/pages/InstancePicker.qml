@@ -28,48 +28,48 @@ Page {
 			"operationName" : "Platform",
 			"variables" : '{"name":"diaspora"}',
 			"query" : "query Platform($name: String!) {
-						platforms(name: $name) {
-							name
-							code
-							displayName
-							description
-							tagline
-							website
-							icon
-							__typename
-						}
-						nodes(platform: $name) {
-							id
-							name
-							version
-							openSignups
-							host
-							platform {
-							name
-							icon
-							__typename
+							platforms(name: $name) {
+								name
+								code
+								displayName
+								description
+								tagline
+								website
+								icon
+								__typename
 							}
-							countryCode
-							countryFlag
-							countryName
-							services {
-							name
-							__typename
+							nodes(platform: $name) {
+								id
+								name
+								version
+								openSignups
+								host
+								platform {
+								name
+								icon
+								__typename
+								}
+								countryCode
+								countryFlag
+								countryName
+								services {
+								name
+								__typename
+								}
+								__typename
 							}
-							__typename
-						}
-						statsNodes(platform: $name) {
-							node {
-							id
-							__typename
+							statsNodes(platform: $name) {
+								node {
+								id
+								__typename
+								}
+								usersTotal
+								usersHalfYear
+								usersMonthly
+								localPosts
+								localComments
+								__typename
 							}
-							usersTotal
-							usersHalfYear
-							usersMonthly
-							localPosts
-							localComments
-							__typename
-						}
 						}"
 		}
 
