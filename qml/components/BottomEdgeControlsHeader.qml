@@ -101,6 +101,9 @@ PageHeader {
 					onToggled:{
 						root.currentWebProfile.offTheRecord = checked;
 						webviewPage.currentView().reload()
+						if(checked) {
+							webviewPage.message.text = i18n.tr("Please note : Off The Record means no data is saved locally. The remote site can still track you as you normally logged in  when using diaspora.")
+						}
 					}
 				},
 				Action {

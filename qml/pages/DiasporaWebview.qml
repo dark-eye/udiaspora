@@ -10,7 +10,7 @@ import QtWebEngine 1.7
 import "../components"
 import "../components/dialogs"
 
-Page {
+PageWithTopMsgText {
 	id: webviewPage
 	width: parent.width
 	height: parent.height
@@ -31,15 +31,6 @@ Page {
 		PickerDialog {}
 	}
 	
-	states:[
-		State {
-			name:"changeToDesktopView"
-			when: webviewPage.width > units.gu(75)
-			on
-	}
-	]
-
-
 	Item {
 		id:webContainer
 		anchors {
