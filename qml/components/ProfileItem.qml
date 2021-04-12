@@ -7,6 +7,7 @@ ListItem {
     id: task
 
     property var text: ""
+    property var url: ""
 	property var status: 0
 	property var size: 0
 
@@ -15,18 +16,8 @@ ListItem {
     ListItemLayout {
         id: layout
         title.text: text
-        subtitle.text: country ? i18n.tr("Location: %1").arg(country) : ""
-        summary.text: host ? host : ""
-        Image {
-            id: icon
-            source: iconSource
-            width: units.gu(4)
-            height: units.gu(4)
-            SlotsLayout.position: SlotsLayout.Leading;
-            anchors.verticalCenter: parent.verticalCenter
-            visible: false
-            onStatusChanged: if (status == Image.Ready) visible = true
-        }
+        summary.text: url ? url : ""
+
         Icon {
 			name: "starred"
 			visible : status != 0

@@ -35,12 +35,20 @@ MainView {
         id: appSettings
         property var instance
         property var profileName: "udiaspora"
+		property var instances : {}
 		property var profiles : [
 			 "udiaspora"
 		]
         property bool openLinksExternally: false
         property bool incognitoMode: root.currentWebProfile.offTheRecord
         property bool hideBottomControls: false
+        
+        onInstanceChanged: 	if(profileName) { 
+			if(!appSettings.instances) {// May there is no such object so let create it :)
+				appSettings.instances = {};
+			}
+			appSettings.instances[profileName] = ""+instance;
+		}
     }
 
     QtObject {
@@ -87,6 +95,7 @@ MainView {
 		function changeWebProfile(name) {
 			root.currentWebProfile = helperFunctions.getWebProfile(name);
 			appSettings.profileName = name
+			appSettings.instance = appSettings.instances[name] ? appSettings.instances[name] : appSettings.instance;
 		}
 	}
 

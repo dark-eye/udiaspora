@@ -103,7 +103,10 @@ Page {
 	Label {
 		anchors.bottom: parent.bottom
 		anchors.horizontalCenter: parent.horizontalCenter
+		anchors.left:parent.left
+		anchors.right:parent.right
 		text: i18n.tr("For now deleting a profile won't delete it`s disk data. You can use 'Off The Record' To prevent saving data to the disk.")
+		wrapMode:Text.WordWrap
 		color:theme.palette.normal.negative
 		font.pixelSize:units.gu(1.5)
 	}
