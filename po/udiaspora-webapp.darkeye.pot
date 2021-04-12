@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-24 18:57+0000\n"
+"POT-Creation-Date: 2021-04-12 19:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,28 +57,50 @@ msgstr ""
 msgid "uDiaspora WebApp"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:132 ../qml/components/AddPost.qml:34
+#: ../qml/pages/ProfilePicker.qml:18 ../qml/pages/InstancePicker.qml:125
+msgid "Choose a Diaspora instance"
+msgstr ""
+
+#: ../qml/pages/ProfilePicker.qml:45
+msgid "Enter a name for the new profile"
+msgstr ""
+
+#: ../qml/pages/ProfilePicker.qml:76
+msgid "Delete"
+msgstr ""
+
+#: ../qml/pages/ProfilePicker.qml:99
+msgid "No profile set yet"
+msgstr ""
+
+#: ../qml/pages/ProfilePicker.qml:108
+msgid ""
+"For now deleting a profile won't delete it`s disk data. You can use 'Off The "
+"Record' To prevent saving data to the disk."
+msgstr ""
+
+#: ../qml/pages/DiasporaWebview.qml:146 ../qml/components/AddPost.qml:34
 msgid "Add Post"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:138
+#: ../qml/pages/DiasporaWebview.qml:152
 msgid "Messages"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:144
+#: ../qml/pages/DiasporaWebview.qml:158
 msgid "Notifications"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:153
+#: ../qml/pages/DiasporaWebview.qml:164
+msgid "Search"
+msgstr ""
+
+#: ../qml/pages/DiasporaWebview.qml:173
 msgid "Stream"
 msgstr ""
 
 #: ../qml/pages/LoadingPage.qml:53
 msgid "Loading "
-msgstr ""
-
-#: ../qml/pages/InstancePicker.qml:125
-msgid "Choose a Diaspora instance"
 msgstr ""
 
 #: ../qml/pages/InstancePicker.qml:133
@@ -94,11 +116,11 @@ msgstr ""
 msgid "Search or enter a custom address"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:232
+#: ../qml/pages/InstancePicker.qml:233
 msgid "No pods fund for search : %1"
 msgstr ""
 
-#: ../qml/pages/InstancePicker.qml:232
+#: ../qml/pages/InstancePicker.qml:233
 msgid "No pods returned from server"
 msgstr ""
 
@@ -130,15 +152,11 @@ msgstr ""
 msgid "Please log in"
 msgstr ""
 
-#: ../qml/components/AddPost.qml:91
-msgid "In incognito mode"
-msgstr ""
-
 #: ../qml/components/dialogs/PromptDialog.qml:25
 msgid "Prompt Action"
 msgstr ""
 
-#: ../qml/components/dialogs/ConfirmDialog.qml:25
+#: ../qml/components/dialogs/ConfirmDialog.qml:28
 msgid "Confirm Action"
 msgstr ""
 
@@ -162,15 +180,15 @@ msgstr ""
 msgid "Links open internally"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:89
+#: ../qml/components/BottomEdgeControlsHeader.qml:79
 msgid "Show Bottom Controls"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:89
+#: ../qml/components/BottomEdgeControlsHeader.qml:79
 msgid "Hide Bottom Controls"
 msgstr ""
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:98
+#: ../qml/components/BottomEdgeControlsHeader.qml:88
 msgid "Change Pod"
 msgstr ""
 
