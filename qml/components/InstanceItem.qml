@@ -7,20 +7,24 @@ ListItem {
     id: task
 
     property var text: ""
-	property var host : ""
     property var country : ""
-    property var uptime: ""
+    property var version: ""
     property var iconSource: "../../assets/diaspora-asterisk.png"
 	property var status: 0
-	property var rating: 0
+	property var activeUsers: 0
 
     height: layout.height
+
+    onClicked: {
+        appSettings.instance = text
+        mainStack.push (Qt.resolvedUrl("../pages/DiasporaWebview.qml"))
+    }
 
     ListItemLayout {
         id: layout
         title.text: text
-        subtitle.text: country ? i18n.tr("Location: %1").arg(country) : ""
-        summary.text: host ? host : ""
+        subtitle.text: i18n.tr("Location: %1").arg(country)
+        summary.text: i18n.tr("Version: v%1").arg(version)
         Image {
             id: icon
             source: iconSource
@@ -32,30 +36,36 @@ ListItem {
             onStatusChanged: if (status == Image.Ready) visible = true
         }
         Icon {
-			name: status == 0 ? "flash-off" : "flash-on"
+			name: status == 0 ? "close" : "import"
 			SlotsLayout.position: SlotsLayout.Last;
 			width: units.gu(2)
 		}
 		Row {
+			
 			width:units.gu(10)
 			SlotsLayout.position: SlotsLayout.Trailing;
-// 			SlotsLayout.padding.top:units.gu(4)
+ 			SlotsLayout.padding.top:units.gu(4)
 			
 			layoutDirection:Qt.RightToLeft
 			spacing: units.gu(0.25)
 			
-			Repeater {
-				model: parseInt(rating / 20)
-				delegate: starIcon
+			//Repeater {
+				//model: parseInt(activeUsers / 20)
+				//delegate: starIcon
+			//}
+			Label {
+				text :  i18n.tr("Active Users: %1").arg(activeUsers)
+				textSize:Label.Small
+				
 			}
 		}
     }
-    Component {
-		id:starIcon
-		Icon {
-			width:units.gu(2)
-			height:width
-			name:"starred"
-		}
-	}
+    //Component {
+		//id:starIcon
+		//Icon {
+			//width:units.gu(2)
+			//height:width
+			//name:"starred"
+		//}
+	//}
 }

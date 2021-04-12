@@ -9,7 +9,7 @@
             "desktop":  "udiaspora.desktop"
         }
     },
-    "version": "0.5.1",
+    "version": "0.6",
     "maintainer": "Eran 'DarkEye' Uzan <etherpulse@gmail.com>",
-    "framework" : "ubuntu-sdk-16.04"
+    "framework" : "ubuntu-sdk-16.04.4"
 }

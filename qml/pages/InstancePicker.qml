@@ -17,7 +17,7 @@ Page {
 	WorkerScript {
 		id:asyncProcess
 		source:'../components/jslibs/FilterPods.js'
-		onMessage:instanceList.writeInList (  messageObject.reply );
+		onMessage:instanceList.writeInList (  messageObject.reply , messageObject.userdata);
 	}
 
 	CachedHttpRequest {
@@ -27,15 +27,58 @@ Page {
 		getData: {
 			"operationName" : "Platform",
 			"variables" : '{"name":"diaspora"}',
-			"query" : "query Platform($name: String!) {  platforms(name: $name) {    name    code    displayName    description    tagline    website    icon    __typename  }  nodes(platform: $name) {    id    name    version    openSignups    host    platform {      name      icon      __typename    }    countryCode    countryFlag    countryName    services {      name      __typename    }    __typename  }  statsGlobalToday(platform: $name) {    usersTotal    usersHalfYear    usersMonthly    localPosts    localComments    __typename  }  statsNodes(platform: $name) {    node {      id      __typename    }    usersTotal    usersHalfYear    usersMonthly    localPosts    localComments    __typename  }}"
+			"query" : "query Platform($name: String!) {
+							platforms(name: $name) {
+								name
+								code
+								displayName
+								description
+								tagline
+								website
+								icon
+								__typename
+							}
+							nodes(platform: $name) {
+								id
+								name
+								version
+								openSignups
+								host
+								platform {
+								name
+								icon
+								__typename
+								}
+								countryCode
+								countryFlag
+								countryName
+								services {
+								name
+								__typename
+								}
+								__typename
+							}
+							statsNodes(platform: $name) {
+								node {
+								id
+								__typename
+								}
+								usersTotal
+								usersHalfYear
+								usersMonthly
+								localPosts
+								localComments
+								__typename
+							}
+						}"
 		}
 
 		onResponseDataUpdated : {
 			searchRunning = false;
-			var pods = response.data.nodes;
-			lastList = pods;
+			var data = response.data;
+			lastList = data;
 			updateTime = Date.now();
-			asyncProcess.sendMessage( {searchTerm : customInstanceInput.displayText , inData : pods });
+			asyncProcess.sendMessage( {searchTerm : customInstanceInput.displayText , inData : data });
 		}
 
 		onRequestError: {
@@ -57,11 +100,11 @@ Page {
 	}
 
 
-	function search ()  {
+	function search (autoComplete)  {
 
 		var searchTerm = customInstanceInput.displayText;
 		//If  the  search starts with http(s) then go to the url 
-		if(searchTerm.indexOf("http") == 0 ) {
+		if(!autoComplete  && searchTerm.indexOf("http") == 0 ) {
 			appSettings.instance = searchTerm
 			mainStack.push (Qt.resolvedUrl("./DiasporaWebview.qml"))
 			return
@@ -98,7 +141,7 @@ Page {
 				onTriggered: {
 					if ( customInstanceInput.displayText == "" ) {
 						customInstanceInput.focus = true
-					} else search ()
+					} else search (false)
 				}
 			}
 			]
@@ -129,49 +172,55 @@ Page {
 		anchors.topMargin: height
 		width: parent.width - height
 		placeholderText: i18n.tr("Search or enter a custom address")
-		onDisplayTextChanged: if(displayText.length > 2) {search();}
-		Keys.onReturnPressed: search ()
+		onDisplayTextChanged: if(displayText.length > 2) {search(true);}
+		Keys.onReturnPressed: search (false)
 	}
 
 	ListView {
 		id: instanceList
 		width: parent.width
-		anchors.bottom:parent.bottom
+		height: parent.height - header.height - 3*customInstanceInput.height
 		anchors.top: customInstanceInput.bottom
 		anchors.topMargin: customInstanceInput.height
 		clip:true
 		model: []
 		delegate: InstanceItem {
 			text:modelData.text
-			host:modelData.host
 			country:modelData.country
-			uptime: modelData.uptime
+			version: modelData.version
 			iconSource: modelData.iconSource
 			status: modelData.status
-			rating: modelData.rating
-
-			onClicked: {
-				appSettings.instance = host
-				mainStack.push (Qt.resolvedUrl("../pages/DiasporaWebview.qml"))
-			}
+			activeUsers: modelData.activeUsers
 		}
 		// Write a list of instances to the ListView
-		function writeInList ( list ) {
+		function writeInList ( list ,userdata) {
 			var newModel = []
 			loading.visible = false
-			list.sort(function(a,b) {return !a.uptimelast7 ? (!b.uptimelast7 ? 0 : 1) : (!b.uptimelast7 ? -1 : parseFloat(b.uptimelast7) - parseFloat(a.uptimelast7));});
+			
 			for ( var i = 0; i < list.length; i++ ) {
+				//Find 
+				var usersCount = null;
+				for(var statIdx in userdata.statsNodes) {
+					if(userdata.statsNodes[statIdx].node.id == list[i].id) {
+						usersCount = userdata.statsNodes[statIdx].usersMonthly;
+						break;
+					}
+				}
+				
 				newModel.push(
 				 {
-					"text": list[i].name,
-					"host" :list[i].host,
-					"country": list[i].countryName != null ? list[i].countryName : "",
-					"uptime": list[i].uptimelast7 != null ? list[i].uptimelast7 : "",
+					"text": list[i].host,
+					"country": list[i].countryFlag != null ? list[i].countryFlag : "",
+					"version": list[i].version != null ? list[i].version : "",
 					"iconSource":  list[i].thumbnail != null ? list[i].thumbnail : "../../assets/diaspora-asterisk.png",
-					"status":  list[i].status != null ? list[i].status : 0,
-					"rating":  list[i].score != null ? list[i].score : 0
+					"status":  list[i].openSignups != null ? list[i].openSignups : 0,
+					"activeUsers":  usersCount != null ? usersCount : 0
 				})
 			}
+			instanceList.model.sort(function(a,b) {
+				return a.activeUsers -  b.activeUsers +
+				(10*(!a.version ? (!b.version ? 0 : 1) : (!b.version ? -1 : parseFloat(b.version) - parseFloat(a.version))));
+			});
 			instanceList.model = newModel;
 		}
 
@@ -179,7 +228,7 @@ Page {
 
 	Label {
 		id:noResultsLabel
-		visible: !instanceList.model.length && !loading.visible
+		visible: !instanceList.children.length && !loading.visible
 		anchors.centerIn: instanceList;
 		text:customInstanceInput.length ? i18n.tr("No pods fund for search : %1").arg(customInstanceInput.displayText) :  i18n.tr("No pods returned from server");
 	}

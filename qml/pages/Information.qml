@@ -21,6 +21,7 @@ Page {
 		infoModel.append({ name: i18n.tr("Based on uMastonauts webapp"), url: "https://github.com/ChristianPauly/uMastodon" ,icon:"info"})
 		infoModel.append({ name: i18n.tr("Donate"), url: "https://liberapay.com/darkeye/", icon:"like" })
 		infoModel.append({ name: i18n.tr("Telegram"), url: "https://t.me/uDiaspora", icon:"send" })
+		infoModel.append({ name: i18n.tr("Pod List Provided by 'The Federation' API"), url: "https://the-federation.info/", icon:"save" })
 	}
 
 	Column {

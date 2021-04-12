@@ -135,7 +135,7 @@ PageWithTopMsgText {
 		z:2
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin : visible ? 0 : -height
-		visible: webviewPage.currentView().visible && ( !appSettings.hideBottomControls || !webviewPage.isOnDiaspora() );
+		visible: webviewPage.currentView().visible && ( !appSettings.hideBottomControls || !webviewPage.isOnDiaspora() ) || !loadingPage.opacity && !webviewPage.currentView().visible ;
 		trailingSlots: !webviewPage.isOnDiaspora() ? 4 : 3
 		
 		leadingActionBar {
@@ -145,16 +145,19 @@ PageWithTopMsgText {
 				Action {
 					text:i18n.tr("Add Post")
 					iconName:"edit"
+					enabled:webviewPage.isLoggedin();
 					onTriggered:instancBottomEdge.commit();
-				},			
+				},
 				Action {
 					text:i18n.tr("Messages")
 					iconName:"messages"
+					enabled:webviewPage.isLoggedin();
 					onTriggered:webviewPage.currentView().url = helperFunctions.getInstanceURL() +"/conversations";
 				},			
 				Action {
 					text:i18n.tr("Notifications")
 					iconName:"notification"
+					enabled:webviewPage.isLoggedin();
 					onTriggered:webviewPage.currentView().url = helperFunctions.getInstanceURL() +"/notifications";
 				},
 				Action {
@@ -177,7 +180,7 @@ PageWithTopMsgText {
 
 	BottomEdge {
 		id: instancBottomEdge
-		visible: webviewPage.currentView().visible  && webviewPage.isOnDiaspora()
+		visible:  webviewPage.currentView().visible && webviewPage.isOnDiaspora()
 		height:units.gu(45)
 		hint.iconName: "go-up"
 		hint.visible:visible

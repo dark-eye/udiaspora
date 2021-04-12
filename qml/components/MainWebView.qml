@@ -38,15 +38,15 @@ WebEngineView {
 
 	zoomFactor: units.gu(1) / 8
 
-	profile:  currentWebProfile
+	profile:  mainWebProfile
 
-	onLoadProgressChanged: {
-		//visible |= !loading
-	}
+// 	onLoadProgressChanged: {
+// 		isLoaded = !loading
+// 	}
 
 	onLoadingChanged:{
 		lastStatus = loadRequest.status
-		visible |= (lastStatus == WebEngineLoadRequest.LoadSucceededStatus && loadProgress > 99) && (  !loading )
+		visible |= (lastStatus == WebEngineLoadRequest.LoadSucceededStatus && loadProgress == 100) && ( !loading )
 		isLoaded |= !loading
 	}
 	anchors.fill: parent
