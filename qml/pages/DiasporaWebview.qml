@@ -10,10 +10,16 @@ import QtWebEngine 1.7
 import "../components"
 import "../components/dialogs"
 
-Page {
+PageWithTopMsgText {
 	id: webviewPage
 	width: parent.width
 	height: parent.height
+
+	property bool mobileView:true
+
+	onMobileViewChanged : {
+		webView
+	}
 
 	header:Item {
 		height: 0
@@ -25,8 +31,6 @@ Page {
 		PickerDialog {}
 	}
 	
-
-
 	Item {
 		id:webContainer
 		anchors {
@@ -82,13 +86,23 @@ Page {
 
 		hasLoadError:  ( typeof(webviewPage.currentView()) !== 'undefined' && !webviewPage.currentView().loading && webviewPage.currentView().lastStatus == WebEngineView.LoadFailedStatus )
 
-		visible: opacity != 0
+		visible: opacity > 0
 		opacity: !webviewPage.currentView().isLoaded ? 1 : 0
 		Behavior on opacity { NumberAnimation { duration:UbuntuAnimation.BriskDuration} }
 
 		onReloadButtonPressed: webviewPage.currentView().reload();
 	}
 
+	 InnerShadow {
+		id:offTheRecordHint
+		visible:root.currentWebProfile.offTheRecord
+        anchors.fill: webContainer
+        radius: units.gu(1)
+		samples:12
+        verticalOffset: -units.gu(0.5)
+        color: UbuntuColors.purple
+        source: webContainer
+    }
 
 	ProgressBar {
 			id: _bottomProgressBar
@@ -110,7 +124,7 @@ Page {
 			}
 			layer.enabled: true
 			layer.effect:DropShadow {
-				radius: 7
+				radius: units.gu(0.5)
 				transparentBorder:true
 				color:theme.palette.highlighted.selected
 			}
@@ -147,6 +161,12 @@ Page {
 					onTriggered:webviewPage.currentView().url = helperFunctions.getInstanceURL() +"/notifications";
 				},
 				Action {
+					text:i18n.tr("Search")
+					iconName:"search"
+					onTriggered:webviewPage.currentView().url = helperFunctions.getInstanceURL() +"/people";
+
+				},
+				Action {
 					enabled:false
 				},
 				Action {
@@ -179,7 +199,7 @@ Page {
 	
 	//========================== Functions =======================
 	function currentView() {
-		return  appSettings.incognitoMode ? webViewIncogito : webView;
+		return  webView;
 	}
 	
 	function  isOnDiaspora() {

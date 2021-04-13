@@ -64,10 +64,10 @@ Page {
 			right: parent.right
 			topMargin: units.gu(2)
 		}
-
+		clip:true
 		currentIndex: -1
 		interactive: true
-		 flickableDirection: Flickable.VerticalFlick
+		flickableDirection: Flickable.VerticalFlick
 
 		model :infoModel
 		delegate: ListItem {

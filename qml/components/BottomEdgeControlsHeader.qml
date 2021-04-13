@@ -75,16 +75,6 @@ PageHeader {
 						appSettings.openLinksExternally = checked;
 					}
 				},
-				/*Action {
-					text: checked ? i18n.tr("Incognito Mode") : i18n.tr("None Incognito")
-					iconName:checked ? "private-browsing" : "private-browsing-exit"
-					checkable:true
-					checked: appSettings.incognitoMode
-					onToggled:{
-						appSettings.incognitoMode = checked;
-						webviewPage.currentView().reload();
-					}
-				},*/
 				Action {
 					text: checked ? i18n.tr("Show Bottom Controls") : i18n.tr("Hide Bottom Controls")
 					iconName:checked ? "select" : "select-undefined"
@@ -102,7 +92,28 @@ PageHeader {
 						mainStack.clear ()
 						mainStack.push (Qt.resolvedUrl("../pages/InstancePicker.qml"))
 					}	
+				},
+				Action {
+					text:  checked ? i18n.tr("Go on Record") : i18n.tr("Go off record")
+					iconName: checked ? "private-browsing-exit" : "private-browsing"
+					checkable:true
+					checked: root.currentWebProfile.offTheRecord;
+					onToggled:{
+						root.currentWebProfile.offTheRecord = checked;
+						webviewPage.currentView().reload()
+						if(checked) {
+							webviewPage.message.text = i18n.tr("Please note : Off The Record means no data is saved locally. The remote site can still track you as you normally logged in  when using diaspora.")
+						}
+					}
+				},
+				Action {
+					text:i18n.tr("Change Profile")
+					iconName:"stock_contact"
+					onTriggered: {
+						mainStack.push (Qt.resolvedUrl("../pages/ProfilePicker.qml"),{model :appSettings.profiles})
+					}
 				}
+
 			]
 		}
 	}

@@ -144,6 +144,9 @@ WebEngineView {
 
 	}
 
+	onFullScreenRequested: function(request) {
+		request.accept()
+	}
 
 	function goHome() {
 		webView.url = helperFunctions.getInstanceURL();

@@ -51,42 +51,6 @@
          offset="1"
          style="stop-color:#ffffff;stop-opacity:0.02857143" />
     </svg:linearGradient>
-    <svg:linearGradient
-       inkscape:collect="always"
-       id="linearGradient1032">
-      <svg:stop
-         style="stop-color:#000000;stop-opacity:0.6761905"
-         offset="0"
-         id="stop1028" />
-      <svg:stop
-         style="stop-color:#ffffff;stop-opacity:0"
-         offset="1"
-         id="stop1030" />
-    </svg:linearGradient>
-    <svg:linearGradient
-       id="linearGradient1018"
-       inkscape:collect="always">
-      <svg:stop
-         id="stop1014"
-         offset="0"
-         style="stop-color:#000000;stop-opacity:0.6761905" />
-      <svg:stop
-         id="stop1016"
-         offset="1"
-         style="stop-color:#ffffff;stop-opacity:0" />
-    </svg:linearGradient>
-    <svg:linearGradient
-       inkscape:collect="always"
-       id="linearGradient4712">
-      <svg:stop
-         style="stop-color:#fdffff;stop-opacity:1;"
-         offset="0"
-         id="stop4708" />
-      <svg:stop
-         style="stop-color:#404040;stop-opacity:1"
-         offset="1"
-         id="stop4710" />
-    </svg:linearGradient>
     <inkscape:path-effect
        effect="spiro"
        id="path-effect6401"
@@ -732,38 +696,6 @@
        is_visible="true" />
     <svg:linearGradient
        inkscape:collect="always"
-       xlink:href="#linearGradient4712"
-       id="linearGradient4716"
-       gradientUnits="userSpaceOnUse"
-       x1="545.9068"
-       y1="552.27637"
-       x2="599.98645"
-       y2="614.00684"
-       gradientTransform="matrix(0.96332478,0,0,0.89828425,6.0990861,1.9035595)" />
-    <svg:radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient1032"
-       id="radialGradient1012"
-       cx="577.59766"
-       cy="602.11475"
-       fx="577.59766"
-       fy="602.11475"
-       r="58.968513"
-       gradientTransform="matrix(0.42761416,0.49945585,-1.283225,1.1246743,1094.0939,-424.94395)"
-       gradientUnits="userSpaceOnUse" />
-    <svg:radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient1018"
-       id="radialGradient1026"
-       cx="577.81866"
-       cy="602.1095"
-       fx="577.8186"
-       fy="602.10944"
-       r="58.968513"
-       gradientTransform="matrix(0.42761438,0.499456,-1.3762669,1.0245661,1150.0138,-364.77238)"
-       gradientUnits="userSpaceOnUse" />
-    <svg:linearGradient
-       inkscape:collect="always"
        xlink:href="#linearGradient1047"
        id="linearGradient1035"
        x1="319.51379"
@@ -870,23 +802,8 @@
        xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAAChVBMVEUAAAAAAACAgICqqqqAgICZ mZmAgICSkpKAgICOjo6AgICLi4uAgICJiYmAgICIiIiAgICHh4eAgICGhoaAgICGhoaAgICAgICF hYWAgICAgICEhISAgICEhISAgICDg4OAgICDg4OAgICDg4OAgICDg4OAgICDg4OAgICCgoKAgICC goKAgICCgoKAgICCgoKAgICAgICCgoKAgICCgoKAgICCgoKAgICCgoKAgICAgICBgYGAgICBgYGA gICBgYGAgICBgYGAgICBgYGAgICBgYGAgICBgYGBgYGAgICBgYGAgICBgYGAgICBgYGAgICBgYGA gICBgYGAgICBgYGAgICBgYGAgICAgICBgYGAgICBgYGAgICBgYGBgYGAgICBgYGAgICBgYGAgICB gYGBgYGAgICBgYGAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBgYF/f3+A gIDJ91EeAAAA1XRSTlMAAQIDBAUGBwgJCgsMDQ4PEBESExQVFhgZGhwdHh8gISIjJCUmJygpKiss LS4vMDEyNDU2OTo7PD9AQkNERUZHSElKTU5PUFFTVFVWWVpbXl9gYWJjZGVmaGtub3Bxc3R1dnd4 eX1+f4CBgoOEhYiJiouMjo+QkZKTlJWXmJmcnZ6goaKjpaanqKmqq6ytrq+xsrO0tba3uLm6u7y9 vr/AwcPFxsrLzM3P0NLT1NfY2drb3N3e3+Dh4uPk5ebn6Orr7O3u7/Dx8vP09fb3+Pn6+/z9/v5e mgboAAAEc0lEQVR4AbXY+V9VZQLH8e9FBi4zLOiMjjMOMi4iLqMwqVmEormkllSaWGalaFmapiVp ZWWaGWga5hKWu0aKKaS4RGIuskAC99Tn7+ncS8gFLnIeX+e8/4Hzw3m9Ps/zfeSt1IXyUnJB3WB5 p9eiG6yTdyaWQlWCvJJajO05eSRhdQO2E1HyhC/3J4Ks8fLEuBO02iYv/HOLRau6f8t9/hV1tHlV 7ptdzj0X4+S2Ud8QZo5c1ndTM2EOy13RdhfCtYyRq3LO0tEHctN/i+nkVl+5J7HgLp29KNdE5VXR xZlouWXCSSJ4TC75T6FFBMWudaGeSH4dJFfkXiayt/QgokbM23jw6k3b1YMbnk2PGv0tET3gOfn/ d6vpoPE3ujNPpqJmHMe50l4ylHkCExNlJnZ9gJCa4sWThyZLycMmLy6upTufysywUoICO6b5FcY/ fWeASBpSZGT8DYK2p6mL4YVE8LqMTKrHVp6liLIr6OyCXyYyarF9FK9uJGymk1lmpakCrJd0H0ss wh31yYD/DGAt0H0tsGjXPEImVjv6afm0+1AmMpuBrT71ZAttfukjA75S4EK8epRQju134AWZmA60 jJMDEyxCzsXIxGFgqxwpJCRLJjKBQLocSbew7ZaRdcAuOfQlEEiTkfPANDk0E7gjI8OBujg5FHsb GCITecBOOVYMzJeJ9UC+HHsZeE8mSoApciwH+FomLgCpcmwIUC4T1UCSHEsErsvEbSBajvWyoFEm GqHF5+UHbgK95VgSUC0Tp4E0L3/yXmCSHJsKHJCJ94Hlciwf2CgTc4F9cuwA8IxMpAB34uRQXC0w WEYqgafk0BPAJRkZUA8cMYnpGhnZRtAoOTLCAkbLQNtFYY8cKQIOyUTUKVpNkgNZ2KbKxHwgcB64 mOjw4nXMJwOJ14DNo5qAT9SjrUBLhkysBWr6axW2perBMmzvyMTQu0C+5D8NWHm6r4UW8H2sTOwB KmLbBgivqXu+N7HdTJOJHGwzwibU9mR1I+lzbPXjZeIvZ4EStcquxVaZrYimXMFWmy0jiztMoYwq gnanq4uxRQRVZchI31vABt2TUkaQVTIzRmHiZ+21CCpLkZlNnaeQf1UTIdd3LctKS5Kvd8q05V81 EtK0yi8zY1qA59XByAq6cXSkDPmOAyejFC69hIiswrEyNqfLFPrrGw0ENVykg7I1GTIXVwl8oXa+ J68QUjRQ/5rz9q5T1+wntcv71z6dqgeyEqgfoHse/o6QY5lyRWpjh2mfUkzIpdk+uaMIqIxTq7gV 9QQ1rvibXPII7TcJX+4VQgoHyS3RZcARn4L+d4iQ04/KPQuBwFjZ+m0JEFSdFy33/P3Gn+8xMUtv EdRc0FtuWg/c7idN/YGQfWly1chm4BUNLyHkx8flsoPAuX8UNBFUsyhGLsvB9tklQnYMlNtiK7AZ dMHUEtr8nOuT+/rXgEEXzH1Mq8LB8sRDAfMuGJ+TXDfogqG5oS70kVfir8L+NHlnpVEXzKVWG3XB 3OxUeeoP2A+DvI97O/YAAAAASUVORK5CYII= "
        preserveAspectRatio="none"
        height="86.235291"
-       width="92.479149" />
-    <svg:path
-       style="display:none;opacity:1;fill:url(#radialGradient1026);fill-opacity:1;fill-rule:nonzero;stroke:url(#radialGradient1012);stroke-width:1.36565;stroke-linecap:round;stroke-opacity:1;paint-order:stroke fill markers"
-       id="path996"
-       sodipodi:type="arc"
-       sodipodi:cx="574.48962"
-       sodipodi:cy="544.83002"
-       sodipodi:rx="125.53041"
-       sodipodi:ry="117.02604"
-       sodipodi:start="5.4971591"
-       sodipodi:end="2.4451816"
-       d="m 663.19726,462.02816 a 125.53041,117.02604 0 0 1 31.5436,116.38266 125.53041,117.02604 0 0 1 -94.98208,81.04969 125.53041,117.02604 0 0 1 -121.56973,-39.56197 l 96.30057,-75.06852 z"
-       sodipodi:arc-type="slice" />
-    <svg:path
-       id="path4706"
-       style="display:none;fill:url(#linearGradient4716);fill-opacity:1;stroke:none;stroke-width:0.930236px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1;paint-order:stroke fill markers"
-       d="m 679.51377,447.6859 c 0,0 -94.08539,69.55496 -147.52977,50.31972 11.08317,54.0741 -71.00566,134.76895 -71.00566,134.76895 0,0 2.8883,9.2301 115.49356,-88.47048 112.49983,-97.60906 103.04187,-96.61819 103.04187,-96.61819 z"
-       inkscape:connector-curvature="0" />
+       width="92.479149"
+       style="display:none"
+       inkscape:label="compass" />
   </svg:g>
 </svg:svg>

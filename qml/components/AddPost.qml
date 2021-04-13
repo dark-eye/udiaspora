@@ -88,15 +88,15 @@ Page {
 		Label {
 			id:notLoggedInLbl
 			anchors.centerIn:parent
-			text: !webviewPage.isLoggedin() ? i18n.tr("Please log in") : i18n.tr('In incognito mode')
-			visible: !webviewPage.isLoggedin() || appSettings.incognitoMode;
+			text: i18n.tr("Please log in")
+			visible: !webviewPage.isLoggedin();
 
 		}
 		ActivityIndicator {
 			id: addPostLoadingIndicator
 			width: units.gu(4)
 			anchors.centerIn:parent
-			running: webviewPage.isLoggedin() && (addPostWebViewLoader.item.loading)
+			running: !webviewPage.isLoggedin() && (addPostWebViewLoader.item.loading)
 			visible: running
 		}
 	}

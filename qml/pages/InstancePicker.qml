@@ -182,6 +182,7 @@ Page {
 		height: parent.height - header.height - 3*customInstanceInput.height
 		anchors.top: customInstanceInput.bottom
 		anchors.topMargin: customInstanceInput.height
+		clip:true
 		model: []
 		delegate: InstanceItem {
 			text:modelData.text
