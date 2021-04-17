@@ -93,16 +93,17 @@ PageWithTopMsgText {
 		onReloadButtonPressed: webviewPage.currentView().reload();
 	}
 
-	 InnerShadow {
-		id:offTheRecordHint
-		visible:root.currentWebProfile.offTheRecord
-        anchors.fill: webContainer
-        radius: units.gu(1)
-		samples:12
-        verticalOffset: -units.gu(0.5)
-        color: UbuntuColors.purple
-        source: webContainer
-    }
+	// Made scrolling on pine phone  slow need to check if theres GL rendering before  enabling this...
+	 //InnerShadow {
+		//id:offTheRecordHint
+		//visible:root.currentWebProfile.offTheRecord
+        //anchors.fill: webContainer
+        //radius: units.gu(1)
+		//samples:12
+        //verticalOffset: -units.gu(0.5)
+        //color: UbuntuColors.purple
+        //source: webContainer
+    //}
 
 	ProgressBar {
 			id: _bottomProgressBar
