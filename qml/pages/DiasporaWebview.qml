@@ -46,6 +46,9 @@ PageWithTopMsgText {
 			confirmDialog: ConfirmDialog {}
 			alertDialog: AlertDialog {}
 			promptDialog:PromptDialog {}
+			
+			profile:root.currentWebProfile
+			
 			onLoadProgressChanged: {
 				loadingPage.progressBar.value = loadProgress
 			}
@@ -136,25 +139,15 @@ PageWithTopMsgText {
 		z:2
 		anchors.bottom: parent.bottom
 		anchors.bottomMargin : visible ? 0 : -height
-		visible: webviewPage.currentView().visible && ( !appSettings.hideBottomControls || !webviewPage.isOnDiaspora() ) || !loadingPage.opacity && !webviewPage.currentView().visible ;
-		trailingSlots: !webviewPage.isOnDiaspora() ? 4 : 3
 		
-		leadingActionBar {
-			numberOfSlots:6
-			visible:webviewPage.isOnDiaspora()
-			actions: [
-				Action {
-					text:i18n.tr("Add Post")
-					iconName:"edit"
-					enabled:webviewPage.isLoggedin();
-					onTriggered:instancBottomEdge.commit();
-				},
+		property bool searchingState:false
+		property  list<Action> regularActions:  [
 				Action {
 					text:i18n.tr("Messages")
 					iconName:"messages"
 					enabled:webviewPage.isLoggedin();
 					onTriggered:webviewPage.currentView().url = helperFunctions.getInstanceURL() +"/conversations";
-				},			
+				},
 				Action {
 					text:i18n.tr("Notifications")
 					iconName:"notification"
@@ -164,7 +157,9 @@ PageWithTopMsgText {
 				Action {
 					text:i18n.tr("Search")
 					iconName:"search"
-					onTriggered:webviewPage.currentView().url = helperFunctions.getInstanceURL() +"/people";
+					onTriggered:{
+						bottomControls.searchingState = true;
+					}
 
 				},
 				Action {
@@ -176,6 +171,95 @@ PageWithTopMsgText {
 					onTriggered:webviewPage.currentView().goHome();
 				}
 			]
+
+		property  list<Action> searchActions: [
+				Action {
+					text:i18n.tr("Search")
+					iconName:"search"
+					onTriggered: {
+						webviewPage.currentView().url = helperFunctions.getInstanceURL() +"/people?q="+ bottomControls.contents.text;
+						bottomControls.searchingState = false;
+					}
+				},
+				Action {
+					enabled:false
+				},
+				Action {
+					text:i18n.tr("Cacnel")
+					iconName:"stop"
+					onTriggered: {
+						bottomControls.searchingState = false;
+					}
+				}
+		]
+		
+		visible: webviewPage.currentView().visible && ( !appSettings.hideBottomControls || !webviewPage.isOnDiaspora() ) || !loadingPage.opacity && !webviewPage.currentView().visible ;
+		trailingSlots: !webviewPage.isOnDiaspora() ? 4 : 3
+		
+		states:  [
+			State {
+				when: bottomControls.searchingState
+				PropertyChanges { 
+					target: bottomControls.leadingActionBar
+					actions: bottomControls.searchActions
+				}
+				PropertyChanges { 
+					target: bottomControls.trailingActionBar
+					visible: false
+				}
+				PropertyChanges { 
+					target: bottomControls.contents
+					visible: true
+				}
+				PropertyChanges { 
+					target: bottomControls.contents
+					focus:true
+				}
+				PropertyChanges { 
+					target: instancBottomEdge.hint
+					status:BottomEdgeHint.Hidden
+				}
+			},
+			State {
+				when: !bottomControls.searchingState
+				PropertyChanges { 
+					target: bottomControls.leadingActionBar
+					actions: bottomControls.regularActions
+				}
+				PropertyChanges { 
+					target: bottomControls.trailingActionBar
+					visible: true
+				}
+				PropertyChanges { 
+					target: bottomControls.contents
+					visible: false
+				}
+				PropertyChanges { 
+					target: instancBottomEdge.hint
+					status:BottomEdgeHint.Inactive
+				}
+			}
+		]
+		
+		contents: TextField {
+			id:headTextInput
+			anchors.margins:units.gu(1)
+			anchors.fill: parent
+			visible:true
+			enabled:visible
+			focus:visible
+			placeholderText: i18n.tr("Enter query")
+			onAccepted: {
+				webviewPage.currentView().url = helperFunctions.getInstanceURL() +"/people?q="+text;
+				bottomControls.searchingState = false;
+			}
+		}
+		
+		leadingActionBar {
+			id:bottomActionBar
+			numberOfSlots:6
+			visible:webviewPage.isOnDiaspora()
+			actions: regularActions
 		}
 	}
 
