@@ -33,7 +33,7 @@ MainView {
 
     Settings {
         id: appSettings
-        property var instance
+        property var instance:null
         property var profileName: "udiaspora"
 		property var instances : {}
 		property var profiles : [
@@ -95,7 +95,9 @@ MainView {
 		function changeWebProfile(name) {
 			root.currentWebProfile = helperFunctions.getWebProfile(name);
 			appSettings.profileName = name
-			appSettings.instance = appSettings.instances[name] ? appSettings.instances[name] : appSettings.instance;
+ 			appSettings.instance = appSettings.instances && appSettings.instances[name] ? 
+										appSettings.instances[name] :
+										appSettings.instance;
 		}
 	}
 
