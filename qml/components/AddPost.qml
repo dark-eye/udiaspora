@@ -58,6 +58,8 @@ Page {
 			onLoadProgressChanged: {
 				visible = ( visible || loadProgress == 100 )
 			}
+			
+			profile:root.currentWebProfile
 
 // 			preferences.localStorageEnabled: true
 // 			preferences.appCacheEnabled: true
