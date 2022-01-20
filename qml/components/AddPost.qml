@@ -41,12 +41,6 @@ Page {
 		anchors.fill:parent
 		active:webviewPage.isLoggedin()
 		sourceComponent: active ? addPostComponent : undefined;
-// 		onZChanged: {
-// 			addPostWebViewLoader.sourceComponent= undefined;
-// 			if(active) {
-// 				addPostWebViewLoader.sourceComponent = addPostComponent;
-// 			}
-// 		}
 	}
 	
 	Component {
@@ -61,14 +55,7 @@ Page {
 			
 			profile:root.currentWebProfile
 
-// 			preferences.localStorageEnabled: true
-// 			preferences.appCacheEnabled: true
-// 			preferences.javascriptCanAccessClipboard: true
-// 			preferences.allowFileAccessFromFileUrls: true
-// 			preferences.allowUniversalAccessFromFileUrls: true
-
 			url: helperFunctions.getInstanceURL() + "/status_messages/new"
-//
 			filePicker: pickerComponent
 			confirmDialog: ConfirmDialog {}
 			alertDialog: AlertDialog {}
@@ -105,8 +92,13 @@ Page {
 	
 	function resetURL() {
 		var newPostURL =  helperFunctions.getInstanceURL() + "/status_messages/new";
+		var streamURL =  helperFunctions.getInstanceURL() + "/stream";
 		if(addPostWebViewLoader.item.url != newPostURL) {
-			addPostWebViewLoader.item.url = newPostURL;
+			if(addPostWebViewLoader.item.url == streamURL && Math.random() > 0.5 ) {
+				addPostWebViewLoader.item.url = helperFunctions.getInstanceURL() + "/mobile/toggle" ;
+			} else {
+				addPostWebViewLoader.item.url = newPostURL;
+			}
 		}
 	}
 
