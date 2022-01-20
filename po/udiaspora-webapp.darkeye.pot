@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-04-12 19:57+0000\n"
+"POT-Creation-Date: 2022-01-20 18:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,24 +79,28 @@ msgid ""
 "Record' To prevent saving data to the disk."
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:146 ../qml/components/AddPost.qml:34
-msgid "Add Post"
-msgstr ""
-
-#: ../qml/pages/DiasporaWebview.qml:152
+#: ../qml/pages/DiasporaWebview.qml:146
 msgid "Messages"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:158
+#: ../qml/pages/DiasporaWebview.qml:152
 msgid "Notifications"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:164
+#: ../qml/pages/DiasporaWebview.qml:158 ../qml/pages/DiasporaWebview.qml:177
 msgid "Search"
 msgstr ""
 
-#: ../qml/pages/DiasporaWebview.qml:173
+#: ../qml/pages/DiasporaWebview.qml:169
 msgid "Stream"
+msgstr ""
+
+#: ../qml/pages/DiasporaWebview.qml:188
+msgid "Cacnel"
+msgstr ""
+
+#: ../qml/pages/DiasporaWebview.qml:251
+msgid "Enter query"
 msgstr ""
 
 #: ../qml/pages/LoadingPage.qml:53
@@ -148,7 +152,11 @@ msgstr ""
 msgid "Open in browser"
 msgstr ""
 
-#: ../qml/components/AddPost.qml:91
+#: ../qml/components/AddPost.qml:34
+msgid "Add Post"
+msgstr ""
+
+#: ../qml/components/AddPost.qml:80
 msgid "Please log in"
 msgstr ""
 
