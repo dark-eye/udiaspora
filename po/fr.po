@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: udiaspora-webapp.darkeye\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-24 18:57+0000\n"
-"PO-Revision-Date: 2021-03-05 16:37+0100\n"
+"POT-Creation-Date: 2022-01-20 18:32+0000\n"
+"PO-Revision-Date: 2022-01-21 18:58+0100\n"
 "Last-Translator: Anne017 <anneonyme017@openmailbox.org>\n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -54,31 +54,60 @@ msgstr "Liste des pods fournie par l'API « The Federation »"
 
 #: ../qml/pages/Information.qml:54
 msgid "uDiaspora WebApp"
-msgstr "Application Web uMastonauts"
+msgstr "Application Web uDiaspora"
 
-#: ../qml/pages/DiasporaWebview.qml:132 ../qml/components/AddPost.qml:34
-msgid "Add Post"
-msgstr "Ajouter un message"
+#: ../qml/pages/ProfilePicker.qml:18 ../qml/pages/InstancePicker.qml:125
+msgid "Choose a Diaspora instance"
+msgstr "Choisissez un instance de Diaspora"
 
-#: ../qml/pages/DiasporaWebview.qml:138
+#: ../qml/pages/ProfilePicker.qml:45
+msgid "Enter a name for the new profile"
+msgstr "Saisissez un nom pour le nouveau profil"
+
+#: ../qml/pages/ProfilePicker.qml:76
+msgid "Delete"
+msgstr "Supprimer"
+
+#: ../qml/pages/ProfilePicker.qml:99
+msgid "No profile set yet"
+msgstr "Aucun profil encore défini"
+
+#: ../qml/pages/ProfilePicker.qml:108
+msgid ""
+"For now deleting a profile won't delete it`s disk data. You can use 'Off The "
+"Record' To prevent saving data to the disk."
+msgstr ""
+"Pour l'instant, la suppression d'un profil ne supprime pas ses données sur "
+"le disque. Vous pouvez utiliser « Off The Record » pour empêcher "
+"l'enregistrement de données sur le disque."
+
+#: ../qml/pages/DiasporaWebview.qml:146
 msgid "Messages"
 msgstr "Messages"
 
-#: ../qml/pages/DiasporaWebview.qml:144
+#: ../qml/pages/DiasporaWebview.qml:152
 msgid "Notifications"
 msgstr "Notifications"
 
-#: ../qml/pages/DiasporaWebview.qml:153
+#: ../qml/pages/DiasporaWebview.qml:158 ../qml/pages/DiasporaWebview.qml:177
+msgid "Search"
+msgstr "Rechercher"
+
+#: ../qml/pages/DiasporaWebview.qml:169
 msgid "Stream"
 msgstr "Flux"
+
+#: ../qml/pages/DiasporaWebview.qml:188
+msgid "Cacnel"
+msgstr "Annuler"
+
+#: ../qml/pages/DiasporaWebview.qml:251
+msgid "Enter query"
+msgstr "Saisir une requête"
 
 #: ../qml/pages/LoadingPage.qml:53
 msgid "Loading "
 msgstr "Chargement "
-
-#: ../qml/pages/InstancePicker.qml:125
-msgid "Choose a Diaspora instance"
-msgstr "Choisissez un instance de Diaspora"
 
 #: ../qml/pages/InstancePicker.qml:133
 #: ../qml/components/BottomEdgeControlsHeader.qml:63
@@ -93,11 +122,11 @@ msgstr "Erreur lors du chargement des nœuds des instances"
 msgid "Search or enter a custom address"
 msgstr "Cherchez une adresse ou saisissez-en une personnalisée"
 
-#: ../qml/pages/InstancePicker.qml:232
+#: ../qml/pages/InstancePicker.qml:233
 msgid "No pods fund for search : %1"
 msgstr "Aucun pod trouvé pour la recherche : %1"
 
-#: ../qml/pages/InstancePicker.qml:232
+#: ../qml/pages/InstancePicker.qml:233
 msgid "No pods returned from server"
 msgstr "Aucun pod renvoyé du serveur"
 
@@ -125,19 +154,19 @@ msgstr "Copier l'image"
 msgid "Open in browser"
 msgstr "Ouvrir dans le navigateur"
 
-#: ../qml/components/AddPost.qml:91
+#: ../qml/components/AddPost.qml:34
+msgid "Add Post"
+msgstr "Ajouter un message"
+
+#: ../qml/components/AddPost.qml:80
 msgid "Please log in"
 msgstr "Veuillez vous identifier"
-
-#: ../qml/components/AddPost.qml:91
-msgid "In incognito mode"
-msgstr "En mode incognito"
 
 #: ../qml/components/dialogs/PromptDialog.qml:25
 msgid "Prompt Action"
 msgstr "Action rapide"
 
-#: ../qml/components/dialogs/ConfirmDialog.qml:25
+#: ../qml/components/dialogs/ConfirmDialog.qml:28
 msgid "Confirm Action"
 msgstr "Confirmer l'action"
 
@@ -161,21 +190,45 @@ msgstr "Liens ouverts en externe"
 msgid "Links open internally"
 msgstr "Liens ouverts en interne"
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:89
+#: ../qml/components/BottomEdgeControlsHeader.qml:79
 msgid "Show Bottom Controls"
 msgstr "Afficher les contrôles en bas de l'écran"
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:89
+#: ../qml/components/BottomEdgeControlsHeader.qml:79
 msgid "Hide Bottom Controls"
 msgstr "Masquer les contrôles en bas de l'écran"
 
-#: ../qml/components/BottomEdgeControlsHeader.qml:98
+#: ../qml/components/BottomEdgeControlsHeader.qml:88
 msgid "Change Pod"
 msgstr "Changer de pod"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:97
+msgid "Go on Record"
+msgstr "Activer l'enregistrement"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:97
+msgid "Go off record"
+msgstr "Désactiver l'enregistrement"
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:105
+msgid ""
+"Please note : Off The Record means no data is saved locally. The remote site "
+"can still track you as you normally logged in  when using diaspora."
+msgstr ""
+"Note : « Off The Record » signifie qu'aucune donnée n'est enregistrée "
+"localement. Le site distant peut toujours vous suivre lorsque vous vous "
+"connectez normalement quand vous utilisez Diaspora."
+
+#: ../qml/components/BottomEdgeControlsHeader.qml:110
+msgid "Change Profile"
+msgstr "Changer de profil"
 
 #: udiaspora.desktop.in.h:1
 msgid "uDiaspora"
 msgstr "uDiaspora"
+
+#~ msgid "In incognito mode"
+#~ msgstr "En mode incognito"
 
 #~ msgid "Uptime: %1%"
 #~ msgstr "Disponibilité : %1%"
